@@ -127,9 +127,9 @@
   <div class="contact">
     <div class="info card">
       <h3 data-i18n="contact.info.title">聯絡資訊</h3>
-      <p data-i18n-html="contact.info.email"><b>電子郵件</b>　hello@jio-studio.example</p>
+      <p data-i18n-html="contact.info.email"><b>電子郵件</b>　abulaboyrudy@gmail.com</p>
       <p data-i18n-html="contact.info.phone"><b>電話</b>　（02）0000-0000</p>
-      <p data-i18n-html="contact.info.addr"><b>地址</b>　台灣・某市某路 00 號 0 樓</p>
+      <p data-i18n-html="contact.info.addr"><b>地址</b>　印度・馬哈拉施特拉邦浦那，Hinjewadi 第一期，Rajiv Gandhi Infotech Park 0 樓（示範地址）</p>
       <p data-i18n-html="contact.info.hours"><b>服務時間</b>　週一至週五 09:30–18:00</p>
       <p data-i18n-html="contact.info.reply"><b>回覆時間</b>　一個工作天內</p>
       <p class="note" data-i18n="contact.info.note">※ 聯絡資料為示範占位，上線前請換成真實資訊。</p>
@@ -236,9 +236,9 @@ const I18N={
     'contact.title':'聯絡我們',
     'contact.lead':'有想法就來聊聊，不用先想清楚規格，我們幫你一起整理。',
     'contact.info.title':'聯絡資訊',
-    'contact.info.email':'<b>電子郵件</b>　hello@jio-studio.example',
+    'contact.info.email':'<b>電子郵件</b>　abulaboyrudy@gmail.com',
     'contact.info.phone':'<b>電話</b>　（02）0000-0000',
-    'contact.info.addr':'<b>地址</b>　台灣・某市某路 00 號 0 樓',
+    'contact.info.addr':'<b>地址</b>　印度・馬哈拉施特拉邦浦那，Hinjewadi 第一期，Rajiv Gandhi Infotech Park 0 樓（示範地址）',
     'contact.info.hours':'<b>服務時間</b>　週一至週五 09:30–18:00',
     'contact.info.reply':'<b>回覆時間</b>　一個工作天內',
     'contact.info.note':'※ 聯絡資料為示範占位，上線前請換成真實資訊。',
@@ -358,9 +358,9 @@ const I18N={
     'contact.title':'Contact Us',
     'contact.lead':'Have an idea in mind? Let\'s talk—you don\'t need a finished specification; we\'ll help you structure it step by step.',
     'contact.info.title':'Contact Information',
-    'contact.info.email':'<b>Email</b> — hello@jio-studio.example',
+    'contact.info.email':'<b>Email</b> — abulaboyrudy@gmail.com',
     'contact.info.phone':'<b>Phone</b> — (02) 0000-0000',
-    'contact.info.addr':'<b>Address</b> — 0F., No. 00, Example Rd., Taiwan',
+    'contact.info.addr':'<b>Address</b> — Rajiv Gandhi Infotech Park, Hinjewadi Phase 1, Pune, Maharashtra 411057, India (sample address)',
     'contact.info.hours':'<b>Business Hours</b> — Mon–Fri 09:30–18:00',
     'contact.info.reply':'<b>Response Time</b> — Within 1 business day',
     'contact.info.note':'※ Contact details above are sample placeholders; please replace with actual information before launch.',
@@ -480,9 +480,9 @@ const I18N={
     'contact.title':'संपर्क करें',
     'contact.lead':'कोई विचार मन में है? आइए बात करें—पहले से पूरी तकनीकी रूपरेखा तैयार होना ज़रूरी नहीं है, हम मिलकर उसे व्यवस्थित करेंगे।',
     'contact.info.title':'संपर्क विवरण',
-    'contact.info.email':'<b>ईमेल</b> — hello@jio-studio.example',
+    'contact.info.email':'<b>ईमेल</b> — abulaboyrudy@gmail.com',
     'contact.info.phone':'<b>फ़ोन</b> — (02) 0000-0000',
-    'contact.info.addr':'<b>पता</b> — ताइवान · आदर्श नगर, मार्ग 00, मंज़िल 0',
+    'contact.info.addr':'<b>पता</b> — राजीव गांधी इन्फोटेक पार्क, हिंजेवाड़ी फेज़ 1, पुणे, महाराष्ट्र 411057, भारत (नमूना पता)',
     'contact.info.hours':'<b>कार्य समय</b> — सोमवार से शुक्रवार 09:30–18:00',
     'contact.info.reply':'<b>उत्तर समय</b> — एक कार्यदिवस के भीतर',
     'contact.info.note':'※ उपरोक्त संपर्क जानकारी केवल उदाहरण के लिए है; लाइव करने से पहले वास्तविक विवरण दर्ज करें।',
@@ -722,7 +722,7 @@ document.addEventListener('click',e=>{
 document.getElementById('form').addEventListener('submit',e=>{
   e.preventDefault();const f=e.target;
   const m=I18N[lang].mailto;
-  location.href=`mailto:hello@jio-studio.example?subject=${encodeURIComponent(m.subjPrefix+f.t.value)}&body=${encodeURIComponent(m.nameLabel+f.n.value+'\n'+m.emailLabel+f.e.value+'\n\n'+f.m.value)}`;
+  location.href=`mailto:abulaboyrudy@gmail.com?subject=${encodeURIComponent(m.subjPrefix+f.t.value)}&body=${encodeURIComponent(m.nameLabel+f.n.value+'\n'+m.emailLabel+f.e.value+'\n\n'+f.m.value)}`;
 });
 setLang(getStoredLang());
 route();
@@ -7808,7 +7808,7 @@ route();
 })();
 </script>
 
-<style id="jio-m13-style">:root{--brown:#3b1d0b;--brown2:#5a2f12;--cream:#fbf1dc;--paper:#fff8e8;--gold:#d9a02b;--saffron:#e8782a;--teal:#1f7a7a;--plum:#6b2d6b;--leaf:#3f8a4a}#jio-m13-root{box-sizing:border-box;width:100%;max-width:100%;margin-top:2.5rem;padding:0;color:var(--brown,#3b1d0b);font-family:inherit;overflow-x:hidden}#jio-m13-root *,#jio-m13-root *::before,#jio-m13-root *::after{box-sizing:border-box}.jio-m13-sec{background:var(--paper,#fff8e8);border:2px solid var(--gold,#d9a02b);border-radius:12px;padding:1.5rem 1.25rem;margin-bottom:2rem;position:relative}.jio-m13-sec-head{border-bottom:2px dashed var(--gold,#d9a02b);padding-bottom:0.75rem;margin-bottom:1.25rem;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0.5rem}.jio-m13-sec-head h3{margin:0;font-size:1.35rem;color:var(--brown,#3b1d0b);display:flex;align-items:center;gap:0.5rem}.jio-m13-sec-head h3::before{content:"◆";color:var(--saffron,#e8782a);font-size:1rem}.jio-m13-sub{margin:0;font-size:0.92rem;color:var(--brown2,#5a2f12)}.jio-m13-avatar{display:inline-block;width:44px;height:44px;min-width:44px;border-radius:50%;border:2px solid var(--gold,#d9a02b);background-color:var(--cream,#fbf1dc);background-repeat:no-repeat;background-size:500% 330%;background-position:0% 34%;vertical-align:middle;flex-shrink:0}.jio-m13-avatar[data-member="rudy"]{background-image:url('rudy_sheet.jpg');border-color:var(--saffron,#e8782a)}.jio-m13-avatar[data-member="kaz"]{background-image:url('kaz_sheet.jpg');border-color:var(--teal,#1f7a7a)}.jio-m13-avatar[data-member="idn"]{background-image:url('idn_sheet.jpg');border-color:var(--gold,#d9a02b)}.jio-m13-avatar[data-member="tidal"]{background-image:url('tidal_sheet.jpg');border-color:var(--plum,#6b2d6b)}.jio-m13-plan-bar{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem}.jio-m13-plan-tab{appearance:none;background:var(--cream,#fbf1dc);color:var(--brown,#3b1d0b);border:1.5px solid var(--brown2,#5a2f12);border-radius:999px;padding:0.4rem 0.9rem;font-size:0.9rem;font-weight:600;cursor:pointer;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}.jio-m13-plan-tab:hover,.jio-m13-plan-tab:focus-visible{outline:2px solid var(--saffron,#e8782a);outline-offset:2px}.jio-m13-plan-tab[aria-pressed="true"]{background:var(--saffron,#e8782a);color:#fff;border-color:var(--brown,#3b1d0b)}.jio-m13-table-wrap{width:100%;overflow-x:auto}.jio-m13-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--cream,#fbf1dc);border:1.5px solid var(--brown2,#5a2f12);border-radius:8px;overflow:hidden}.jio-m13-table th,.jio-m13-table td{padding:0.85rem 0.9rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(90,47,18,0.2);border-right:1px solid rgba(90,47,18,0.2);font-size:0.93rem;line-height:1.5;transition:background-color 0.2s ease}.jio-m13-table th:last-child,.jio-m13-table td:last-child{border-right:none}.jio-m13-table tr:last-child th,.jio-m13-table tr:last-child td{border-bottom:none}.jio-m13-table thead th{background:var(--brown,#3b1d0b);color:var(--paper,#fff8e8);font-weight:700;font-size:1rem}.jio-m13-table thead th.jio-m13-col-head{cursor:pointer;position:relative;user-select:none}.jio-m13-table thead th.jio-m13-col-head:hover,.jio-m13-table thead th.jio-m13-col-head:focus-visible{background:var(--brown2,#5a2f12);outline:2px solid var(--gold,#d9a02b);outline-offset:-2px}.jio-m13-table tbody th{background:rgba(217,160,43,0.16);color:var(--brown,#3b1d0b);font-weight:700;width:19%}.jio-m13-table td[data-plan]{cursor:pointer;width:27%}.jio-m13-table td[data-plan]:hover,.jio-m13-table td[data-plan]:focus-visible{outline:2px solid var(--saffron,#e8782a);outline-offset:-2px}.jio-m13-table thead th.jio-m13-col-head.is-active{background:var(--saffron,#e8782a);color:#fff}.jio-m13-table td.is-active{background:#fffdf6;border-left:2px solid var(--saffron,#e8782a);border-right:2px solid var(--saffron,#e8782a)}.jio-m13-table tr:last-child td.is-active{border-bottom:2px solid var(--saffron,#e8782a)}.jio-m13-member-box{display:flex;align-items:flex-start;gap:0.65rem}.jio-m13-member-info{flex:1;min-width:0}.jio-m13-member-name{font-weight:700;color:var(--brown,#3b1d0b);display:block;margin-bottom:0.2rem}.jio-m13-member-quote{font-size:0.85rem;color:var(--brown2,#5a2f12);background:rgba(217,160,43,0.18);padding:0.25rem 0.5rem;border-radius:6px;border-left:3px solid var(--saffron,#e8782a);display:block}.jio-m13-mobile-cards{display:none;flex-direction:column;gap:1rem}.jio-m13-mcard{background:var(--cream,#fbf1dc);border:2px solid var(--brown2,#5a2f12);border-radius:10px;padding:1rem;cursor:pointer;transition:background-color 0.2s ease,border-color 0.2s ease}.jio-m13-mcard:focus-visible{outline:3px solid var(--saffron,#e8782a);outline-offset:2px}.jio-m13-mcard.is-active{background:#fffdf6;border-color:var(--saffron,#e8782a);border-width:2.5px}.jio-m13-mcard-head{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;padding-bottom:0.6rem;margin-bottom:0.75rem;border-bottom:1.5px solid var(--gold,#d9a02b)}.jio-m13-mcard-title{margin:0;font-size:1.1rem;color:var(--brown,#3b1d0b);font-weight:700}.jio-m13-mcard-badge{font-size:0.78rem;padding:0.15rem 0.55rem;border-radius:999px;background:var(--brown,#3b1d0b);color:var(--paper,#fff8e8);font-weight:600}.jio-m13-mcard.is-active .jio-m13-mcard-badge{background:var(--saffron,#e8782a);color:#fff}.jio-m13-mcard-row{margin-bottom:0.65rem;font-size:0.9rem;line-height:1.45}.jio-m13-mcard-row:last-child{margin-bottom:0}.jio-m13-mcard-label{font-weight:700;color:var(--brown2,#5a2f12);display:block;font-size:0.82rem;margin-bottom:0.15rem}.jio-m13-filter-bar{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:1rem}.jio-m13-filter-btn{appearance:none;background:var(--cream,#fbf1dc);color:var(--brown,#3b1d0b);border:1.5px solid var(--gold,#d9a02b);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.88rem;font-weight:600;cursor:pointer;transition:background-color 0.2s ease,color 0.2s ease}.jio-m13-filter-btn:hover,.jio-m13-filter-btn:focus-visible{outline:2px solid var(--teal,#1f7a7a);outline-offset:1px}.jio-m13-filter-btn[aria-pressed="true"]{background:var(--teal,#1f7a7a);color:#fff;border-color:var(--teal,#1f7a7a)}.jio-m13-badge-grid{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1rem}.jio-m13-tech-badge{appearance:none;background:var(--cream,#fbf1dc);color:var(--brown,#3b1d0b);border:1.5px solid var(--brown2,#5a2f12);border-radius:8px;padding:0.5rem 0.85rem;font-size:0.92rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:0.45rem;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}.jio-m13-tech-badge[hidden]{display:none!important}.jio-m13-tech-badge:hover,.jio-m13-tech-badge:focus-visible{border-color:var(--saffron,#e8782a);outline:2px solid var(--saffron,#e8782a);outline-offset:1px}.jio-m13-tech-badge[aria-expanded="true"]{background:var(--brown,#3b1d0b);color:var(--paper,#fff8e8);border-color:var(--brown,#3b1d0b)}.jio-m13-cat-dot{width:8px;height:8px;border-radius:50%;display:inline-block}.jio-m13-cat-dot[data-cat="fe"]{background:var(--saffron,#e8782a)}.jio-m13-cat-dot[data-cat="be"]{background:var(--teal,#1f7a7a)}.jio-m13-cat-dot[data-cat="qa"]{background:var(--plum,#6b2d6b)}.jio-m13-cat-dot[data-cat="ops"]{background:var(--leaf,#3f8a4a)}.jio-m13-tech-detail{background:var(--cream,#fbf1dc);border:1.5px solid var(--gold,#d9a02b);border-left:5px solid var(--teal,#1f7a7a);border-radius:8px;padding:0.9rem 1rem;display:flex;align-items:center;gap:0.85rem;min-height:4.2rem}.jio-m13-tech-detail-body{flex:1;min-width:0}.jio-m13-tech-detail-title{font-weight:700;font-size:0.98rem;color:var(--brown,#3b1d0b);margin:0 0 0.25rem 0}.jio-m13-tech-detail-desc{margin:0;font-size:0.92rem;color:var(--brown2,#5a2f12);line-height:1.5}.jio-m13-tidal-host{display:flex;align-items:center;gap:0.85rem;background:var(--cream,#fbf1dc);border:1.5px solid var(--plum,#6b2d6b);border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem}.jio-m13-tidal-speech{flex:1;min-width:0}.jio-m13-tidal-name{font-weight:700;font-size:0.9rem;color:var(--plum,#6b2d6b);margin-bottom:0.2rem}.jio-m13-tidal-line{margin:0;font-size:0.95rem;font-weight:600;color:var(--brown,#3b1d0b);line-height:1.45}.jio-m13-progress-row{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap}.jio-m13-progress-text{font-size:0.9rem;font-weight:700;color:var(--brown,#3b1d0b)}.jio-m13-progress-actions{display:flex;gap:0.5rem}.jio-m13-mini-btn{appearance:none;background:var(--cream,#fbf1dc);color:var(--brown2,#5a2f12);border:1px solid var(--brown2,#5a2f12);border-radius:6px;padding:0.25rem 0.65rem;font-size:0.8rem;font-weight:600;cursor:pointer}.jio-m13-mini-btn:hover,.jio-m13-mini-btn:focus-visible{background:var(--brown2,#5a2f12);color:#fff;outline:2px solid var(--gold,#d9a02b)}.jio-m13-progressbar{width:100%;height:14px;background:var(--cream,#fbf1dc);border:1.5px solid var(--brown2,#5a2f12);border-radius:999px;overflow:hidden;margin-bottom:1.1rem}.jio-m13-progress-fill{height:100%;width:0%;background:var(--plum,#6b2d6b);transition:width 0.25s ease,background-color 0.25s ease}.jio-m13-progress-fill.is-complete{background:var(--leaf,#3f8a4a)}.jio-m13-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.65rem}.jio-m13-check-item{display:flex;align-items:flex-start;gap:0.6rem;background:var(--cream,#fbf1dc);border:1.5px solid rgba(90,47,18,0.25);border-radius:8px;padding:0.65rem 0.75rem;cursor:pointer;user-select:none;transition:background-color 0.15s ease,border-color 0.15s ease}.jio-m13-check-item:hover{border-color:var(--plum,#6b2d6b)}.jio-m13-check-item.is-checked{background:rgba(63,138,74,0.1);border-color:var(--leaf,#3f8a4a)}.jio-m13-check-item input[type="checkbox"]{width:18px;height:18px;margin:0.15rem 0 0 0;accent-color:var(--leaf,#3f8a4a);cursor:pointer;flex-shrink:0}.jio-m13-check-label{font-size:0.9rem;line-height:1.4;color:var(--brown,#3b1d0b);flex:1;min-width:0}.jio-m13-check-item.is-checked .jio-m13-check-label{text-decoration:line-through;color:var(--brown2,#5a2f12)}@media (max-width:768px){.jio-m13-table-wrap{display:none}.jio-m13-mobile-cards{display:flex}.jio-m13-check-grid{grid-template-columns:1fr}.jio-m13-sec{padding:1.15rem 0.9rem}}@media (prefers-reduced-motion:reduce){#jio-m13-root *,#jio-m13-root *::before,#jio-m13-root *::after{transition:none!important;animation:none!important}}</style>
+<style id="jio-m13-style">#jio-m13-root{box-sizing:border-box;width:100%;max-width:100%;margin-top:2.5rem;padding:0;color:var(--brown,#3b1d0b);font-family:inherit;overflow-x:hidden}#jio-m13-root *,#jio-m13-root *::before,#jio-m13-root *::after{box-sizing:border-box}.jio-m13-sec{background:var(--paper,#fff8e8);border:2px solid var(--gold,#d9a02b);border-radius:12px;padding:1.5rem 1.25rem;margin-bottom:2rem;position:relative}.jio-m13-sec-head{border-bottom:2px dashed var(--gold,#d9a02b);padding-bottom:0.75rem;margin-bottom:1.25rem;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:0.5rem}.jio-m13-sec-head h3{margin:0;font-size:1.35rem;color:var(--brown,#3b1d0b);display:flex;align-items:center;gap:0.5rem}.jio-m13-sec-head h3::before{content:"◆";color:var(--saffron,#e8782a);font-size:1rem}.jio-m13-sub{margin:0;font-size:0.92rem;color:var(--brown2,#5a2f12)}.jio-m13-avatar{display:inline-block;width:44px;height:44px;min-width:44px;border-radius:50%;border:2px solid var(--gold,#d9a02b);background-color:var(--cream,#fbf1dc);background-repeat:no-repeat;background-size:500% 330%;background-position:0% 34%;vertical-align:middle;flex-shrink:0}.jio-m13-avatar[data-member="rudy"]{background-image:url('rudy_sheet.jpg');border-color:var(--saffron,#e8782a)}.jio-m13-avatar[data-member="kaz"]{background-image:url('kaz_sheet.jpg');border-color:var(--teal,#1f7a7a)}.jio-m13-avatar[data-member="idn"]{background-image:url('idn_sheet.jpg');border-color:var(--gold,#d9a02b)}.jio-m13-avatar[data-member="tidal"]{background-image:url('tidal_sheet.jpg');border-color:var(--plum,#6b2d6b)}.jio-m13-plan-bar{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem}.jio-m13-plan-tab{appearance:none;background:var(--cream,#fbf1dc);color:var(--brown,#3b1d0b);border:1.5px solid var(--brown2,#5a2f12);border-radius:999px;padding:0.4rem 0.9rem;font-size:0.9rem;font-weight:600;cursor:pointer;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}.jio-m13-plan-tab:hover,.jio-m13-plan-tab:focus-visible{outline:2px solid var(--saffron,#e8782a);outline-offset:2px}.jio-m13-plan-tab[aria-pressed="true"]{background:var(--saffron,#e8782a);color:#fff;border-color:var(--brown,#3b1d0b)}.jio-m13-table-wrap{width:100%;overflow-x:auto}.jio-m13-table{width:100%;border-collapse:separate;border-spacing:0;background:var(--cream,#fbf1dc);border:1.5px solid var(--brown2,#5a2f12);border-radius:8px;overflow:hidden}.jio-m13-table th,.jio-m13-table td{padding:0.85rem 0.9rem;text-align:left;vertical-align:top;border-bottom:1px solid rgba(90,47,18,0.2);border-right:1px solid rgba(90,47,18,0.2);font-size:0.93rem;line-height:1.5;transition:background-color 0.2s ease}.jio-m13-table th:last-child,.jio-m13-table td:last-child{border-right:none}.jio-m13-table tr:last-child th,.jio-m13-table tr:last-child td{border-bottom:none}.jio-m13-table thead th{background:var(--brown,#3b1d0b);color:var(--paper,#fff8e8);font-weight:700;font-size:1rem}.jio-m13-table thead th.jio-m13-col-head{cursor:pointer;position:relative;user-select:none}.jio-m13-table thead th.jio-m13-col-head:hover,.jio-m13-table thead th.jio-m13-col-head:focus-visible{background:var(--brown2,#5a2f12);outline:2px solid var(--gold,#d9a02b);outline-offset:-2px}.jio-m13-table tbody th{background:rgba(217,160,43,0.16);color:var(--brown,#3b1d0b);font-weight:700;width:19%}.jio-m13-table td[data-plan]{cursor:pointer;width:27%}.jio-m13-table td[data-plan]:hover,.jio-m13-table td[data-plan]:focus-visible{outline:2px solid var(--saffron,#e8782a);outline-offset:-2px}.jio-m13-table thead th.jio-m13-col-head.is-active{background:var(--saffron,#e8782a);color:#fff}.jio-m13-table td.is-active{background:#fffdf6;border-left:2px solid var(--saffron,#e8782a);border-right:2px solid var(--saffron,#e8782a)}.jio-m13-table tr:last-child td.is-active{border-bottom:2px solid var(--saffron,#e8782a)}.jio-m13-member-box{display:flex;align-items:flex-start;gap:0.65rem}.jio-m13-member-info{flex:1;min-width:0}.jio-m13-member-name{font-weight:700;color:var(--brown,#3b1d0b);display:block;margin-bottom:0.2rem}.jio-m13-member-quote{font-size:0.85rem;color:var(--brown2,#5a2f12);background:rgba(217,160,43,0.18);padding:0.25rem 0.5rem;border-radius:6px;border-left:3px solid var(--saffron,#e8782a);display:block}.jio-m13-mobile-cards{display:none;flex-direction:column;gap:1rem}.jio-m13-mcard{background:var(--cream,#fbf1dc);border:2px solid var(--brown2,#5a2f12);border-radius:10px;padding:1rem;cursor:pointer;transition:background-color 0.2s ease,border-color 0.2s ease}.jio-m13-mcard:focus-visible{outline:3px solid var(--saffron,#e8782a);outline-offset:2px}.jio-m13-mcard.is-active{background:#fffdf6;border-color:var(--saffron,#e8782a);border-width:2.5px}.jio-m13-mcard-head{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;padding-bottom:0.6rem;margin-bottom:0.75rem;border-bottom:1.5px solid var(--gold,#d9a02b)}.jio-m13-mcard-title{margin:0;font-size:1.1rem;color:var(--brown,#3b1d0b);font-weight:700}.jio-m13-mcard-badge{font-size:0.78rem;padding:0.15rem 0.55rem;border-radius:999px;background:var(--brown,#3b1d0b);color:var(--paper,#fff8e8);font-weight:600}.jio-m13-mcard.is-active .jio-m13-mcard-badge{background:var(--saffron,#e8782a);color:#fff}.jio-m13-mcard-row{margin-bottom:0.65rem;font-size:0.9rem;line-height:1.45}.jio-m13-mcard-row:last-child{margin-bottom:0}.jio-m13-mcard-label{font-weight:700;color:var(--brown2,#5a2f12);display:block;font-size:0.82rem;margin-bottom:0.15rem}.jio-m13-filter-bar{display:flex;flex-wrap:wrap;gap:0.45rem;margin-bottom:1rem}.jio-m13-filter-btn{appearance:none;background:var(--cream,#fbf1dc);color:var(--brown,#3b1d0b);border:1.5px solid var(--gold,#d9a02b);border-radius:6px;padding:0.35rem 0.75rem;font-size:0.88rem;font-weight:600;cursor:pointer;transition:background-color 0.2s ease,color 0.2s ease}.jio-m13-filter-btn:hover,.jio-m13-filter-btn:focus-visible{outline:2px solid var(--teal,#1f7a7a);outline-offset:1px}.jio-m13-filter-btn[aria-pressed="true"]{background:var(--teal,#1f7a7a);color:#fff;border-color:var(--teal,#1f7a7a)}.jio-m13-badge-grid{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1rem}.jio-m13-tech-badge{appearance:none;background:var(--cream,#fbf1dc);color:var(--brown,#3b1d0b);border:1.5px solid var(--brown2,#5a2f12);border-radius:8px;padding:0.5rem 0.85rem;font-size:0.92rem;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:0.45rem;transition:background-color 0.2s ease,color 0.2s ease,border-color 0.2s ease}.jio-m13-tech-badge[hidden]{display:none!important}.jio-m13-tech-badge:hover,.jio-m13-tech-badge:focus-visible{border-color:var(--saffron,#e8782a);outline:2px solid var(--saffron,#e8782a);outline-offset:1px}.jio-m13-tech-badge[aria-expanded="true"]{background:var(--brown,#3b1d0b);color:var(--paper,#fff8e8);border-color:var(--brown,#3b1d0b)}.jio-m13-cat-dot{width:8px;height:8px;border-radius:50%;display:inline-block}.jio-m13-cat-dot[data-cat="fe"]{background:var(--saffron,#e8782a)}.jio-m13-cat-dot[data-cat="be"]{background:var(--teal,#1f7a7a)}.jio-m13-cat-dot[data-cat="qa"]{background:var(--plum,#6b2d6b)}.jio-m13-cat-dot[data-cat="ops"]{background:var(--leaf,#3f8a4a)}.jio-m13-tech-detail{background:var(--cream,#fbf1dc);border:1.5px solid var(--gold,#d9a02b);border-left:5px solid var(--teal,#1f7a7a);border-radius:8px;padding:0.9rem 1rem;display:flex;align-items:center;gap:0.85rem;min-height:4.2rem}.jio-m13-tech-detail-body{flex:1;min-width:0}.jio-m13-tech-detail-title{font-weight:700;font-size:0.98rem;color:var(--brown,#3b1d0b);margin:0 0 0.25rem 0}.jio-m13-tech-detail-desc{margin:0;font-size:0.92rem;color:var(--brown2,#5a2f12);line-height:1.5}.jio-m13-tidal-host{display:flex;align-items:center;gap:0.85rem;background:var(--cream,#fbf1dc);border:1.5px solid var(--plum,#6b2d6b);border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem}.jio-m13-tidal-speech{flex:1;min-width:0}.jio-m13-tidal-name{font-weight:700;font-size:0.9rem;color:var(--plum,#6b2d6b);margin-bottom:0.2rem}.jio-m13-tidal-line{margin:0;font-size:0.95rem;font-weight:600;color:var(--brown,#3b1d0b);line-height:1.45}.jio-m13-progress-row{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;margin-bottom:0.5rem;flex-wrap:wrap}.jio-m13-progress-text{font-size:0.9rem;font-weight:700;color:var(--brown,#3b1d0b)}.jio-m13-progress-actions{display:flex;gap:0.5rem}.jio-m13-mini-btn{appearance:none;background:var(--cream,#fbf1dc);color:var(--brown2,#5a2f12);border:1px solid var(--brown2,#5a2f12);border-radius:6px;padding:0.25rem 0.65rem;font-size:0.8rem;font-weight:600;cursor:pointer}.jio-m13-mini-btn:hover,.jio-m13-mini-btn:focus-visible{background:var(--brown2,#5a2f12);color:#fff;outline:2px solid var(--gold,#d9a02b)}.jio-m13-progressbar{width:100%;height:14px;background:var(--cream,#fbf1dc);border:1.5px solid var(--brown2,#5a2f12);border-radius:999px;overflow:hidden;margin-bottom:1.1rem}.jio-m13-progress-fill{height:100%;width:0%;background:var(--plum,#6b2d6b);transition:width 0.25s ease,background-color 0.25s ease}.jio-m13-progress-fill.is-complete{background:var(--leaf,#3f8a4a)}.jio-m13-check-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.65rem}.jio-m13-check-item{display:flex;align-items:flex-start;gap:0.6rem;background:var(--cream,#fbf1dc);border:1.5px solid rgba(90,47,18,0.25);border-radius:8px;padding:0.65rem 0.75rem;cursor:pointer;user-select:none;transition:background-color 0.15s ease,border-color 0.15s ease}.jio-m13-check-item:hover{border-color:var(--plum,#6b2d6b)}.jio-m13-check-item.is-checked{background:rgba(63,138,74,0.1);border-color:var(--leaf,#3f8a4a)}.jio-m13-check-item input[type="checkbox"]{width:18px;height:18px;margin:0.15rem 0 0 0;accent-color:var(--leaf,#3f8a4a);cursor:pointer;flex-shrink:0}.jio-m13-check-label{font-size:0.9rem;line-height:1.4;color:var(--brown,#3b1d0b);flex:1;min-width:0}.jio-m13-check-item.is-checked .jio-m13-check-label{text-decoration:line-through;color:var(--brown2,#5a2f12)}@media (max-width:768px){.jio-m13-table-wrap{display:none}.jio-m13-mobile-cards{display:flex}.jio-m13-check-grid{grid-template-columns:1fr}.jio-m13-sec{padding:1.15rem 0.9rem}}@media (prefers-reduced-motion:reduce){#jio-m13-root *,#jio-m13-root *::before,#jio-m13-root *::after{transition:none!important;animation:none!important}}</style>
 
 <script id="jio-m13-script">
 (function () {
@@ -8953,8 +8953,7 @@ route();
               '<ul class="jio-m14-contact-list">' +
                 '<li class="jio-m14-contact-item">' +
                   '<span class="jio-m14-contact-label">' + f.emailLabel + '</span>' +
-                  '<span>hello-demo@jio-studio.example</span>' +
-                  '<span class="jio-m14-demo-badge">' + f.demoBadge + '</span>' +
+                  '<span>abulaboyrudy@gmail.com</span>' +
                 '</li>' +
                 '<li class="jio-m14-contact-item">' +
                   '<span class="jio-m14-contact-label">' + f.phoneLabel + '</span>' +
@@ -9197,6 +9196,1155 @@ route();
   }
 })();
 </script>
+
+<style id="jio-mod16-style">#reports.jio-m16-page{box-sizing:border-box;width:100%;max-width:100%;overflow-x:hidden;padding:1.25rem 0 2.5rem;color:var(--brown,#3b1d0b)}#reports.jio-m16-page *,#reports.jio-m16-page *::before,#reports.jio-m16-page *::after,.jio-m16-lightbox,.jio-m16-lightbox *{box-sizing:border-box}.jio-m16-header{margin-bottom:1.25rem;border-bottom:2px solid var(--gold,#d9a02b);padding-bottom:0.75rem}.jio-m16-header h2{margin:0 0 0.35rem 0;color:var(--brown,#3b1d0b);font-size:1.6rem;line-height:1.3}.jio-m16-sub{margin:0;color:var(--brown2,#5a2f12);font-size:0.95rem;line-height:1.5}.jio-m16-toolbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.75rem;background:var(--paper,#fff8e8);border:1px solid var(--gold,#d9a02b);border-radius:10px;padding:0.85rem 1rem;margin-bottom:1rem}.jio-m16-date-group{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;flex:1 1 auto;min-width:0}.jio-m16-date-label{font-weight:600;font-size:0.92rem;color:var(--brown,#3b1d0b);white-space:nowrap}.jio-m16-date-input{font-family:inherit;font-size:0.92rem;color:var(--brown,#3b1d0b);background:var(--cream,#fbf1dc);border:1px solid var(--brown2,#5a2f12);border-radius:6px;padding:0.4rem 0.65rem;min-height:38px;max-width:100%;outline:none}.jio-m16-date-input:focus-visible{outline:2px solid var(--teal,#1f7a7a);outline-offset:2px;border-color:var(--teal,#1f7a7a)}.jio-m16-btn-group{display:flex;flex-wrap:wrap;gap:0.5rem}.jio-m16-btn{appearance:none;font-family:inherit;font-size:0.9rem;font-weight:600;line-height:1.2;padding:0.5rem 0.9rem;min-height:38px;border-radius:6px;border:1px solid var(--brown2,#5a2f12);background:var(--cream,#fbf1dc);color:var(--brown,#3b1d0b);cursor:pointer;transition:background-color 0.18s ease,color 0.18s ease,border-color 0.18s ease}.jio-m16-btn:hover{background:var(--gold,#d9a02b);border-color:var(--brown,#3b1d0b);color:var(--brown,#3b1d0b)}.jio-m16-btn:focus-visible{outline:2px solid var(--teal,#1f7a7a);outline-offset:2px}.jio-m16-btn.jio-m16-btn-primary{background:var(--saffron,#e8782a);color:#fff;border-color:var(--brown2,#5a2f12)}.jio-m16-btn.jio-m16-btn-primary:hover{background:var(--brown2,#5a2f12);color:#fff}.jio-m16-notice{display:none;margin-bottom:1rem;padding:0.7rem 0.95rem;border-radius:8px;background:var(--cream,#fbf1dc);border-left:4px solid var(--plum,#6b2d6b);color:var(--plum,#6b2d6b);font-size:0.92rem;font-weight:600}.jio-m16-notice.is-visible{display:block}.jio-m16-empty{text-align:center;padding:2.5rem 1.25rem;background:var(--paper,#fff8e8);border:1px dashed var(--gold,#d9a02b);border-radius:10px;color:var(--brown2,#5a2f12)}.jio-m16-empty-icon{display:inline-block;width:44px;height:44px;margin-bottom:0.5rem;color:var(--saffron,#e8782a)}.jio-m16-empty-title{margin:0;font-size:1.05rem;font-weight:600;color:var(--brown,#3b1d0b)}.jio-m16-list{display:flex;flex-direction:column;gap:0.85rem}.jio-m16-item{background:var(--paper,#fff8e8);border:1px solid var(--gold,#d9a02b);border-radius:10px;overflow:hidden;transition:border-color 0.2s ease,background-color 0.2s ease}.jio-m16-item.is-latest{border-color:var(--saffron,#e8782a);border-width:2px}.jio-m16-item.is-highlighted{border-color:var(--teal,#1f7a7a);border-width:2px;background:var(--cream,#fbf1dc)}.jio-m16-acc-header{margin:0}.jio-m16-acc-btn{appearance:none;width:100%;text-align:left;background:transparent;border:0;padding:0.9rem 1rem;cursor:pointer;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.5rem;font-family:inherit;color:var(--brown,#3b1d0b);transition:background-color 0.18s ease}.jio-m16-acc-btn:hover{background:rgba(217,160,43,0.12)}.jio-m16-acc-btn:focus-visible{outline:2px solid var(--teal,#1f7a7a);outline-offset:-2px}.jio-m16-acc-title-wrap{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem;min-width:0;flex:1 1 220px}.jio-m16-date-text{font-size:1.05rem;font-weight:700;color:var(--brown,#3b1d0b)}.jio-m16-badge-latest{display:inline-block;font-size:0.75rem;font-weight:700;padding:0.15rem 0.55rem;border-radius:999px;background:var(--leaf,#3f8a4a);color:#fff;letter-spacing:0.02em}.jio-m16-note-preview{font-size:0.88rem;color:var(--brown2,#5a2f12);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}.jio-m16-acc-btn[aria-expanded="true"] .jio-m16-note-preview{display:none}.jio-m16-acc-indicator{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.82rem;font-weight:600;color:var(--teal,#1f7a7a);flex-shrink:0}.jio-m16-chevron{display:inline-block;width:10px;height:10px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform 0.18s ease;margin-top:-3px}.jio-m16-acc-btn[aria-expanded="true"] .jio-m16-chevron{transform:rotate(-135deg);margin-top:3px}.jio-m16-acc-panel{padding:0 1rem 1rem 1rem;border-top:1px solid rgba(217,160,43,0.35)}.jio-m16-acc-panel[hidden]{display:none!important}.jio-m16-note-full{margin:0.75rem 0 0.85rem 0;padding:0.6rem 0.85rem;background:var(--cream,#fbf1dc);border-left:3px solid var(--gold,#d9a02b);border-radius:4px;font-size:0.94rem;line-height:1.5;color:var(--brown,#3b1d0b)}.jio-m16-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.9rem;margin-top:0.75rem}.jio-m16-fig{margin:0;background:var(--cream,#fbf1dc);border:1px solid rgba(90,47,18,0.2);border-radius:8px;padding:0.65rem;display:flex;flex-direction:column;gap:0.5rem}.jio-m16-fig-head{display:flex;align-items:center;justify-content:space-between;gap:0.4rem}.jio-m16-fig-title{font-size:0.9rem;font-weight:700;color:var(--brown,#3b1d0b)}.jio-m16-fig-tag{font-size:0.75rem;padding:0.1rem 0.45rem;border-radius:4px;font-weight:600;color:#fff}.jio-m16-fig-tag.is-quota{background:var(--teal,#1f7a7a)}.jio-m16-fig-tag.is-daily{background:var(--plum,#6b2d6b)}.jio-m16-img-btn{appearance:none;display:block;width:100%;padding:0;border:1px solid rgba(90,47,18,0.25);border-radius:6px;background:var(--paper,#fff8e8);cursor:zoom-in;overflow:hidden;position:relative;min-height:140px}.jio-m16-img-btn:focus-visible{outline:2px solid var(--saffron,#e8782a);outline-offset:2px}.jio-m16-img{display:block;width:100%;max-width:100%;height:auto;max-height:320px;object-fit:contain;margin:0 auto}.jio-m16-img-fallback{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:150px;padding:1rem;text-align:center;color:var(--brown2,#5a2f12);background:repeating-linear-gradient( -45deg,var(--paper,#fff8e8),var(--paper,#fff8e8) 10px,var(--cream,#fbf1dc) 10px,var(--cream,#fbf1dc) 20px );font-size:0.84rem;line-height:1.4}.jio-m16-zoom-hint{font-size:0.78rem;color:var(--brown2,#5a2f12);text-align:right}.jio-m16-footer{margin-top:1.5rem;padding-top:0.85rem;border-top:1px dashed var(--gold,#d9a02b);text-align:center;font-size:0.9rem;color:var(--brown2,#5a2f12);font-weight:600}.jio-m16-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(59,29,11,0.88);display:flex;align-items:center;justify-content:center;padding:1rem}.jio-m16-lightbox[hidden]{display:none!important}.jio-m16-lb-dialog{background:var(--paper,#fff8e8);border:2px solid var(--gold,#d9a02b);border-radius:10px;width:100%;max-width:900px;max-height:92vh;display:flex;flex-direction:column;overflow:hidden;color:var(--brown,#3b1d0b)}.jio-m16-lb-header{display:flex;align-items:center;justify-content:space-between;gap:0.75rem;padding:0.75rem 1rem;background:var(--cream,#fbf1dc);border-bottom:1px solid var(--gold,#d9a02b)}.jio-m16-lb-title{margin:0;font-size:1rem;font-weight:700;color:var(--brown,#3b1d0b);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.jio-m16-lb-close{appearance:none;background:var(--brown,#3b1d0b);color:var(--cream,#fbf1dc);border:1px solid var(--gold,#d9a02b);border-radius:6px;padding:0.35rem 0.75rem;font-family:inherit;font-size:0.85rem;font-weight:600;cursor:pointer;flex-shrink:0}.jio-m16-lb-close:hover{background:var(--saffron,#e8782a);color:#fff}.jio-m16-lb-close:focus-visible{outline:2px solid var(--teal,#1f7a7a);outline-offset:2px}.jio-m16-lb-body{padding:1rem;overflow:auto;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.75rem;flex:1 1 auto}.jio-m16-lb-img{display:block;max-width:100%;max-height:70vh;width:auto;height:auto;object-fit:contain;border-radius:4px;border:1px solid rgba(90,47,18,0.2)}.jio-m16-lb-caption{margin:0;font-size:0.9rem;color:var(--brown2,#5a2f12);text-align:center;line-height:1.4}@media (max-width:640px){.jio-m16-toolbar{flex-direction:column;align-items:stretch;padding:0.75rem}.jio-m16-date-group{flex-direction:column;align-items:stretch}.jio-m16-date-input,.jio-m16-btn-group{width:100%}.jio-m16-btn{flex:1 1 calc(50% - 0.25rem);text-align:center;padding:0.5rem 0.5rem}.jio-m16-grid{grid-template-columns:1fr}.jio-m16-acc-btn{padding:0.75rem 0.85rem}.jio-m16-acc-panel{padding:0 0.85rem 0.85rem 0.85rem}}@media (prefers-reduced-motion:reduce){#reports.jio-m16-page *,#reports.jio-m16-page *::before,#reports.jio-m16-page *::after,.jio-m16-lightbox,.jio-m16-lightbox *{transition:none!important;animation:none!important;scroll-behavior:auto!important}}</style>
+
+<script id="jio-mod16-script">
+(function () {
+  'use strict';
+  try {
+    var mainEl = document.querySelector('main');
+    var navEl = document.querySelector('nav#nav') || document.querySelector('header nav');
+    if (!mainEl || !navEl) {
+      return;
+    }
+    if (document.getElementById('reports')) {
+      return;
+    }
+    var I18N = {
+      zh: {
+        nav: '每日報告',
+        title: '每日報告圖庫',
+        subtitle: 'JIO 軟體工坊（Rudy、Kaz、Idn、Tidal）每日額度與產出成果紀錄',
+        queryLabel: '依日期查詢：',
+        btnLatestOnly: '只看最新',
+        btnExpandAll: '全部展開',
+        latestBadge: '最新',
+        expandText: '展開',
+        collapseText: '收合',
+        quotaTitle: '員工額度圖',
+        dailyTitle: '今日成果圖',
+        quotaTag: '額度',
+        dailyTag: '成果',
+        zoomHint: '點擊放大檢視',
+        emptyState: '目前還沒有報告',
+        loadingState: '正在載入每日報告…',
+        dateNotFound: '找不到所選日期（{date}）的報告，請選擇其他日期。',
+        imgFallback: '圖片暫無法顯示（{path}）',
+        footerNote: '每天由老闆與員工一起產生報告',
+        lbClose: '關閉 (Esc)',
+        lbCloseAria: '關閉放大圖片視窗',
+        altQuota: '{date} 員工額度圖（Rudy、Kaz、Idn、Tidal）',
+        altDaily: '{date} 今日成果圖（Rudy、Kaz、Idn、Tidal）'
+      },
+      en: {
+        nav: 'Daily Reports',
+        title: 'Daily Reports Gallery',
+        subtitle: 'Daily quota allocation and deliverable milestones by JIO Software Studio (Rudy, Kaz, Idn, Tidal)',
+        queryLabel: 'Find by date:',
+        btnLatestOnly: 'Latest Only',
+        btnExpandAll: 'Expand All',
+        latestBadge: 'Latest',
+        expandText: 'Expand',
+        collapseText: 'Collapse',
+        quotaTitle: 'Staff Quota Chart',
+        dailyTitle: 'Daily Deliverable Chart',
+        quotaTag: 'Quota',
+        dailyTag: 'Deliverable',
+        zoomHint: 'Click to enlarge',
+        emptyState: 'No reports are currently available.',
+        loadingState: 'Loading daily reports…',
+        dateNotFound: 'No report found for the selected date ({date}). Please try another date.',
+        imgFallback: 'Image preview unavailable ({path})',
+        footerNote: 'Reports are generated daily together by our director and team members.',
+        lbClose: 'Close (Esc)',
+        lbCloseAria: 'Close enlarged image dialog',
+        altQuota: '{date} Staff Quota Chart (Rudy, Kaz, Idn, Tidal)',
+        altDaily: '{date} Daily Deliverable Chart (Rudy, Kaz, Idn, Tidal)'
+      },
+      hi: {
+        nav: 'दैनिक रिपोर्ट',
+        title: 'दैनिक रिपोर्ट गैलरी',
+        subtitle: 'JIO सॉफ्टवेयर स्टूडियो (Rudy, Kaz, Idn, Tidal) का दैनिक कोटा और कार्य परिणाम विवरण',
+        queryLabel: 'तिथि के अनुसार खोजें:',
+        btnLatestOnly: 'केवल नवीनतम देखें',
+        btnExpandAll: 'सभी विस्तृत करें',
+        latestBadge: 'नवीनतम',
+        expandText: 'विस्तृत करें',
+        collapseText: 'संक्षिप्त करें',
+        quotaTitle: 'कर्मचारी कोटा चार्ट',
+        dailyTitle: 'आज का कार्य परिणाम चार्ट',
+        quotaTag: 'कोटा',
+        dailyTag: 'परिणाम',
+        zoomHint: 'बड़ा देखने के लिए क्लिक करें',
+        emptyState: 'अभी कोई रिपोर्ट उपलब्ध नहीं है',
+        loadingState: 'दैनिक रिपोर्ट लोड हो रही हैं…',
+        dateNotFound: 'चुनी गई तिथि ({date}) के लिए कोई रिपोर्ट नहीं मिली। कृपया अन्य तिथि चुनें।',
+        imgFallback: 'चित्र उपलब्ध नहीं है ({path})',
+        footerNote: 'प्रतिदिन निदेशक और कर्मचारियों द्वारा मिलकर रिपोर्ट तैयार की जाती है',
+        lbClose: 'बंद करें (Esc)',
+        lbCloseAria: 'बड़े चित्र की विंडो बंद करें',
+        altQuota: '{date} कर्मचारी कोटा चार्ट (Rudy, Kaz, Idn, Tidal)',
+        altDaily: '{date} आज का कार्य परिणाम चार्ट (Rudy, Kaz, Idn, Tidal)'
+      }
+    };
+    var EN_MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    var HI_MONTHS = ['जनवरी', 'फ़रवरी', 'मार्च', 'अप्रैल', 'मई', 'जून', 'जुलाई', 'अगस्त', 'सितंबर', 'अक्टूबर', 'नवंबर', 'दिसंबर'];
+    function getLang() {
+      try {
+        var htmlEl = document.documentElement;
+        var raw = (htmlEl.getAttribute('data-lang') || htmlEl.getAttribute('lang') || 'zh').toLowerCase();
+        if (raw.indexOf('en') === 0) return 'en';
+        if (raw.indexOf('hi') === 0) return 'hi';
+        return 'zh';
+      } catch (e) {
+        return 'zh';
+      }
+    }
+    function t(key) {
+      var lang = getLang();
+      var dict = I18N[lang] || I18N.zh;
+      return dict[key] || I18N.zh[key] || '';
+    }
+    function formatDate(dateStr, lang) {
+      if (!dateStr || typeof dateStr !== 'string') return '';
+      var parts = dateStr.split('-');
+      if (parts.length !== 3) return dateStr;
+      var y = parseInt(parts[0], 10);
+      var m = parseInt(parts[1], 10);
+      var d = parseInt(parts[2], 10);
+      if (isNaN(y) || isNaN(m) || isNaN(d) || m < 1 || m > 12) return dateStr;
+      if (lang === 'en') {
+        return EN_MONTHS[m - 1] + ' ' + d + ', ' + y;
+      }
+      if (lang === 'hi') {
+        return d + ' ' + HI_MONTHS[m - 1] + ' ' + y;
+      }
+      return y + '年' + m + '月' + d + '日';
+    }
+    function getNoteText(noteObj, lang) {
+      if (!noteObj) return '';
+      if (typeof noteObj === 'string') return noteObj;
+      if (typeof noteObj === 'object') {
+        return noteObj[lang] || noteObj.zh || noteObj.en || noteObj.hi || '';
+      }
+      return '';
+    }
+    function prefersReducedMotion() {
+      try {
+        return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      } catch (e) {
+        return false;
+      }
+    }
+    var navLink = document.createElement('a');
+    navLink.setAttribute('href', '#reports');
+    navLink.id = 'jio-m16-nav-link';
+    navLink.textContent = t('nav');
+    var journalLink = navEl.querySelector('a[href="#journal"]');
+    var contactLink = navEl.querySelector('a[href="#contact"]');
+    if (journalLink && journalLink.parentNode === navEl) {
+      journalLink.insertAdjacentElement('afterend', navLink);
+    } else if (contactLink && contactLink.parentNode === navEl) {
+      navEl.insertBefore(navLink, contactLink);
+    } else {
+      navEl.appendChild(navLink);
+    }
+    var sectionEl = document.createElement('section');
+    sectionEl.id = 'reports';
+    sectionEl.className = 'page jio-m16-page';
+    var headerDiv = document.createElement('div');
+    headerDiv.className = 'jio-m16-header';
+    var h2El = document.createElement('h2');
+    var subEl = document.createElement('p');
+    subEl.className = 'jio-m16-sub';
+    headerDiv.appendChild(h2El);
+    headerDiv.appendChild(subEl);
+    var toolbarDiv = document.createElement('div');
+    toolbarDiv.className = 'jio-m16-toolbar card';
+    var dateGroup = document.createElement('div');
+    dateGroup.className = 'jio-m16-date-group';
+    var dateLabel = document.createElement('label');
+    dateLabel.className = 'jio-m16-date-label';
+    dateLabel.setAttribute('for', 'jio-m16-date-picker');
+    var dateInput = document.createElement('input');
+    dateInput.type = 'date';
+    dateInput.id = 'jio-m16-date-picker';
+    dateInput.className = 'jio-m16-date-input';
+    dateGroup.appendChild(dateLabel);
+    dateGroup.appendChild(dateInput);
+    var btnGroup = document.createElement('div');
+    btnGroup.className = 'jio-m16-btn-group';
+    var btnLatestOnly = document.createElement('button');
+    btnLatestOnly.type = 'button';
+    btnLatestOnly.className = 'btn jio-m16-btn jio-m16-btn-primary';
+    var btnExpandAll = document.createElement('button');
+    btnExpandAll.type = 'button';
+    btnExpandAll.className = 'btn jio-m16-btn';
+    btnGroup.appendChild(btnLatestOnly);
+    btnGroup.appendChild(btnExpandAll);
+    toolbarDiv.appendChild(dateGroup);
+    toolbarDiv.appendChild(btnGroup);
+    var noticeDiv = document.createElement('div');
+    noticeDiv.className = 'jio-m16-notice';
+    noticeDiv.setAttribute('role', 'status');
+    noticeDiv.setAttribute('aria-live', 'polite');
+    var listContainer = document.createElement('div');
+    listContainer.className = 'jio-m16-list';
+    var footerEl = document.createElement('footer');
+    footerEl.className = 'jio-m16-footer';
+    sectionEl.appendChild(headerDiv);
+    sectionEl.appendChild(toolbarDiv);
+    sectionEl.appendChild(noticeDiv);
+    sectionEl.appendChild(listContainer);
+    sectionEl.appendChild(footerEl);
+    mainEl.appendChild(sectionEl);
+    var lightboxEl = document.createElement('div');
+    lightboxEl.className = 'jio-m16-lightbox';
+    lightboxEl.setAttribute('role', 'dialog');
+    lightboxEl.setAttribute('aria-modal', 'true');
+    lightboxEl.setAttribute('aria-labelledby', 'jio-m16-lb-title');
+    lightboxEl.hidden = true;
+    var lbDialog = document.createElement('div');
+    lbDialog.className = 'jio-m16-lb-dialog';
+    var lbHeader = document.createElement('div');
+    lbHeader.className = 'jio-m16-lb-header';
+    var lbTitle = document.createElement('h3');
+    lbTitle.id = 'jio-m16-lb-title';
+    lbTitle.className = 'jio-m16-lb-title';
+    var lbCloseBtn = document.createElement('button');
+    lbCloseBtn.type = 'button';
+    lbCloseBtn.className = 'jio-m16-lb-close';
+    lbHeader.appendChild(lbTitle);
+    lbHeader.appendChild(lbCloseBtn);
+    var lbBody = document.createElement('div');
+    lbBody.className = 'jio-m16-lb-body';
+    var lbImg = document.createElement('img');
+    lbImg.className = 'jio-m16-lb-img';
+    lbImg.alt = '';
+    var lbCaption = document.createElement('p');
+    lbCaption.className = 'jio-m16-lb-caption';
+    lbBody.appendChild(lbImg);
+    lbBody.appendChild(lbCaption);
+    lbDialog.appendChild(lbHeader);
+    lbDialog.appendChild(lbBody);
+    lightboxEl.appendChild(lbDialog);
+    document.body.appendChild(lightboxEl);
+    var reportsData = [];
+    var isLoading = true;
+    var activeNoticeDate = '';
+    var highlightedDate = '';
+    var highlightTimer = null;
+    var lastFocusedTrigger = null;
+    function openLightbox(src, titleText, altText, captionText, triggerEl) {
+      try {
+        lastFocusedTrigger = triggerEl || document.activeElement;
+        lbTitle.textContent = titleText || '';
+        lbImg.src = src || '';
+        lbImg.alt = altText || titleText || '';
+        lbCaption.textContent = captionText || '';
+        lbCaption.style.display = captionText ? 'block' : 'none';
+        lightboxEl.hidden = false;
+        lbCloseBtn.focus();
+      } catch (e) {}
+    }
+    function closeLightbox() {
+      try {
+        if (lightboxEl.hidden) return;
+        lightboxEl.hidden = true;
+        lbImg.removeAttribute('src');
+        if (lastFocusedTrigger && typeof lastFocusedTrigger.focus === 'function') {
+          lastFocusedTrigger.focus();
+        }
+        lastFocusedTrigger = null;
+      } catch (e) {}
+    }
+    lbCloseBtn.addEventListener('click', closeLightbox);
+    lightboxEl.addEventListener('click', function (ev) {
+      if (ev.target === lightboxEl) {
+        closeLightbox();
+      }
+    });
+    document.addEventListener('keydown', function (ev) {
+      if (lightboxEl.hidden) return;
+      if (ev.key === 'Escape' || ev.key === 'Esc') {
+        ev.preventDefault();
+        closeLightbox();
+        return;
+      }
+      if (ev.key === 'Tab') {
+        var focusables = lbDialog.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (!focusables.length) return;
+        var first = focusables[0];
+        var last = focusables[focusables.length - 1];
+        if (ev.shiftKey && document.activeElement === first) {
+          ev.preventDefault();
+          last.focus();
+        } else if (!ev.shiftKey && document.activeElement === last) {
+          ev.preventDefault();
+          first.focus();
+        }
+      }
+    });
+    function hydratePanelImages(panelEl) {
+      try {
+        if (!panelEl) return;
+        var imgs = panelEl.querySelectorAll('img[data-src]');
+        for (var i = 0; i < imgs.length; i++) {
+          var img = imgs[i];
+          var dataSrc = img.getAttribute('data-src');
+          if (dataSrc) {
+            img.src = dataSrc;
+            img.removeAttribute('data-src');
+          }
+        }
+      } catch (e) {}
+    }
+    function setAccordionExpanded(itemEl, expanded) {
+      try {
+        if (!itemEl) return;
+        var btn = itemEl.querySelector('.jio-m16-acc-btn');
+        var panel = itemEl.querySelector('.jio-m16-acc-panel');
+        var stateLabel = itemEl.querySelector('.jio-m16-acc-state-text');
+        if (!btn || !panel) return;
+        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        panel.hidden = !expanded;
+        if (stateLabel) {
+          stateLabel.textContent = expanded ? t('collapseText') : t('expandText');
+        }
+        if (expanded) {
+          hydratePanelImages(panel);
+        }
+      } catch (e) {}
+    }
+    function buildFigureCard(item, type, isExpandedInitially) {
+      var lang = getLang();
+      var dateFormatted = formatDate(item.date, lang);
+      var isQuota = type === 'quota';
+      var imgPath = isQuota ? item.quota : item.daily;
+      var figTitleText = isQuota ? t('quotaTitle') : t('dailyTitle');
+      var figTagText = isQuota ? t('quotaTag') : t('dailyTag');
+      var altTemplate = isQuota ? t('altQuota') : t('altDaily');
+      var altText = altTemplate.replace('{date}', dateFormatted);
+      var noteText = getNoteText(item.note, lang);
+      var fig = document.createElement('figure');
+      fig.className = 'jio-m16-fig';
+      fig.setAttribute('data-fig-type', type);
+      var figHead = document.createElement('div');
+      figHead.className = 'jio-m16-fig-head';
+      var titleSpan = document.createElement('span');
+      titleSpan.className = 'jio-m16-fig-title';
+      titleSpan.textContent = figTitleText;
+      var tagSpan = document.createElement('span');
+      tagSpan.className = 'jio-m16-fig-tag ' + (isQuota ? 'is-quota' : 'is-daily');
+      tagSpan.textContent = figTagText;
+      figHead.appendChild(titleSpan);
+      figHead.appendChild(tagSpan);
+      var imgBtn = document.createElement('button');
+      imgBtn.type = 'button';
+      imgBtn.className = 'jio-m16-img-btn';
+      imgBtn.setAttribute('aria-label', altText + ' - ' + t('zoomHint'));
+      var img = document.createElement('img');
+      img.className = 'jio-m16-img';
+      img.setAttribute('loading', isExpandedInitially ? 'eager' : 'lazy');
+      img.alt = altText;
+      if (isExpandedInitially) {
+        img.src = imgPath;
+      } else {
+        img.setAttribute('data-src', imgPath);
+      }
+      img.addEventListener('error', function () {
+        try {
+          img.style.display = 'none';
+          var existingFallback = imgBtn.querySelector('.jio-m16-img-fallback');
+          if (!existingFallback) {
+            var fb = document.createElement('div');
+            fb.className = 'jio-m16-img-fallback';
+            fb.setAttribute('data-path', imgPath || '');
+            fb.textContent = t('imgFallback').replace('{path}', imgPath || '');
+            imgBtn.appendChild(fb);
+          }
+        } catch (e) {}
+      });
+      imgBtn.appendChild(img);
+      imgBtn.addEventListener('click', function () {
+        var currentLang = getLang();
+        var curDateFmt = formatDate(item.date, currentLang);
+        var curTitle = (isQuota ? t('quotaTitle') : t('dailyTitle')) + ' — ' + curDateFmt;
+        var curAlt = (isQuota ? t('altQuota') : t('altDaily')).replace('{date}', curDateFmt);
+        var curNote = getNoteText(item.note, currentLang);
+        openLightbox(imgPath, curTitle, curAlt, curNote, imgBtn);
+      });
+      var zoomHint = document.createElement('figcaption');
+      zoomHint.className = 'jio-m16-zoom-hint';
+      zoomHint.textContent = t('zoomHint');
+      fig.appendChild(figHead);
+      fig.appendChild(imgBtn);
+      fig.appendChild(zoomHint);
+      return fig;
+    }
+    function renderReports() {
+      try {
+        listContainer.innerHTML = '';
+        if (!reportsData || reportsData.length === 0) {
+          var emptyDiv = document.createElement('div');
+          emptyDiv.className = 'jio-m16-empty card';
+          var emptyTitle = document.createElement('p');
+          emptyTitle.className = 'jio-m16-empty-title';
+          emptyTitle.textContent = isLoading ? t('loadingState') : t('emptyState');
+          emptyDiv.appendChild(emptyTitle);
+          listContainer.appendChild(emptyDiv);
+          return;
+        }
+        var lang = getLang();
+        for (var i = 0; i < reportsData.length; i++) {
+          (function (idx) {
+            var item = reportsData[idx];
+            var isLatest = idx === 0;
+            var itemEl = document.createElement('article');
+            itemEl.className = 'jio-m16-item card' + (isLatest ? ' is-latest' : '');
+            itemEl.setAttribute('data-report-date', item.date);
+            var accHeader = document.createElement('h3');
+            accHeader.className = 'jio-m16-acc-header';
+            var accBtn = document.createElement('button');
+            accBtn.type = 'button';
+            accBtn.className = 'jio-m16-acc-btn';
+            var panelId = 'jio-m16-panel-' + idx;
+            var btnId = 'jio-m16-btn-' + idx;
+            accBtn.id = btnId;
+            accBtn.setAttribute('aria-controls', panelId);
+            accBtn.setAttribute('aria-expanded', isLatest ? 'true' : 'false');
+            var titleWrap = document.createElement('span');
+            titleWrap.className = 'jio-m16-acc-title-wrap';
+            var dateSpan = document.createElement('span');
+            dateSpan.className = 'jio-m16-date-text';
+            dateSpan.textContent = formatDate(item.date, lang);
+            titleWrap.appendChild(dateSpan);
+            if (isLatest) {
+              var badgeSpan = document.createElement('span');
+              badgeSpan.className = 'jio-m16-badge-latest';
+              badgeSpan.textContent = t('latestBadge');
+              titleWrap.appendChild(badgeSpan);
+            }
+            var noteStr = getNoteText(item.note, lang);
+            var notePreview = document.createElement('span');
+            notePreview.className = 'jio-m16-note-preview';
+            notePreview.textContent = noteStr ? '— ' + noteStr : '';
+            notePreview.style.display = noteStr ? 'inline' : 'none';
+            titleWrap.appendChild(notePreview);
+            var indicatorSpan = document.createElement('span');
+            indicatorSpan.className = 'jio-m16-acc-indicator';
+            var stateTextSpan = document.createElement('span');
+            stateTextSpan.className = 'jio-m16-acc-state-text';
+            stateTextSpan.textContent = isLatest ? t('collapseText') : t('expandText');
+            var chevronSpan = document.createElement('span');
+            chevronSpan.className = 'jio-m16-chevron';
+            chevronSpan.setAttribute('aria-hidden', 'true');
+            indicatorSpan.appendChild(stateTextSpan);
+            indicatorSpan.appendChild(chevronSpan);
+            accBtn.appendChild(titleWrap);
+            accBtn.appendChild(indicatorSpan);
+            accHeader.appendChild(accBtn);
+            var accPanel = document.createElement('div');
+            accPanel.id = panelId;
+            accPanel.className = 'jio-m16-acc-panel';
+            accPanel.setAttribute('role', 'region');
+            accPanel.setAttribute('aria-labelledby', btnId);
+            accPanel.hidden = !isLatest;
+            var noteFull = document.createElement('p');
+            noteFull.className = 'jio-m16-note-full';
+            noteFull.textContent = noteStr;
+            noteFull.style.display = noteStr ? 'block' : 'none';
+            accPanel.appendChild(noteFull);
+            var gridDiv = document.createElement('div');
+            gridDiv.className = 'jio-m16-grid';
+            gridDiv.appendChild(buildFigureCard(item, 'quota', isLatest));
+            gridDiv.appendChild(buildFigureCard(item, 'daily', isLatest));
+            accPanel.appendChild(gridDiv);
+            accBtn.addEventListener('click', function () {
+              var currentlyExpanded = accBtn.getAttribute('aria-expanded') === 'true';
+              setAccordionExpanded(itemEl, !currentlyExpanded);
+            });
+            itemEl.appendChild(accHeader);
+            itemEl.appendChild(accPanel);
+            listContainer.appendChild(itemEl);
+          })(i);
+        }
+      } catch (e) {}
+    }
+    function updateAllTexts() {
+      try {
+        var lang = getLang();
+        navLink.textContent = t('nav');
+        h2El.textContent = t('title');
+        subEl.textContent = t('subtitle');
+        dateLabel.textContent = t('queryLabel');
+        btnLatestOnly.textContent = t('btnLatestOnly');
+        btnExpandAll.textContent = t('btnExpandAll');
+        footerEl.textContent = t('footerNote');
+        lbCloseBtn.textContent = t('lbClose');
+        lbCloseBtn.setAttribute('aria-label', t('lbCloseAria'));
+        if (activeNoticeDate) {
+          noticeDiv.textContent = t('dateNotFound').replace('{date}', formatDate(activeNoticeDate, lang));
+        }
+        if (!reportsData || reportsData.length === 0) {
+          var emptyTitle = listContainer.querySelector('.jio-m16-empty-title');
+          if (emptyTitle) {
+            emptyTitle.textContent = isLoading ? t('loadingState') : t('emptyState');
+          }
+          return;
+        }
+        var items = listContainer.querySelectorAll('.jio-m16-item');
+        for (var i = 0; i < items.length; i++) {
+          var itemEl = items[i];
+          var rData = reportsData[i];
+          if (!rData) continue;
+          var dateFmt = formatDate(rData.date, lang);
+          var dateTextEl = itemEl.querySelector('.jio-m16-date-text');
+          if (dateTextEl) dateTextEl.textContent = dateFmt;
+          var badgeEl = itemEl.querySelector('.jio-m16-badge-latest');
+          if (badgeEl) badgeEl.textContent = t('latestBadge');
+          var noteStr = getNoteText(rData.note, lang);
+          var notePrevEl = itemEl.querySelector('.jio-m16-note-preview');
+          if (notePrevEl) {
+            notePrevEl.textContent = noteStr ? '— ' + noteStr : '';
+            notePrevEl.style.display = noteStr ? 'inline' : 'none';
+          }
+          var noteFullEl = itemEl.querySelector('.jio-m16-note-full');
+          if (noteFullEl) {
+            noteFullEl.textContent = noteStr;
+            noteFullEl.style.display = noteStr ? 'block' : 'none';
+          }
+          var accBtn = itemEl.querySelector('.jio-m16-acc-btn');
+          var stateTextEl = itemEl.querySelector('.jio-m16-acc-state-text');
+          if (accBtn && stateTextEl) {
+            var isExp = accBtn.getAttribute('aria-expanded') === 'true';
+            stateTextEl.textContent = isExp ? t('collapseText') : t('expandText');
+          }
+          var figs = itemEl.querySelectorAll('.jio-m16-fig');
+          for (var j = 0; j < figs.length; j++) {
+            var fig = figs[j];
+            var fType = fig.getAttribute('data-fig-type');
+            var isQuota = fType === 'quota';
+            var fTitle = fig.querySelector('.jio-m16-fig-title');
+            var fTag = fig.querySelector('.jio-m16-fig-tag');
+            var fImg = fig.querySelector('.jio-m16-img');
+            var fBtn = fig.querySelector('.jio-m16-img-btn');
+            var fHint = fig.querySelector('.jio-m16-zoom-hint');
+            var fFallback = fig.querySelector('.jio-m16-img-fallback');
+            var altText = (isQuota ? t('altQuota') : t('altDaily')).replace('{date}', dateFmt);
+            if (fTitle) fTitle.textContent = isQuota ? t('quotaTitle') : t('dailyTitle');
+            if (fTag) fTag.textContent = isQuota ? t('quotaTag') : t('dailyTag');
+            if (fImg) fImg.alt = altText;
+            if (fBtn) fBtn.setAttribute('aria-label', altText + ' - ' + t('zoomHint'));
+            if (fHint) fHint.textContent = t('zoomHint');
+            if (fFallback) {
+              var p = fFallback.getAttribute('data-path') || '';
+              fFallback.textContent = t('imgFallback').replace('{path}', p);
+            }
+          }
+        }
+      } catch (e) {}
+    }
+    function hideNotice() {
+      activeNoticeDate = '';
+      noticeDiv.textContent = '';
+      noticeDiv.classList.remove('is-visible');
+    }
+    function showNoticeForDate(dateVal) {
+      activeNoticeDate = dateVal;
+      noticeDiv.textContent = t('dateNotFound').replace('{date}', formatDate(dateVal, getLang()));
+      noticeDiv.classList.add('is-visible');
+    }
+    dateInput.addEventListener('change', function () {
+      try {
+        var val = dateInput.value;
+        hideNotice();
+        if (!val) return;
+        var targetItem = listContainer.querySelector('.jio-m16-item[data-report-date="' + val + '"]');
+        if (!targetItem) {
+          showNoticeForDate(val);
+          return;
+        }
+        setAccordionExpanded(targetItem, true);
+        var allItems = listContainer.querySelectorAll('.jio-m16-item');
+        for (var i = 0; i < allItems.length; i++) {
+          allItems[i].classList.remove('is-highlighted');
+        }
+        targetItem.classList.add('is-highlighted');
+        highlightedDate = val;
+        if (highlightTimer) clearTimeout(highlightTimer);
+        highlightTimer = setTimeout(function () {
+          targetItem.classList.remove('is-highlighted');
+        }, 4000);
+        targetItem.scrollIntoView({
+          behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+          block: 'start'
+        });
+        var btn = targetItem.querySelector('.jio-m16-acc-btn');
+        if (btn) btn.focus({ preventScroll: true });
+      } catch (e) {}
+    });
+    btnLatestOnly.addEventListener('click', function () {
+      try {
+        hideNotice();
+        dateInput.value = '';
+        var items = listContainer.querySelectorAll('.jio-m16-item');
+        for (var i = 0; i < items.length; i++) {
+          items[i].classList.remove('is-highlighted');
+          setAccordionExpanded(items[i], i === 0);
+        }
+      } catch (e) {}
+    });
+    btnExpandAll.addEventListener('click', function () {
+      try {
+        hideNotice();
+        var items = listContainer.querySelectorAll('.jio-m16-item');
+        for (var i = 0; i < items.length; i++) {
+          setAccordionExpanded(items[i], true);
+        }
+      } catch (e) {}
+    });
+    function syncRoute() {
+      try {
+        var hash = window.location.hash || '#home';
+        if (hash === '#reports') {
+          var pages = mainEl.querySelectorAll('section.page');
+          for (var i = 0; i < pages.length; i++) {
+            if (pages[i].id === 'reports') {
+              pages[i].classList.add('on');
+            } else {
+              pages[i].classList.remove('on');
+            }
+          }
+          var links = navEl.querySelectorAll('a[href]');
+          for (var j = 0; j < links.length; j++) {
+            if (links[j].getAttribute('href') === '#reports') {
+              links[j].classList.add('on');
+            } else {
+              links[j].classList.remove('on');
+            }
+          }
+        } else {
+          sectionEl.classList.remove('on');
+          navLink.classList.remove('on');
+          if (!lightboxEl.hidden) {
+            closeLightbox();
+          }
+        }
+      } catch (e) {}
+    }
+    window.addEventListener('hashchange', syncRoute);
+    try {
+      var langObserver = new MutationObserver(function () {
+        updateAllTexts();
+      });
+      langObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-lang', 'lang']
+      });
+    } catch (e) {}
+    function normalizeAndSortReports(rawArr) {
+      if (!Array.isArray(rawArr)) return [];
+      var valid = [];
+      for (var i = 0; i < rawArr.length; i++) {
+        var r = rawArr[i];
+        if (r && typeof r.date === 'string' && r.date.trim() !== '') {
+          valid.push({
+            date: r.date.trim(),
+            quota: typeof r.quota === 'string' ? r.quota : '',
+            daily: typeof r.daily === 'string' ? r.daily : '',
+            note: r.note || null
+          });
+        }
+      }
+      valid.sort(function (a, b) {
+        if (a.date === b.date) return 0;
+        return a.date < b.date ? 1 : -1;
+      });
+      return valid;
+    }
+    function handleReportsLoaded() {
+      try {
+        isLoading = false;
+        reportsData = normalizeAndSortReports(window.JIO_REPORTS);
+        if (reportsData.length > 0) {
+          var newest = reportsData[0].date;
+          var oldest = reportsData[reportsData.length - 1].date;
+          dateInput.setAttribute('max', newest);
+          dateInput.setAttribute('min', oldest);
+        }
+        renderReports();
+        updateAllTexts();
+      } catch (e) {
+        isLoading = false;
+        reportsData = [];
+        renderReports();
+      }
+    }
+    function handleReportsError() {
+      try {
+        isLoading = false;
+        reportsData = normalizeAndSortReports(window.JIO_REPORTS);
+        renderReports();
+        updateAllTexts();
+      } catch (e) {}
+    }
+    updateAllTexts();
+    renderReports();
+    syncRoute();
+    try {
+      var reportScript = document.createElement('script');
+      reportScript.src = 'reports/reports.js';
+      reportScript.async = true;
+      reportScript.onload = handleReportsLoaded;
+      reportScript.onerror = handleReportsError;
+      document.body.appendChild(reportScript);
+    } catch (e) {
+      handleReportsError();
+    }
+  } catch (err) {
+  }
+})();
+</script>
+
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JIO 軟體工坊 — 模組17：聯絡頁地圖縮圖</title>
+  <style>:root{--brown:#3b1d0b;--brown2:#5a2f12;--cream:#fbf1dc;--paper:#fff8e8;--gold:#d9a02b;--saffron:#e8782a;--teal:#1f7a7a;--plum:#6b2d6b;--leaf:#3f8a4a}*,*::before,*::after{box-sizing:border-box}body{margin:0;padding:0;background-color:var(--cream);color:var(--brown);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC","Noto Sans Devanagari",sans-serif;line-height:1.6;overflow-x:hidden}.demo-toolbar{background:var(--brown);color:var(--paper);padding:0.75rem 1rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.75rem;border-bottom:3px solid var(--gold)}.demo-brand{display:flex;align-items:center;gap:0.6rem;font-weight:700;font-size:0.95rem;letter-spacing:0.02em}.demo-badge{background:var(--saffron);color:#fff;font-size:0.75rem;padding:0.15rem 0.5rem;border-radius:4px;font-weight:600}.demo-controls{display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem}.demo-btn{background:var(--brown2);color:var(--cream);border:1px solid var(--gold);padding:0.35rem 0.7rem;border-radius:6px;font-size:0.8rem;cursor:pointer;font-weight:600}.demo-btn:hover,.demo-btn:focus-visible{background:var(--gold);color:var(--brown);outline:none}.demo-btn[aria-pressed="true"]{background:var(--saffron);color:#fff;border-color:var(--paper)}main{max-width:1080px;margin:0 auto;padding:1.5rem 1rem 3rem}.page-header{margin-bottom:1.25rem;border-bottom:2px solid var(--gold);padding-bottom:0.6rem}.page-header h1{margin:0;font-size:1.5rem;color:var(--brown)}.page-header p{margin:0.25rem 0 0;font-size:0.9rem;color:var(--brown2)}.contact{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;align-items:start}@media (max-width:768px){.contact{grid-template-columns:1fr}}.card{background:var(--paper);border:1.5px solid var(--gold);border-radius:12px;padding:1.25rem}.info.card p{margin:0 0 0.7rem;font-size:0.92rem;color:var(--brown);word-break:break-word}.info.card p.note{margin-top:0.85rem;margin-bottom:0;padding-top:0.65rem;border-top:1px dashed var(--gold);font-size:0.84rem;color:var(--brown2)}form#form{display:flex;flex-direction:column;gap:0.85rem}.form-title{margin:0 0 0.25rem;font-size:1.1rem;color:var(--brown);font-weight:700}.field-group{display:flex;flex-direction:column;gap:0.3rem}.field-group label{font-size:0.85rem;font-weight:600;color:var(--brown2)}.field-group input,.field-group select,.field-group textarea{width:100%;padding:0.55rem 0.7rem;border:1px solid var(--gold);border-radius:8px;background:var(--cream);color:var(--brown);font-family:inherit;font-size:0.9rem}.submit-btn{background:var(--teal);color:#fff;border:none;border-radius:8px;padding:0.65rem 1rem;font-size:0.92rem;font-weight:700;cursor:pointer}.submit-btn:hover{background:var(--brown)}.form-feedback{font-size:0.84rem;color:var(--leaf);font-weight:600;min-height:1.2rem}.snippet-section{margin-top:2rem;background:var(--paper);border:1.5px solid var(--brown2);border-radius:12px;padding:1rem 1.25rem}.snippet-header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.65rem}.snippet-header h2{margin:0;font-size:1rem;color:var(--brown)}.snippet-textarea{width:100%;height:160px;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:0.78rem;background:var(--cream);color:var(--brown);border:1px solid var(--gold);border-radius:8px;padding:0.65rem;resize:vertical}</style>
+</head>
+<body>
+
+  <header class="demo-toolbar" aria-label="Module 17 Test Controls">
+    <div class="demo-brand">
+      <span class="demo-badge">JIO 模組 17</span>
+      <span>JIO 軟體工坊 (Rudy · Kaz · Idn · Tidal)</span>
+    </div>
+    <div class="demo-controls">
+      <button type="button" class="demo-btn" id="btn-lang-zh" aria-pressed="true">繁體中文 (zh)</button>
+      <button type="button" class="demo-btn" id="btn-lang-en" aria-pressed="false">English (en)</button>
+      <button type="button" class="demo-btn" id="btn-lang-hi" aria-pressed="false">हिन्दी (hi)</button>
+      <button type="button" class="demo-btn" id="btn-toggle-offline" aria-pressed="false">模擬離線占位圖 (Offline)</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <h1 id="demo-page-title">聯絡 JIO 軟體工坊</h1>
+      <p id="demo-page-sub">印度浦那工程設計與台灣專案管理團隊 — Rudy、Kaz、Idn、Tidal 為您服務</p>
+    </div>
+
+    <section class="page" id="contact">
+      <div class="contact">
+        <div class="info card">
+          <p data-i18n-html="contact.info.email"><strong>電子郵件：</strong>hello@jio-studio.example</p>
+          <p data-i18n-html="contact.info.phone"><strong>電話：</strong>+91 20 6789 1024</p>
+          <p data-i18n-html="contact.info.addr"><strong>地址：</strong>Rajiv Gandhi Infotech Park, Hinjewadi Phase 1, Pune, Maharashtra 411057, India</p>
+          <p data-i18n-html="contact.info.hours"><strong>服務時間：</strong>週一至週五 09:30–18:30 IST（12:00–21:00 TST）</p>
+          <p data-i18n-html="contact.info.reply"><strong>回覆時間：</strong>1 個工作日內由專人回覆</p>
+          <p class="note" data-i18n-html="contact.info.note">註記：本工坊採遠端與駐點混合協作，如需預約視訊會議請先來信。</p>
+        </div>
+
+        <form id="form" class="card" novalidate>
+          <h2 class="form-title" id="demo-form-title">專案洽詢表單</h2>
+          <div class="field-group">
+            <label for="client-name" id="demo-label-name">您的稱呼 / 公司名稱</label>
+            <input type="text" id="client-name" name="name" placeholder="例如：陳先生 / 新創科技" required />
+          </div>
+          <div class="field-group">
+            <label for="client-member" id="demo-label-member">指定聯繫成員</label>
+            <select id="client-member" name="member">
+              <option value="all">不指定（團隊共同評估）</option>
+              <option value="rudy">Rudy（系統架構與後端）</option>
+              <option value="kaz">Kaz（前端介面與互動）</option>
+              <option value="idn">Idn（行動應用與 API）</option>
+              <option value="tidal">Tidal（專案管理與品質檢核）</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="client-msg" id="demo-label-msg">需求簡述</label>
+            <textarea id="client-msg" name="message" rows="3" placeholder="請簡述您的外包開發需求、時程或預算範圍..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn" id="demo-submit-btn">送出需求單</button>
+          <div class="form-feedback" id="demo-form-feedback" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="snippet-section" aria-label="Standalone Module Code">
+      <div class="snippet-header">
+        <h2>可直接貼在 &lt;/body&gt; 前的獨立模組程式碼（一個 &lt;style&gt; + 一個 &lt;script&gt;）</h2>
+        <button type="button" class="demo-btn" id="btn-copy-snippet">複製獨立模組程式碼</button>
+      </div>
+      <textarea id="module17-raw-code" class="snippet-textarea" readonly aria-label="Module 17 Raw HTML Code"></textarea>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      var hostI18n = {
+        zh: {
+          pageTitle: "聯絡 JIO 軟體工坊",
+          pageSub: "印度浦那工程設計與台灣專案管理團隊 — Rudy、Kaz、Idn、Tidal 為您服務",
+          email: "<strong>電子郵件：</strong>hello@jio-studio.example",
+          phone: "<strong>電話：</strong>+91 20 6789 1024",
+          addr: "<strong>地址：</strong>Rajiv Gandhi Infotech Park, Hinjewadi Phase 1, Pune, Maharashtra 411057, India",
+          hours: "<strong>服務時間：</strong>週一至週五 09:30–18:30 IST（12:00–21:00 TST）",
+          reply: "<strong>回覆時間：</strong>1 個工作日內由專人回覆",
+          note: "註記：本工坊採遠端與駐點混合協作，如需預約視訊會議請先來信。",
+          formTitle: "專案洽詢表單",
+          labelName: "您的稱呼 / 公司名稱",
+          labelMember: "指定聯繫成員",
+          labelMsg: "需求簡述",
+          submitBtn: "送出需求單",
+          submitted: "感謝您的來信！Tidal 與團隊將於 1 個工作日內回覆您。"
+        },
+        en: {
+          pageTitle: "Contact JIO Software Studio",
+          pageSub: "Pune Engineering & Global Outsourcing Team — Rudy, Kaz, Idn & Tidal at Your Service",
+          email: "<strong>Email:</strong> hello@jio-studio.example",
+          phone: "<strong>Phone:</strong> +91 20 6789 1024",
+          addr: "<strong>Address:</strong> Rajiv Gandhi Infotech Park, Hinjewadi Phase 1, Pune, Maharashtra 411057, India",
+          hours: "<strong>Business Hours:</strong> Mon–Fri 09:30–18:30 IST (12:00–21:00 TST)",
+          reply: "<strong>Response Time:</strong> Within 1 business day",
+          note: "Note: We operate via hybrid remote and on-site collaboration. Email us to book a video call.",
+          formTitle: "Project Inquiry Form",
+          labelName: "Your Name / Company",
+          labelMember: "Preferred Team Member",
+          labelMsg: "Project Summary",
+          submitBtn: "Send Inquiry",
+          submitted: "Thank you! Tidal and our team will get back to you within 1 business day."
+        },
+        hi: {
+          pageTitle: "JIO सॉफ्टवेयर स्टूडियो से संपर्क करें",
+          pageSub: "पुणे इंजीनियरिंग और आउटसोर्सिंग टीम — Rudy, Kaz, Idn और Tidal आपकी सेवा में",
+          email: "<strong>ईमेल:</strong> hello@jio-studio.example",
+          phone: "<strong>फ़ोन:</strong> +91 20 6789 1024",
+          addr: "<strong>पता:</strong> Rajiv Gandhi Infotech Park, Hinjewadi Phase 1, Pune, Maharashtra 411057, India",
+          hours: "<strong>कार्य समय:</strong> सोमवार–शुक्रवार 09:30–18:30 IST",
+          reply: "<strong>उत्तर समय:</strong> 1 कार्य दिवस के भीतर",
+          note: "नोट: हम रिमोट और ऑन-साइट दोनों माध्यमों से कार्य करते हैं। वीडियो मीटिंग के लिए कृपया ईमेल करें।",
+          formTitle: "प्रोजेक्ट पूछताछ फ़ॉर्म",
+          labelName: "आपका नाम / कंपनी का नाम",
+          labelMember: "संपर्क सदस्य चुनें",
+          labelMsg: "प्रोजेक्ट विवरण",
+          submitBtn: "पूछताछ भेजें",
+          submitted: "धन्यवाद! हमारी टीम 1 कार्य दिवस के भीतर आपसे संपर्क करेगी।"
+        }
+      };
+      function setDemoLang(lang) {
+        document.documentElement.setAttribute("data-lang", lang);
+        document.documentElement.setAttribute("lang", lang === "zh" ? "zh-Hant" : lang);
+        var t = hostI18n[lang] || hostI18n.zh;
+        document.getElementById("demo-page-title").textContent = t.pageTitle;
+        document.getElementById("demo-page-sub").textContent = t.pageSub;
+        document.querySelector('[data-i18n-html="contact.info.email"]').innerHTML = t.email;
+        document.querySelector('[data-i18n-html="contact.info.phone"]').innerHTML = t.phone;
+        document.querySelector('[data-i18n-html="contact.info.addr"]').innerHTML = t.addr;
+        document.querySelector('[data-i18n-html="contact.info.hours"]').innerHTML = t.hours;
+        document.querySelector('[data-i18n-html="contact.info.reply"]').innerHTML = t.reply;
+        document.querySelector('[data-i18n-html="contact.info.note"]').innerHTML = t.note;
+        document.getElementById("demo-form-title").textContent = t.formTitle;
+        document.getElementById("demo-label-name").textContent = t.labelName;
+        document.getElementById("demo-label-member").textContent = t.labelMember;
+        document.getElementById("demo-label-msg").textContent = t.labelMsg;
+        document.getElementById("demo-submit-btn").textContent = t.submitBtn;
+        ["zh", "en", "hi"].forEach(function (code) {
+          var btn = document.getElementById("btn-lang-" + code);
+          if (btn) btn.setAttribute("aria-pressed", code === lang ? "true" : "false");
+        });
+      }
+      document.getElementById("btn-lang-zh").addEventListener("click", function () { setDemoLang("zh"); });
+      document.getElementById("btn-lang-en").addEventListener("click", function () { setDemoLang("en"); });
+      document.getElementById("btn-lang-hi").addEventListener("click", function () { setDemoLang("hi"); });
+      document.getElementById("btn-toggle-offline").addEventListener("click", function () {
+        var wrap = document.querySelector(".jio-m17-viewport");
+        if (!wrap) return;
+        var isOffline = wrap.classList.toggle("is-fallback");
+        this.setAttribute("aria-pressed", isOffline ? "true" : "false");
+      });
+      document.getElementById("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var lang = document.documentElement.getAttribute("data-lang") || "zh";
+        var t = hostI18n[lang] || hostI18n.zh;
+        document.getElementById("demo-form-feedback").textContent = t.submitted;
+      });
+      window.addEventListener("DOMContentLoaded", function () {
+        var styleEl = document.getElementById("jio-m17-style");
+        var scriptEl = document.getElementById("jio-m17-script");
+        var area = document.getElementById("module17-raw-code");
+        if (styleEl && scriptEl && area) {
+          area.value = styleEl.outerHTML + "\n\n" + scriptEl.outerHTML;
+        }
+        var copyBtn = document.getElementById("btn-copy-snippet");
+        if (copyBtn && area) {
+          copyBtn.addEventListener("click", function () {
+            area.select();
+            try {
+              document.execCommand("copy");
+              copyBtn.textContent = "已複製模組程式碼！";
+              setTimeout(function () {
+                copyBtn.textContent = "複製獨立模組程式碼";
+              }, 1800);
+            } catch (err) {}
+          });
+        }
+      });
+    })();
+</script>
+
+  <style id="jio-m17-style">.jio-m17-block{margin:0.55rem 0 0.9rem;width:100%;max-width:100%;box-sizing:border-box;font-family:inherit}.jio-m17-viewport{position:relative;width:100%;height:180px;border-radius:10px;overflow:hidden;border:1.5px solid var(--gold,#d9a02b);background-color:var(--cream,#fbf1dc);box-sizing:border-box}.jio-m17-iframe{display:block;width:100%;height:180px;border:0;border-radius:10px;background-color:transparent}.jio-m17-viewport.is-fallback .jio-m17-iframe{display:none}.jio-m17-fallback{display:none;position:absolute;inset:0;width:100%;height:100%;padding:0.75rem 0.85rem;box-sizing:border-box;background-color:var(--cream,#fbf1dc);background-image:radial-gradient(var(--gold,#d9a02b) 1.35px,transparent 1.35px),radial-gradient(var(--saffron,#e8782a) 1.1px,transparent 1.1px),linear-gradient(135deg,rgba(232,120,42,0.1) 0%,rgba(31,122,122,0.08) 100%);background-size:16px 16px,32px 32px,100% 100%;background-position:0 0,8px 8px,0 0;flex-direction:column;justify-content:space-between;color:var(--brown,#3b1d0b)}.jio-m17-viewport.is-fallback .jio-m17-fallback{display:flex}.jio-m17-fallback::before{content:"";position:absolute;inset:0;background-image:linear-gradient(28deg,transparent 46%,rgba(217,160,43,0.28) 47%,rgba(217,160,43,0.28) 51%,transparent 52%),linear-gradient(-35deg,transparent 58%,rgba(31,122,122,0.2) 59%,rgba(31,122,122,0.2) 62%,transparent 63%);pointer-events:none}.jio-m17-fb-top{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:0.4rem;flex-wrap:wrap}.jio-m17-fb-tag{display:inline-flex;align-items:center;gap:0.35rem;background-color:var(--paper,#fff8e8);color:var(--brown2,#5a2f12);border:1px solid var(--gold,#d9a02b);border-radius:999px;padding:0.18rem 0.6rem;font-size:0.74rem;font-weight:700;letter-spacing:0.02em}.jio-m17-fb-tag-dot{width:7px;height:7px;border-radius:50%;background-color:var(--saffron,#e8782a);display:inline-block}.jio-m17-fb-coords{font-size:0.72rem;font-weight:600;color:var(--teal,#1f7a7a);background-color:var(--paper,#fff8e8);border:1px solid rgba(31,122,122,0.35);padding:0.14rem 0.48rem;border-radius:6px}.jio-m17-fb-center{position:relative;z-index:1;display:flex;align-items:center;gap:0.65rem;background-color:var(--paper,#fff8e8);border:1px solid var(--gold,#d9a02b);border-left:4px solid var(--saffron,#e8782a);border-radius:8px;padding:0.5rem 0.65rem;max-width:100%}.jio-m17-pin{position:relative;width:20px;height:20px;border-radius:50% 50% 50% 0;background-color:var(--saffron,#e8782a);border:2px solid var(--brown,#3b1d0b);transform:rotate(-45deg);flex-shrink:0;margin-left:2px}.jio-m17-pin::after{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background-color:var(--paper,#fff8e8);top:50%;left:50%;transform:translate(-50%,-50%)}.jio-m17-fb-addr{min-width:0;flex:1}.jio-m17-fb-title{font-size:0.82rem;font-weight:700;color:var(--brown,#3b1d0b);line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.jio-m17-fb-sub{font-size:0.74rem;color:var(--brown2,#5a2f12);line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.jio-m17-fb-bottom{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;font-size:0.73rem;color:var(--brown2,#5a2f12);font-weight:600}.jio-m17-overlay{position:absolute;inset:0;z-index:3;display:flex;align-items:flex-end;justify-content:flex-end;padding:0.55rem;background-color:rgba(59,29,11,0);color:var(--paper,#fff8e8);text-decoration:none;cursor:pointer;border-radius:10px;box-sizing:border-box;transition:background-color 0.18s ease}.jio-m17-overlay:hover{background-color:rgba(59,29,11,0.12)}.jio-m17-overlay:active{background-color:rgba(59,29,11,0.22)}.jio-m17-overlay:focus-visible{outline:3px solid var(--saffron,#e8782a);outline-offset:-3px;background-color:rgba(59,29,11,0.15)}.jio-m17-cta-pill{display:inline-flex;align-items:center;gap:0.35rem;background-color:var(--brown,#3b1d0b);color:var(--paper,#fff8e8);border:1.5px solid var(--gold,#d9a02b);border-radius:999px;padding:0.28rem 0.68rem;font-size:0.76rem;font-weight:600;line-height:1.2;max-width:100%;transition:background-color 0.18s ease,color 0.18s ease,border-color 0.18s ease}.jio-m17-overlay:hover .jio-m17-cta-pill,.jio-m17-overlay:focus-visible .jio-m17-cta-pill{background-color:var(--saffron,#e8782a);color:#ffffff;border-color:var(--paper,#fff8e8)}.jio-m17-cta-arrow{font-size:0.82rem;line-height:1}.jio-m17-caption{margin:0.42rem 0 0;font-size:0.78rem;line-height:1.45;color:var(--brown2,#5a2f12);display:flex;flex-wrap:wrap;align-items:center;gap:0.25rem 0.5rem;word-break:break-word}.jio-m17-caption-sep{color:var(--gold,#d9a02b);font-weight:700;user-select:none}.jio-m17-caption-privacy{color:var(--teal,#1f7a7a);font-weight:500}@media (max-width:390px){.jio-m17-fb-coords{display:none}.jio-m17-caption{font-size:0.74rem}}@media (prefers-reduced-motion:reduce){.jio-m17-overlay,.jio-m17-cta-pill{transition:none!important}}</style>
+
+  <script id="jio-m17-script">
+    (function () {
+      "use strict";
+      try {
+        var contactSection = document.querySelector("section.page#contact, #contact");
+        if (!contactSection) return;
+        var infoCard = contactSection.querySelector(".info.card");
+        if (!infoCard) return;
+        var addrParagraph = infoCard.querySelector('[data-i18n-html="contact.info.addr"]');
+        if (!addrParagraph) return;
+        if (infoCard.querySelector(".jio-m17-block")) return;
+        var EMBED_URL = "https://www.google.com/maps?q=Rajiv+Gandhi+Infotech+Park+Hinjewadi+Phase+1+Pune+Maharashtra+411057+India&output=embed";
+        var SEARCH_URL = "https://www.google.com/maps/search/?api=1&query=Rajiv+Gandhi+Infotech+Park+Hinjewadi+Phase+1+Pune+Maharashtra+411057+India";
+        var I18N = {
+          zh: {
+            iframeTitle: "JIO 軟體工坊公司位置地圖（印度浦那 Hinjewadi Phase 1）",
+            ariaOpen: "在新視窗開啟 Google 地圖",
+            pillLabel: "開啟 Google 地圖",
+            hintLocation: "點選地圖可在新視窗查看公司位置（示範地址）",
+            hintGoogle: "載入地圖會連線到 Google",
+            fbTag: "浦那 Hinjewadi 園區",
+            fbTitle: "Rajiv Gandhi Infotech Park, Phase 1",
+            fbSub: "Pune, Maharashtra 411057, India（示範地址）",
+            fbOffline: "離線點陣預覽 · 點擊開啟外部地圖"
+          },
+          en: {
+            iframeTitle: "JIO Software Studio Location Map (Hinjewadi Phase 1, Pune, India)",
+            ariaOpen: "Open Google Maps in a new window",
+            pillLabel: "Open in Google Maps",
+            hintLocation: "Click the map to view our office location in a new window (demo address)",
+            hintGoogle: "Loading the map connects to Google",
+            fbTag: "Pune Hinjewadi IT Park",
+            fbTitle: "Rajiv Gandhi Infotech Park, Phase 1",
+            fbSub: "Pune, Maharashtra 411057, India (Demo Address)",
+            fbOffline: "Offline dot-matrix preview · Click to open map"
+          },
+          hi: {
+            iframeTitle: "JIO सॉफ्टवेयर स्टूडियो स्थान मानचित्र (हिंजेवाड़ी फेज़ 1, पुणे, भारत)",
+            ariaOpen: "नए विंडो में Google मानचित्र खोलें",
+            pillLabel: "Google मानचित्र खोलें",
+            hintLocation: "नई विंडो में कंपनी का स्थान देखने के लिए मानचित्र पर क्लिक करें (उदाहरण पता)",
+            hintGoogle: "मानचित्र लोड करने पर Google से कनेक्ट होगा",
+            fbTag: "पुणे हिंजेवाड़ी आईटी पार्क",
+            fbTitle: "Rajiv Gandhi Infotech Park, Phase 1",
+            fbSub: "पुणे, महाराष्ट्र 411057, भारत (उदाहरण पता)",
+            fbOffline: "ऑफ़लाइन मानचित्र पूर्वावलोकन · बाहर खोलने हेतु क्लिक करें"
+          }
+        };
+        function resolveLang() {
+          try {
+            var raw = (
+              document.documentElement.getAttribute("data-lang") ||
+              document.documentElement.getAttribute("lang") ||
+              "zh"
+            ).toLowerCase();
+            if (raw.indexOf("en") === 0) return "en";
+            if (raw.indexOf("hi") === 0) return "hi";
+            return "zh";
+          } catch (e) {
+            return "zh";
+          }
+        }
+        var container = document.createElement("div");
+        container.className = "jio-m17-block";
+        container.setAttribute("data-jio-module", "contact-map-17");
+        var viewport = document.createElement("div");
+        viewport.className = "jio-m17-viewport";
+        var iframe = document.createElement("iframe");
+        iframe.className = "jio-m17-iframe";
+        iframe.setAttribute("loading", "lazy");
+        iframe.setAttribute("referrerpolicy", "no-referrer-when-downgrade");
+        iframe.setAttribute("tabindex", "-1");
+        iframe.setAttribute("aria-hidden", "true");
+        var fallback = document.createElement("div");
+        fallback.className = "jio-m17-fallback";
+        fallback.setAttribute("aria-hidden", "true");
+        var fbTop = document.createElement("div");
+        fbTop.className = "jio-m17-fb-top";
+        var fbTag = document.createElement("span");
+        fbTag.className = "jio-m17-fb-tag";
+        var fbTagDot = document.createElement("span");
+        fbTagDot.className = "jio-m17-fb-tag-dot";
+        var fbTagText = document.createElement("span");
+        fbTag.appendChild(fbTagDot);
+        fbTag.appendChild(fbTagText);
+        var fbCoords = document.createElement("span");
+        fbCoords.className = "jio-m17-fb-coords";
+        fbCoords.textContent = "18.5913° N, 73.7389° E";
+        fbTop.appendChild(fbTag);
+        fbTop.appendChild(fbCoords);
+        var fbCenter = document.createElement("div");
+        fbCenter.className = "jio-m17-fb-center";
+        var pin = document.createElement("span");
+        pin.className = "jio-m17-pin";
+        var fbAddr = document.createElement("div");
+        fbAddr.className = "jio-m17-fb-addr";
+        var fbTitle = document.createElement("div");
+        fbTitle.className = "jio-m17-fb-title";
+        var fbSub = document.createElement("div");
+        fbSub.className = "jio-m17-fb-sub";
+        fbAddr.appendChild(fbTitle);
+        fbAddr.appendChild(fbSub);
+        fbCenter.appendChild(pin);
+        fbCenter.appendChild(fbAddr);
+        var fbBottom = document.createElement("div");
+        fbBottom.className = "jio-m17-fb-bottom";
+        var fbOfflineText = document.createElement("span");
+        fbBottom.appendChild(fbOfflineText);
+        fallback.appendChild(fbTop);
+        fallback.appendChild(fbCenter);
+        fallback.appendChild(fbBottom);
+        var overlayLink = document.createElement("a");
+        overlayLink.className = "jio-m17-overlay";
+        overlayLink.href = SEARCH_URL;
+        overlayLink.target = "_blank";
+        overlayLink.rel = "noopener";
+        overlayLink.setAttribute("role", "button");
+        var ctaPill = document.createElement("span");
+        ctaPill.className = "jio-m17-cta-pill";
+        var ctaText = document.createElement("span");
+        var ctaArrow = document.createElement("span");
+        ctaArrow.className = "jio-m17-cta-arrow";
+        ctaArrow.setAttribute("aria-hidden", "true");
+        ctaArrow.textContent = "↗";
+        ctaPill.appendChild(ctaText);
+        ctaPill.appendChild(ctaArrow);
+        overlayLink.appendChild(ctaPill);
+        var caption = document.createElement("p");
+        caption.className = "jio-m17-caption";
+        var capLocation = document.createElement("span");
+        var capSep = document.createElement("span");
+        capSep.className = "jio-m17-caption-sep";
+        capSep.setAttribute("aria-hidden", "true");
+        capSep.textContent = "·";
+        var capGoogle = document.createElement("span");
+        capGoogle.className = "jio-m17-caption-privacy";
+        caption.appendChild(capLocation);
+        caption.appendChild(capSep);
+        caption.appendChild(capGoogle);
+        viewport.appendChild(iframe);
+        viewport.appendChild(fallback);
+        viewport.appendChild(overlayLink);
+        container.appendChild(viewport);
+        container.appendChild(caption);
+        function activateFallback() {
+          try {
+            viewport.classList.add("is-fallback");
+          } catch (e) {}
+        }
+        function deactivateFallback() {
+          try {
+            viewport.classList.remove("is-fallback");
+          } catch (e) {}
+        }
+        var iframeLoaded = false;
+        iframe.addEventListener("load", function () {
+          iframeLoaded = true;
+          if (typeof navigator !== "undefined" && navigator.onLine === false) {
+            activateFallback();
+          }
+        });
+        iframe.addEventListener("error", function () {
+          activateFallback();
+        });
+        if (typeof navigator !== "undefined" && navigator.onLine === false) {
+          activateFallback();
+        } else {
+          iframe.src = EMBED_URL;
+        }
+        window.addEventListener("offline", function () {
+          activateFallback();
+        });
+        window.addEventListener("online", function () {
+          try {
+            if (!iframe.getAttribute("src")) {
+              iframe.src = EMBED_URL;
+            }
+            deactivateFallback();
+          } catch (e) {}
+        });
+        setTimeout(function () {
+          try {
+            if (!iframeLoaded && typeof navigator !== "undefined" && navigator.onLine === false) {
+              activateFallback();
+            }
+          } catch (e) {}
+        }, 4500);
+        overlayLink.addEventListener("click", function (ev) {
+          try {
+            var popup = window.open(
+              SEARCH_URL,
+              "jioMap",
+              "noopener,noreferrer,width=980,height=720"
+            );
+            if (popup) {
+              ev.preventDefault();
+              try {
+                popup.focus();
+              } catch (focusErr) {}
+            }
+          } catch (err) {
+          }
+        });
+        overlayLink.addEventListener("keydown", function (ev) {
+          if (ev.key === " " || ev.code === "Space") {
+            ev.preventDefault();
+            overlayLink.click();
+          }
+        });
+        function applyTranslations() {
+          try {
+            var lang = resolveLang();
+            var pack = I18N[lang] || I18N.zh;
+            iframe.title = pack.iframeTitle;
+            overlayLink.setAttribute("aria-label", pack.ariaOpen);
+            overlayLink.title = pack.ariaOpen;
+            ctaText.textContent = pack.pillLabel;
+            capLocation.textContent = pack.hintLocation;
+            capGoogle.textContent = pack.hintGoogle;
+            fbTagText.textContent = pack.fbTag;
+            fbTitle.textContent = pack.fbTitle;
+            fbSub.textContent = pack.fbSub;
+            fbOfflineText.textContent = pack.fbOffline;
+          } catch (e) {}
+        }
+        applyTranslations();
+        addrParagraph.insertAdjacentElement("afterend", container);
+        if (typeof MutationObserver !== "undefined") {
+          var langObserver = new MutationObserver(function (mutations) {
+            for (var i = 0; i < mutations.length; i++) {
+              if (mutations[i].type === "attributes") {
+                applyTranslations();
+                break;
+              }
+            }
+          });
+          langObserver.observe(document.documentElement, {
+            attributes: true,
+            attributeFilter: ["data-lang", "lang"]
+          });
+        }
+      } catch (err) {
+      }
+    })();
+</script>
+</body>
+</html>
 
 <style id="jio-qa-patch-style">body::after{background-image:radial-gradient(ellipse at center,transparent 55%,rgba(59,29,11,0.045) 100%)!important;opacity:1!important;will-change:auto!important}.jio-reveal-ready{opacity:1!important;transform:none!important;will-change:auto!important}.jio-marigold-petal:nth-child(even),header.jio-header-scrolled+.border-band{filter:none!important}section.page:not(.on){content-visibility:auto}html[data-active-page]:not([data-active-page="home"]) .jio-oil-lamp-glow,html[data-active-page]:not([data-active-page="home"]) .jio-oil-lamp-glow::after,html[data-active-page]:not([data-active-page="home"]) .jio-marigold-petal,html[data-active-page]:not([data-active-page="home"]) .jio-dw-live-dot,html.jio-page-hidden *{animation-play-state:paused!important}html.jio-low-tier-device .jio-marigold-petal{display:none!important}html.jio-low-tier-device .jio-oil-lamp-glow,html.jio-low-tier-device .jio-oil-lamp-glow::after,html.jio-low-tier-device .jio-dw-live-dot{animation:none!important}html.jio-low-tier-device .card,html.jio-low-tier-device .stat,html.jio-low-tier-device .shot,html.jio-low-tier-device .sheet,html.jio-low-tier-device .node,html.jio-low-tier-device .jio-dw-card,html.jio-low-tier-device #jio-duty-wall,html.jio-low-tier-device .jio-m6-block{box-shadow:0 2px 6px rgba(59,29,11,0.08)!important;transition-duration:0.15s!important}body::after{z-index:9980!important}.jio-m5-fab{z-index:9992!important}.jio-m5-panel,.jio-m3-panel{z-index:9995!important}.jio-m3-lamp-toast{z-index:9996!important}.jio-m3-petal-stage{z-index:9997!important}.jio-m3-banner{z-index:9998!important}main h2::before{content:"❀ ॥ श्री ॥ ❀"!important;display:inline-block!important;width:auto!important;height:auto!important;background-image:none!important;font-family:"Yatra One","Rozha One","Noto Sans Devanagari",serif!important;font-size:0.8rem!important;font-weight:400!important;color:#9e3d08!important;background-color:rgba(232,120,42,0.12)!important;border:1px solid var(--gold,#d9a02b)!important;padding:1px 10px!important;border-radius:999px!important;margin:0 10px 0 0!important;vertical-align:middle!important;letter-spacing:0.05em!important}main h2::after{content:""!important;display:block!important;width:96px!important;height:6px!important;margin:8px 0 0 0!important;border-radius:3px!important;background-image:repeating-linear-gradient(90deg,var(--saffron,#e8782a) 0 14px,var(--gold,#d9a02b) 14px 28px,var(--teal,#1f7a7a) 28px 42px)!important;background-size:auto!important;opacity:0.95!important}@media (max-width:640px){#contact,footer{padding-bottom:92px!important}#contact form{margin-bottom:28px!important}.jio-m3-pantry-wrap{left:10px!important;bottom:12px!important}.jio-m3-cup-btn{width:46px!important;height:46px!important}.jio-m5-fab{right:10px!important;bottom:12px!important;max-width:calc(100vw - 76px)!important;padding:6px 11px 6px 6px!important}.jio-m3-panel,.jio-m5-panel{left:8px!important;right:8px!important;bottom:66px!important;width:calc(100vw - 16px)!important;max-width:calc(100vw - 16px)!important;max-height:calc(100vh - 82px)!important}}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,[tabindex]:focus-visible{outline:3px solid var(--saffron,#e8782a)!important;outline-offset:2px!important}.sheet button:focus-visible,header a:focus-visible,header button:focus-visible{outline-color:var(--gold,#ffd36b)!important}.stat b,.shot figcaption b,.jio-dw-card-foot,.jio-acc-icon{color:#9e3d08!important}.note{color:#6b4c2b!important}.sheet-body .note{color:#9fe8d8!important}.jio-m6-badge,.jio-m6-stage-time,.jio-cases-disclaimer-badge,.jio-m3-cup-badge{background-color:#a83e06!important;color:#fff8e8!important}.jio-cases-cta-btn{background-color:#a83e06!important;color:#ffffff!important}.jio-cases-cta-btn:hover,.jio-cases-cta-btn:focus-visible{background-color:var(--brown,#3b1d0b)!important}.jio-m3-layer,.jio-m3-pantry-wrap,.jio-m3-banner,.jio-m3-lamp-toast,.jio-m3-meltdown-bubble,.jio-m5-root,.jio-m5-root button,.jio-m3-pantry-wrap button{font-family:var(--font-body,"Hind","Noto Sans Devanagari","Noto Sans TC",sans-serif)!important}.jio-m3-panel-title,.jio-m3-banner-main,.jio-m3-lamp-title,.jio-m5-agent-name,.jio-dw-title,.jio-dw-name,.jio-case-title,.jio-m6-h3,.jio-m6-value-title{font-family:var(--font-heading,"Yatra One","Rozha One","Noto Sans Devanagari","Noto Serif TC",serif)!important}</style>
 
