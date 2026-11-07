@@ -722,7 +722,7 @@ document.addEventListener('click',e=>{
   if(b.dataset.t){tab=+b.dataset.t;renderSheet()}
 });
 // 聯絡表單寄信：Google Apps Script 網頁應用程式網址（見 apps_script/部署步驟.md）。留空就退回開啟郵件程式。
-const MAIL_URL='';
+const MAIL_URL='https://script.google.com/macros/s/AKfycbwDKAXXhzQ5T7e93W-mzk7xX_5FSdErS42ph0Vtk6my_tBIlX5M5MmL5tVIRS6V1MOmEA/exec';
 const FORM_MSG={zh:{sending:'寄送中…',ok:'已寄出！我們會在一個工作天內回覆您。',fail:'寄送失敗，改用郵件程式寄出…'},
  en:{sending:'Sending…',ok:'Sent! We will reply within one business day.',fail:'Could not send; opening your mail app instead…'},
  hi:{sending:'भेजा जा रहा है…',ok:'भेज दिया गया! हम एक कार्यदिवस में जवाब देंगे।',fail:'भेजा नहीं जा सका; आपका मेल ऐप खोला जा रहा है…'}};
