@@ -10937,6 +10937,14 @@ route();
 .jio-m18 h3{margin:1.4rem 0 .5rem;font-size:1.2rem;border-left:5px solid var(--saffron,#e8782a);padding-left:.6rem}
 .jio-m18 .card2{background:var(--paper,#fff8e8);border:1px solid var(--gold,#d9a02b);border-radius:10px;padding:.9rem 1rem;margin:0 0 1rem}
 .jio-m18 video{width:100%;max-width:100%;border-radius:8px;background:#000;display:block}
+.jio-m18 .yt{position:relative;width:100%;aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:#000;margin:.5rem 0}
+.jio-m18 .yt button{all:unset;cursor:pointer;position:absolute;inset:0;display:block}
+.jio-m18 .yt img{width:100%;height:100%;object-fit:cover;display:block}
+.jio-m18 .yt .play{position:absolute;left:50%;top:50%;width:68px;height:48px;margin:-24px 0 0 -34px;background:#e33;border-radius:14px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+.jio-m18 .yt .play:after{content:'';position:absolute;left:27px;top:14px;border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff}
+.jio-m18 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.jio-m18 .yt .soon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fbf1dc;font-weight:700;background:linear-gradient(135deg,#5a2f12,#3b1d0b)}
+.jio-m18 .ytlink{font-size:.85rem}
 .jio-m18 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
 .jio-m18 .grid.s{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
 .jio-m18 figure{margin:0;background:var(--cream,#fbf1dc);border:1px solid rgba(90,47,18,.25);border-radius:8px;padding:.5rem}
@@ -10964,7 +10972,7 @@ var I={
 zh:{nav:'作品集',title:'JIO 作品集',sub:'公司員工的最新作品：YouTube 影片、連載漫畫與接力成果。點一下就能看。',
  t1:'YouTube 影片',t2:'連載漫畫',t3:'接力作品',
  ytH:'YouTube 頻道《員工搞笑日常》',ep1:'第 1 集：世界上最厲害的動物',ep1d:'Rudy 考大家「世界上最厲害的動物」是誰，答案竟然是蜘蛛，結局還有一個小反轉。內含繁體中文字幕。',
- ep2:'第 2 集：公園大作戰',ep2d:'四位員工的公園大冒險（第一版）。',shots:'第 1 集 · 9 個分鏡片段',shotsd:'員工逐鏡製作的動畫片段，最後剪接成完整影片。',
+ ep2:'第 2 集：公園大作戰',ep2d:'四位員工在社區公園玩遍滑梯、隧道、攀爬網和健身器材，比誰最會玩。',soon:'YouTube 即將上架',ytl:'在 YouTube 開啟',shots:'第 1 集 · 9 個分鏡片段',shotsd:'員工逐鏡製作的動畫片段，最後剪接成完整影片。',
  cmH:'《時薪三千的唯一魔球》第 1 話',cmd:'連載漫畫・棒球員成長故事。白天低調領時薪的投手，深夜裂隙出現時才露出真本事。',chars:'角色設定圖',pages:'第 1 話 · 漫畫頁（共 6 頁，點圖放大）',
  rlH:'接力工作流程',rld:'四位員工每小時輪流接棒、共用一份「待辦清單」文件：誰輪到誰做，做完把進度與下一棒寫回去；若超過 1 小時沒人接，下一位就順延接手。',
  rls:['老闆在「JIO 待辦清單」寫總目標，第一棒交給 Rudy','每小時輪到一位員工：Rudy → Kaz → Idn → Tidal → Rudy …','輪到我就做這一棒、寫成果，更新「下一棒交接」與時間','不是我、也沒超時：回報「還沒輪到我」就結束；超過 1 小時沒人接就順延接手','全部完成後寫「已完成，等老闆驗收」，老闆驗收後上傳'],
@@ -10974,7 +10982,7 @@ zh:{nav:'作品集',title:'JIO 作品集',sub:'公司員工的最新作品：You
 en:{nav:'Works',title:'JIO Works',sub:'Latest creations by our team: YouTube videos, a serial comic and relay projects. Click to view.',
  t1:'YouTube',t2:'Serial Comic',t3:'Relay Projects',
  ytH:'YouTube channel "Staff Funny Daily"',ep1:'Episode 1: The Most Powerful Animal',ep1d:'Rudy quizzes everyone on the most powerful animal in the world. The answer is the spider, with a twist ending. Traditional Chinese subtitles included.',
- ep2:'Episode 2: Park Showdown',ep2d:'The four employees\' park adventure (first cut).',shots:'Episode 1 · 9 storyboard clips',shotsd:'Animated clips made shot by shot, then edited into the full video.',
+ ep2:'Episode 2: Park Showdown',ep2d:'The four employees take over a neighborhood park: slides, tunnels, climbing nets and fitness gear.',soon:'Coming soon on YouTube',ytl:'Open on YouTube',shots:'Episode 1 · 9 storyboard clips',shotsd:'Animated clips made shot by shot, then edited into the full video.',
  cmH:'"The Three-Thousand-an-Hour Magic Pitch" Ch. 1',cmd:'A baseball growth story. A low-key pitcher clocks in for hourly pay by day and reveals his real power when a rift opens at night.',chars:'Character sheets',pages:'Chapter 1 · 6 pages (click to enlarge)',
  rlH:'The relay workflow',rld:'The four employees take turns every hour using one shared to-do document: whoever is next does the work, then writes progress and the next handoff. If nobody picks up within an hour, the next person takes over.',
  rls:['The boss writes the main goal in the "JIO to-do list" and hands the first leg to Rudy','Every hour one employee is up: Rudy → Kaz → Idn → Tidal → Rudy …','If it is my turn I do the work, write results and update the handoff and time','Not my turn and not overdue: report "not my turn yet" and stop; overdue by 1 hour: take over','When all done, mark "Done, awaiting boss review", then publish after review'],
@@ -10984,7 +10992,7 @@ en:{nav:'Works',title:'JIO Works',sub:'Latest creations by our team: YouTube vid
 hi:{nav:'कार्य-संग्रह',title:'JIO कार्य-संग्रह',sub:'हमारी टीम के नए काम: YouTube वीडियो, धारावाहिक कॉमिक और रिले प्रोजेक्ट। देखने के लिए क्लिक करें।',
  t1:'YouTube',t2:'कॉमिक',t3:'रिले प्रोजेक्ट',
  ytH:'YouTube चैनल "स्टाफ फनी डेली"',ep1:'एपिसोड 1: दुनिया का सबसे ताकतवर जानवर',ep1d:'Rudy सबसे ताकतवर जानवर पूछता है; जवाब मकड़ी है, अंत में एक मोड़ भी है। चीनी उपशीर्षक सहित।',
- ep2:'एपिसोड 2: पार्क की जंग',ep2d:'चारों कर्मचारियों का पार्क-एडवेंचर (पहला संस्करण)।',shots:'एपिसोड 1 · 9 शॉट क्लिप',shotsd:'हर शॉट अलग से बना, फिर पूरे वीडियो में जोड़ा गया।',
+ ep2:'एपिसोड 2: पार्क की जंग',ep2d:'चारों कर्मचारी पार्क में स्लाइड, सुरंग और जाल पर मस्ती करते हैं।',soon:'जल्द ही YouTube पर',ytl:'YouTube पर खोलें',shots:'एपिसोड 1 · 9 शॉट क्लिप',shotsd:'हर शॉट अलग से बना, फिर पूरे वीडियो में जोड़ा गया।',
  cmH:'"तीन हज़ार प्रति घंटे वाली जादुई गेंद" अध्याय 1',cmd:'बेसबॉल कॉमिक। दिन में शांत गेंदबाज़, रात में दरार खुलने पर असली ताकत।',chars:'किरदार शीट',pages:'अध्याय 1 · 6 पृष्ठ (बड़ा करने के लिए क्लिक करें)',
  rlH:'रिले कार्य-प्रवाह',rld:'चारों कर्मचारी हर घंटे बारी-बारी से एक साझा सूची पर काम करते हैं; काम के बाद प्रगति और अगली बारी लिखते हैं। एक घंटे तक कोई न आए तो अगला व्यक्ति संभाल लेता है।',
  rls:['मालिक "JIO टू-डू सूची" में लक्ष्य लिखकर पहली बारी Rudy को देता है','हर घंटे एक कर्मचारी: Rudy → Kaz → Idn → Tidal → Rudy …','मेरी बारी हो तो काम करें, नतीजा और अगली बारी लिखें','बारी न हो और समय न बीता हो तो "अभी बारी नहीं" कहकर रुकें; 1 घंटा बीते तो संभाल लें','पूरा होने पर "पूर्ण, मालिक की जाँच बाकी" लिखें'],
@@ -10996,13 +11004,18 @@ function lang(){var r=(document.documentElement.getAttribute('data-lang')||docum
 function t(k){var d=I[lang()]||I.zh;return d[k]!=null?d[k]:I.zh[k]}
 var chars=[['01B','c01B'],['01_','c01'],['02_','c02'],['03_','c03'],['04_','c04'],['05_','c05'],['06_','c06']];
 var cols=['#c0392b','#2c5fa8','#2e7d32','#c99a06'],names=['Rudy','Kaz','Idn','Tidal'];
+// YouTube 集數：新的一集上傳 YouTube 後，把影片 ID 填進 id 即可（例如 https://youtu.be/XXXX 的 XXXX）
+var EPS=[{k:'ep1',id:'Q4tEqUBN2lc'},{k:'ep2',id:''}];
 var sec=document.createElement('section');sec.id='works';sec.className='page jio-m18';
 var h='<h2 data-wk="title"></h2><p class="sub" data-wk="sub"></p><div class="jio-m18-tabs" role="tablist">'
 +'<button data-w="yt" class="on" data-wk="t1"></button><button data-w="cm" data-wk="t2"></button><button data-w="rl" data-wk="t3"></button></div>';
 // YouTube
 h+='<div class="jio-m18-pane on" data-pane="yt"><h3 data-wk="ytH"></h3><div class="two">'
-+'<div class="card2"><strong data-wk="ep1"></strong><video controls preload="metadata" playsinline><source src="works/video/ep1.mp4" type="video/mp4"><track kind="subtitles" src="works/video/ep1.vtt" srclang="zh" label="繁體中文" default></video><p data-wk="ep1d"></p></div>'
-+'<div class="card2"><strong data-wk="ep2"></strong><video controls preload="metadata" playsinline><source src="works/video/ep2.mp4" type="video/mp4"></video><p data-wk="ep2d"></p></div></div>'
++EPS.map(function(e){var c='<div class="card2"><strong data-wk="'+e.k+'"></strong><div class="yt" data-yt="'+e.id+'">';
+ c+=e.id?'<button type="button" aria-label="Play"><img loading="lazy" alt="" src="https://i.ytimg.com/vi/'+e.id+'/hqdefault.jpg"><span class="play"></span></button>':'<div class="soon" data-wk="soon"></div>';
+ c+='</div><p data-wk="'+e.k+'d"></p>';
+ if(e.id)c+='<a class="ytlink" target="_blank" rel="noopener" href="https://youtu.be/'+e.id+'" data-wk="ytl"></a>';
+ return c+'</div>'}).join('')+'</div>'
 +'<h3 data-wk="shots"></h3><p class="sub" data-wk="shotsd"></p><div class="grid s">';
 for(var i=1;i<=9;i++){var n=('0'+i).slice(-2);h+='<figure><video controls preload="none" playsinline src="works/video/shot'+n+'.mp4"></video><figcaption>#'+n+'</figcaption></figure>'}
 h+='</div></div>';
@@ -11028,6 +11041,7 @@ function closeLb(){lb.classList.remove('on')}
 lb.addEventListener('click',function(e){if(e.target!==lbi)closeLb()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
 sec.addEventListener('click',function(e){
+ var yb=e.target.closest&&e.target.closest('.yt button');if(yb){var w=yb.parentNode,id=w.getAttribute('data-yt');w.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="YouTube"></iframe>';return}
  var img=e.target.closest&&e.target.closest('figure img');if(img){lbi.src=img.src;lb.classList.add('on');return}
  var b=e.target.closest&&e.target.closest('.jio-m18-tabs button');if(!b)return;
  sec.querySelectorAll('.jio-m18-tabs button').forEach(function(x){x.classList.toggle('on',x===b)});
