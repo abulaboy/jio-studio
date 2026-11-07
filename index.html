@@ -145,7 +145,9 @@
         <option data-i18n="contact.form.opt4">其他</option>
       </select>
       <label data-i18n="contact.form.msg">想法與需求</label><textarea rows="4" name="m" required placeholder="請簡述您的專案想法、時程或預算範圍……" data-i18n-ph="contact.form.msgPh"></textarea>
+      <input name="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <p style="margin-top:14px"><button class="btn" type="submit" data-i18n="contact.form.submit">寄出需求</button></p>
+      <p id="form-status" aria-live="polite" style="margin-top:8px;font-weight:600"></p>
     </form>
   </div>
 </section>
@@ -719,9 +721,23 @@ document.addEventListener('click',e=>{
   if(b.dataset.m){mood=+b.dataset.m;renderSheet()}
   if(b.dataset.t){tab=+b.dataset.t;renderSheet()}
 });
-document.getElementById('form').addEventListener('submit',e=>{
+// 聯絡表單寄信：Google Apps Script 網頁應用程式網址（見 apps_script/部署步驟.md）。留空就退回開啟郵件程式。
+const MAIL_URL='';
+const FORM_MSG={zh:{sending:'寄送中…',ok:'已寄出！我們會在一個工作天內回覆您。',fail:'寄送失敗，改用郵件程式寄出…'},
+ en:{sending:'Sending…',ok:'Sent! We will reply within one business day.',fail:'Could not send; opening your mail app instead…'},
+ hi:{sending:'भेजा जा रहा है…',ok:'भेज दिया गया! हम एक कार्यदिवस में जवाब देंगे।',fail:'भेजा नहीं जा सका; आपका मेल ऐप खोला जा रहा है…'}};
+document.getElementById('form').addEventListener('submit',async e=>{
   e.preventDefault();const f=e.target;
-  const m=I18N[lang].mailto;
+  const m=I18N[lang].mailto,st=document.getElementById('form-status'),fm=FORM_MSG[lang]||FORM_MSG.zh,btn=f.querySelector('button[type=submit]');
+  if(MAIL_URL){
+    st.textContent=fm.sending;btn.disabled=true;
+    try{
+      const r=await fetch(MAIL_URL,{method:'POST',body:JSON.stringify({n:f.n.value,e:f.e.value,t:f.t.value,m:f.m.value,hp:f.hp.value,lang})});
+      const j=await r.json();
+      if(j.ok){st.textContent=fm.ok;f.reset();btn.disabled=false;return}
+    }catch(err){}
+    st.textContent=fm.fail;btn.disabled=false;
+  }
   location.href=`mailto:abulaboyrudy@gmail.com?subject=${encodeURIComponent(m.subjPrefix+f.t.value)}&body=${encodeURIComponent(m.nameLabel+f.n.value+'\n'+m.emailLabel+f.e.value+'\n\n'+f.m.value)}`;
 });
 setLang(getStoredLang());
@@ -10976,7 +10992,7 @@ zh:{nav:'作品集',title:'JIO 作品集',sub:'公司員工的最新作品：You
  cmH:'《時薪三千的唯一魔球》第 1 話',cmd:'連載漫畫・棒球員成長故事。白天低調領時薪的投手，深夜裂隙出現時才露出真本事。',chars:'角色設定圖',pages:'第 1 話 · 漫畫頁（共 6 頁，點圖放大）',
  rlH:'接力工作流程',rld:'四位員工每小時輪流接棒、共用一份「待辦清單」文件：誰輪到誰做，做完把進度與下一棒寫回去；若超過 1 小時沒人接，下一位就順延接手。',
  rls:['老闆在「JIO 待辦清單」寫總目標，第一棒交給 Rudy','每小時輪到一位員工：Rudy → Kaz → Idn → Tidal → Rudy …','輪到我就做這一棒、寫成果，更新「下一棒交接」與時間','不是我、也沒超時：回報「還沒輪到我」就結束；超過 1 小時沒人接就順延接手','全部完成後寫「已完成，等老闆驗收」，老闆驗收後上傳'],
- gmH:'接力成果：《家裡走走》遊戲',gmd:'員工接力把遊戲一版一版升級到第 148 版，16 樓的家、JIO 公司和北海道棒球場都走得進去。另有四人接力重寫的外傳《超大版》：200 臺 7-11 大街、飛機場、Minecraft 大城堡與寶可夢大道。',play:'玩最新版（v148）',play2:'外傳：超大版 v150 完整版',play3:'外傳：超大版 v150 快速版',rpt:'JIO 試做報告（2026-10-28）',open:'另開新視窗',
+ gmH:'接力成果：《家裡走走》遊戲',gmd:'員工接力把遊戲一版一版升級到第 148 版，16 樓的家、JIO 公司和北海道棒球場都走得進去。另有四人接力重寫的外傳《超大版》：200 臺 7-11 大街、飛機場、Minecraft 大城堡與寶可夢大道。',play:'玩最新版（v148）',playS:'v148 流暢版（比較順，畫質略降）',play2:'外傳：超大版 v150 完整版',play3:'外傳：超大版 v150 快速版',rpt:'JIO 試做報告（2026-10-28）',open:'另開新視窗',
  c01B:'凌蒼介・救世覺醒模式',c01:'凌蒼介・日常低調模式',c02:'搭檔捕手・石動煌',c03:'宿命勁敵・白銀聖夜',c04:'戰術分析師・星野緋奈',c05:'傳奇導師・九鬼鐵齋',c06:'核心反派・司馬冥',
  p1:'P1 五萬獎金的誘惑',p2:'P2 唯一魔球零式消音球',p3:'P3 獨眼教頭與準時下班',p4:'P4 深夜球場的蝕界裂隙',p5:'P5 為了保住薪水解放超能力',p6:'P6 一球轟碎深淵與深藏功名',close:'關閉'},
 en:{nav:'Works',title:'JIO Works',sub:'Latest creations by our team: YouTube videos, a serial comic and relay projects. Click to view.',
@@ -10986,7 +11002,7 @@ en:{nav:'Works',title:'JIO Works',sub:'Latest creations by our team: YouTube vid
  cmH:'"The Three-Thousand-an-Hour Magic Pitch" Ch. 1',cmd:'A baseball growth story. A low-key pitcher clocks in for hourly pay by day and reveals his real power when a rift opens at night.',chars:'Character sheets',pages:'Chapter 1 · 6 pages (click to enlarge)',
  rlH:'The relay workflow',rld:'The four employees take turns every hour using one shared to-do document: whoever is next does the work, then writes progress and the next handoff. If nobody picks up within an hour, the next person takes over.',
  rls:['The boss writes the main goal in the "JIO to-do list" and hands the first leg to Rudy','Every hour one employee is up: Rudy → Kaz → Idn → Tidal → Rudy …','If it is my turn I do the work, write results and update the handoff and time','Not my turn and not overdue: report "not my turn yet" and stop; overdue by 1 hour: take over','When all done, mark "Done, awaiting boss review", then publish after review'],
- gmH:'Relay result: "Walking Around Home" game',gmd:'The team upgraded this game version by version up to v148, with the home, the JIO office and the Hokkaido ballpark all open to explore. A separate spin-off rewritten by the four employees adds a street of 200 convenience stores, an airport, a Minecraft castle and a Pokémon road.',play:'Play the latest (v148)',play2:'Spin-off: Mega v150 full',play3:'Spin-off: Mega v150 instant',rpt:'JIO trial report (2026-10-28)',open:'Open in new window',
+ gmH:'Relay result: "Walking Around Home" game',gmd:'The team upgraded this game version by version up to v148, with the home, the JIO office and the Hokkaido ballpark all open to explore. A separate spin-off rewritten by the four employees adds a street of 200 convenience stores, an airport, a Minecraft castle and a Pokémon road.',play:'Play the latest (v148)',playS:'v148 smooth edition (faster, slightly lower quality)',play2:'Spin-off: Mega v150 full',play3:'Spin-off: Mega v150 instant',rpt:'JIO trial report (2026-10-28)',open:'Open in new window',
  c01B:'Ling Cangjie · Savior Awakening',c01:'Ling Cangjie · Low-key Mode',c02:'Catcher · Ishidou Kou',c03:'Rival · Shirogane Seiya',c04:'Analyst · Hoshino Hina',c05:'Mentor · Kuki Tessai',c06:'Villain · Shiba Mei',
  p1:'P1 The lure of the prize money',p2:'P2 The only pitch: Zero silent ball',p3:'P3 One-eyed coach & leaving on time',p4:'P4 The late-night rift',p5:'P5 Unleashing power to keep the pay',p6:'P6 One pitch shatters the abyss',close:'Close'},
 hi:{nav:'कार्य-संग्रह',title:'JIO कार्य-संग्रह',sub:'हमारी टीम के नए काम: YouTube वीडियो, धारावाहिक कॉमिक और रिले प्रोजेक्ट। देखने के लिए क्लिक करें।',
@@ -10996,7 +11012,7 @@ hi:{nav:'कार्य-संग्रह',title:'JIO कार्य-सं�
  cmH:'"तीन हज़ार प्रति घंटे वाली जादुई गेंद" अध्याय 1',cmd:'बेसबॉल कॉमिक। दिन में शांत गेंदबाज़, रात में दरार खुलने पर असली ताकत।',chars:'किरदार शीट',pages:'अध्याय 1 · 6 पृष्ठ (बड़ा करने के लिए क्लिक करें)',
  rlH:'रिले कार्य-प्रवाह',rld:'चारों कर्मचारी हर घंटे बारी-बारी से एक साझा सूची पर काम करते हैं; काम के बाद प्रगति और अगली बारी लिखते हैं। एक घंटे तक कोई न आए तो अगला व्यक्ति संभाल लेता है।',
  rls:['मालिक "JIO टू-डू सूची" में लक्ष्य लिखकर पहली बारी Rudy को देता है','हर घंटे एक कर्मचारी: Rudy → Kaz → Idn → Tidal → Rudy …','मेरी बारी हो तो काम करें, नतीजा और अगली बारी लिखें','बारी न हो और समय न बीता हो तो "अभी बारी नहीं" कहकर रुकें; 1 घंटा बीते तो संभाल लें','पूरा होने पर "पूर्ण, मालिक की जाँच बाकी" लिखें'],
- gmH:'रिले नतीजा: "घर में सैर" गेम',gmd:'टीम ने इस गेम को संस्करण-दर-संस्करण v148 तक सुधारा: घर, JIO दफ़्तर और होक्काइडो बॉलपार्क। चारों कर्मचारियों का अलग स्पिन-ऑफ़ भी है: 200 दुकानों की सड़क, हवाई अड्डा, Minecraft किला और Pokémon सड़क।',play:'नवीनतम खेलें (v148)',play2:'स्पिन-ऑफ़: Mega v150 पूर्ण',play3:'स्पिन-ऑफ़: Mega v150 इंस्टेंट',rpt:'JIO ट्रायल रिपोर्ट (2026-10-28)',open:'नई विंडो में खोलें',
+ gmH:'रिले नतीजा: "घर में सैर" गेम',gmd:'टीम ने इस गेम को संस्करण-दर-संस्करण v148 तक सुधारा: घर, JIO दफ़्तर और होक्काइडो बॉलपार्क। चारों कर्मचारियों का अलग स्पिन-ऑफ़ भी है: 200 दुकानों की सड़क, हवाई अड्डा, Minecraft किला और Pokémon सड़क।',play:'नवीनतम खेलें (v148)',playS:'v148 स्मूद संस्करण (तेज़, थोड़ी कम गुणवत्ता)',play2:'स्पिन-ऑफ़: Mega v150 पूर्ण',play3:'स्पिन-ऑफ़: Mega v150 इंस्टेंट',rpt:'JIO ट्रायल रिपोर्ट (2026-10-28)',open:'नई विंडो में खोलें',
  c01B:'Ling Cangjie · जागृत रूप',c01:'Ling Cangjie · सामान्य रूप',c02:'कैचर · Ishidou Kou',c03:'प्रतिद्वंद्वी · Shirogane Seiya',c04:'विश्लेषक · Hoshino Hina',c05:'गुरु · Kuki Tessai',c06:'खलनायक · Shiba Mei',
  p1:'P1 इनाम का लालच',p2:'P2 अकेली गेंद: ज़ीरो साइलेंट',p3:'P3 एक आँख वाला कोच',p4:'P4 रात की दरार',p5:'P5 वेतन के लिए शक्ति',p6:'P6 एक गेंद से अंत',close:'बंद करें'}
 };
@@ -11041,7 +11057,7 @@ h+='</div></div>';
 h+='<div class="jio-m18-pane" data-pane="rl"><h3 data-wk="rlH"></h3><div class="card2"><div class="flow">';
 names.forEach(function(n,i){h+='<span style="background:'+cols[i]+'">'+n+'</span><i>→</i>'});
 h+='<i>↻</i></div><p data-wk="rld"></p><ol id="jio-m18-steps"></ol></div>'
-+'<h3 data-wk="gmH"></h3><div class="card2"><p data-wk="gmd"></p><div class="flow"><a class="btn pri" href="works/relay/jiali_zouzou.html" target="_blank" rel="noopener"><b data-wk="play"></b>&nbsp;↗</a><a class="btn" href="works/relay/jiali_v150.html" target="_blank" rel="noopener"><b data-wk="play2"></b>&nbsp;↗</a><a class="btn" href="works/relay/jiali_v150_instant.html" target="_blank" rel="noopener"><b data-wk="play3"></b>&nbsp;↗</a></div></div>'
++'<h3 data-wk="gmH"></h3><div class="card2"><p data-wk="gmd"></p><div class="flow"><a class="btn pri" href="works/relay/jiali_zouzou.html" target="_blank" rel="noopener"><b data-wk="play"></b>&nbsp;↗</a><a class="btn" href="works/relay/jiali_v148_smooth.html" target="_blank" rel="noopener"><b data-wk="playS"></b>&nbsp;↗</a><a class="btn" href="works/relay/jiali_v150.html" target="_blank" rel="noopener"><b data-wk="play2"></b>&nbsp;↗</a><a class="btn" href="works/relay/jiali_v150_instant.html" target="_blank" rel="noopener"><b data-wk="play3"></b>&nbsp;↗</a></div></div>'
 +'<h3 data-wk="rpt"></h3><div class="grid"><figure><img loading="lazy" src="works/relay/trial_report.png" alt=""><figcaption data-wk="rpt"></figcaption></figure></div></div>';
 sec.innerHTML=h;main.appendChild(sec);
 var link=document.createElement('a');link.href='#works';link.id='jio-m18-nav';
