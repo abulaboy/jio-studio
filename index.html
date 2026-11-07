@@ -10921,5 +10921,137 @@ route();
   } catch (err) {}
 })();
 </script>
+
+<!-- module:m18_works.html -->
+<!-- JIO 模組18：作品集（YouTube 影片、連載漫畫、接力作品） -->
+<style id="jio-mod18-style">
+#works.jio-m18{padding:1.25rem 0 2.5rem;color:var(--brown,#3b1d0b);max-width:100%;overflow-x:hidden}
+#works.jio-m18 *,.jio-m18-lb,.jio-m18-lb *{box-sizing:border-box}
+.jio-m18 h2{margin:0 0 .3rem;font-size:1.6rem}
+.jio-m18 .sub{margin:0 0 1rem;color:var(--brown2,#5a2f12)}
+.jio-m18-tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.2rem;border-bottom:2px solid var(--gold,#d9a02b);padding-bottom:.7rem}
+.jio-m18-tabs button,.jio-m18 .btn{font:inherit;font-weight:600;font-size:.92rem;padding:.5rem .95rem;min-height:40px;border-radius:999px;border:1px solid var(--brown2,#5a2f12);background:var(--cream,#fbf1dc);color:var(--brown,#3b1d0b);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.jio-m18-tabs button:hover,.jio-m18 .btn:hover{background:var(--gold,#d9a02b)}
+.jio-m18-tabs button.on,.jio-m18 .btn.pri{background:var(--saffron,#e8782a);color:#fff}
+.jio-m18-pane{display:none}.jio-m18-pane.on{display:block}
+.jio-m18 h3{margin:1.4rem 0 .5rem;font-size:1.2rem;border-left:5px solid var(--saffron,#e8782a);padding-left:.6rem}
+.jio-m18 .card2{background:var(--paper,#fff8e8);border:1px solid var(--gold,#d9a02b);border-radius:10px;padding:.9rem 1rem;margin:0 0 1rem}
+.jio-m18 video{width:100%;max-width:100%;border-radius:8px;background:#000;display:block}
+.jio-m18 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.8rem}
+.jio-m18 .grid.s{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+.jio-m18 figure{margin:0;background:var(--cream,#fbf1dc);border:1px solid rgba(90,47,18,.25);border-radius:8px;padding:.5rem}
+.jio-m18 figure img{width:100%;height:auto;display:block;border-radius:5px;cursor:zoom-in}
+.jio-m18 figcaption{font-size:.84rem;margin-top:.4rem;line-height:1.35}
+.jio-m18 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.jio-m18 .flow{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;margin:.5rem 0}
+.jio-m18 .flow span{padding:.35rem .8rem;border-radius:999px;font-weight:700;color:#fff;font-size:.9rem}
+.jio-m18 .flow i{font-style:normal;font-weight:700}
+.jio-m18 ol,.jio-m18 ul{margin:.3rem 0 .3rem 1.2rem;padding:0;line-height:1.6}
+.jio-m18-lb{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;display:none;align-items:center;justify-content:center;padding:1rem;flex-direction:column;gap:.6rem}
+.jio-m18-lb.on{display:flex}
+.jio-m18-lb img{max-width:100%;max-height:calc(100vh - 90px);object-fit:contain}
+.jio-m18-lb button{font:inherit;padding:.5rem 1.2rem;border-radius:999px;border:0;background:var(--gold,#d9a02b);color:#3b1d0b;font-weight:700;cursor:pointer}
+@media(max-width:620px){.jio-m18 .two{grid-template-columns:1fr}.jio-m18 h2{font-size:1.35rem}}
+</style>
+
+<script id="jio-mod18-script">
+(function(){
+'use strict';
+try{
+var main=document.querySelector('main'),nav=document.querySelector('nav#nav');
+if(!main||!nav||document.getElementById('works'))return;
+var I={
+zh:{nav:'作品集',title:'JIO 作品集',sub:'公司員工的最新作品：YouTube 影片、連載漫畫與接力成果。點一下就能看。',
+ t1:'YouTube 影片',t2:'連載漫畫',t3:'接力作品',
+ ytH:'YouTube 頻道《員工搞笑日常》',ep1:'第 1 集：世界上最厲害的動物',ep1d:'Rudy 考大家「世界上最厲害的動物」是誰，答案竟然是蜘蛛，結局還有一個小反轉。內含繁體中文字幕。',
+ ep2:'第 2 集：公園大作戰',ep2d:'四位員工的公園大冒險（第一版）。',shots:'第 1 集 · 9 個分鏡片段',shotsd:'員工逐鏡製作的動畫片段，最後剪接成完整影片。',
+ cmH:'《時薪三千的唯一魔球》第 1 話',cmd:'連載漫畫・棒球員成長故事。白天低調領時薪的投手，深夜裂隙出現時才露出真本事。',chars:'角色設定圖',pages:'第 1 話 · 漫畫頁（共 6 頁，點圖放大）',
+ rlH:'接力工作流程',rld:'四位員工每小時輪流接棒、共用一份「待辦清單」文件：誰輪到誰做，做完把進度與下一棒寫回去；若超過 1 小時沒人接，下一位就順延接手。',
+ rls:['老闆在「JIO 待辦清單」寫總目標，第一棒交給 Rudy','每小時輪到一位員工：Rudy → Kaz → Idn → Tidal → Rudy …','輪到我就做這一棒、寫成果，更新「下一棒交接」與時間','不是我、也沒超時：回報「還沒輪到我」就結束；超過 1 小時沒人接就順延接手','全部完成後寫「已完成，等老闆驗收」，老闆驗收後上傳'],
+ gmH:'接力成果：《家裡走走》遊戲',gmd:'員工接力把遊戲一版一版升級到第 150 版：200 臺 7-11 大街、飛機場、Minecraft 大城堡與寶可夢大道，四人各跑一棒完成。',play:'玩最新版（v150 快速版）',play2:'v150 完整版',play3:'v148 主線版（16 樓的家與 JIO 公司）',rpt:'JIO 試做報告（2026-10-28）',open:'另開新視窗',
+ c01B:'凌蒼介・救世覺醒模式',c01:'凌蒼介・日常低調模式',c02:'搭檔捕手・石動煌',c03:'宿命勁敵・白銀聖夜',c04:'戰術分析師・星野緋奈',c05:'傳奇導師・九鬼鐵齋',c06:'核心反派・司馬冥',
+ p1:'P1 五萬獎金的誘惑',p2:'P2 唯一魔球零式消音球',p3:'P3 獨眼教頭與準時下班',p4:'P4 深夜球場的蝕界裂隙',p5:'P5 為了保住薪水解放超能力',p6:'P6 一球轟碎深淵與深藏功名',close:'關閉'},
+en:{nav:'Works',title:'JIO Works',sub:'Latest creations by our team: YouTube videos, a serial comic and relay projects. Click to view.',
+ t1:'YouTube',t2:'Serial Comic',t3:'Relay Projects',
+ ytH:'YouTube channel "Staff Funny Daily"',ep1:'Episode 1: The Most Powerful Animal',ep1d:'Rudy quizzes everyone on the most powerful animal in the world. The answer is the spider, with a twist ending. Traditional Chinese subtitles included.',
+ ep2:'Episode 2: Park Showdown',ep2d:'The four employees\' park adventure (first cut).',shots:'Episode 1 · 9 storyboard clips',shotsd:'Animated clips made shot by shot, then edited into the full video.',
+ cmH:'"The Three-Thousand-an-Hour Magic Pitch" Ch. 1',cmd:'A baseball growth story. A low-key pitcher clocks in for hourly pay by day and reveals his real power when a rift opens at night.',chars:'Character sheets',pages:'Chapter 1 · 6 pages (click to enlarge)',
+ rlH:'The relay workflow',rld:'The four employees take turns every hour using one shared to-do document: whoever is next does the work, then writes progress and the next handoff. If nobody picks up within an hour, the next person takes over.',
+ rls:['The boss writes the main goal in the "JIO to-do list" and hands the first leg to Rudy','Every hour one employee is up: Rudy → Kaz → Idn → Tidal → Rudy …','If it is my turn I do the work, write results and update the handoff and time','Not my turn and not overdue: report "not my turn yet" and stop; overdue by 1 hour: take over','When all done, mark "Done, awaiting boss review", then publish after review'],
+ gmH:'Relay result: "Walking Around Home" game',gmd:'The team upgraded this game version by version up to v150: a street of 200 convenience stores, an airport, a Minecraft castle and a Pokémon road, one leg per employee.',play:'Play the latest (v150 instant)',play2:'v150 full edition',play3:'v148 main line (home and JIO office)',rpt:'JIO trial report (2026-10-28)',open:'Open in new window',
+ c01B:'Ling Cangjie · Savior Awakening',c01:'Ling Cangjie · Low-key Mode',c02:'Catcher · Ishidou Kou',c03:'Rival · Shirogane Seiya',c04:'Analyst · Hoshino Hina',c05:'Mentor · Kuki Tessai',c06:'Villain · Shiba Mei',
+ p1:'P1 The lure of the prize money',p2:'P2 The only pitch: Zero silent ball',p3:'P3 One-eyed coach & leaving on time',p4:'P4 The late-night rift',p5:'P5 Unleashing power to keep the pay',p6:'P6 One pitch shatters the abyss',close:'Close'},
+hi:{nav:'कार्य-संग्रह',title:'JIO कार्य-संग्रह',sub:'हमारी टीम के नए काम: YouTube वीडियो, धारावाहिक कॉमिक और रिले प्रोजेक्ट। देखने के लिए क्लिक करें।',
+ t1:'YouTube',t2:'कॉमिक',t3:'रिले प्रोजेक्ट',
+ ytH:'YouTube चैनल "स्टाफ फनी डेली"',ep1:'एपिसोड 1: दुनिया का सबसे ताकतवर जानवर',ep1d:'Rudy सबसे ताकतवर जानवर पूछता है; जवाब मकड़ी है, अंत में एक मोड़ भी है। चीनी उपशीर्षक सहित।',
+ ep2:'एपिसोड 2: पार्क की जंग',ep2d:'चारों कर्मचारियों का पार्क-एडवेंचर (पहला संस्करण)।',shots:'एपिसोड 1 · 9 शॉट क्लिप',shotsd:'हर शॉट अलग से बना, फिर पूरे वीडियो में जोड़ा गया।',
+ cmH:'"तीन हज़ार प्रति घंटे वाली जादुई गेंद" अध्याय 1',cmd:'बेसबॉल कॉमिक। दिन में शांत गेंदबाज़, रात में दरार खुलने पर असली ताकत।',chars:'किरदार शीट',pages:'अध्याय 1 · 6 पृष्ठ (बड़ा करने के लिए क्लिक करें)',
+ rlH:'रिले कार्य-प्रवाह',rld:'चारों कर्मचारी हर घंटे बारी-बारी से एक साझा सूची पर काम करते हैं; काम के बाद प्रगति और अगली बारी लिखते हैं। एक घंटे तक कोई न आए तो अगला व्यक्ति संभाल लेता है।',
+ rls:['मालिक "JIO टू-डू सूची" में लक्ष्य लिखकर पहली बारी Rudy को देता है','हर घंटे एक कर्मचारी: Rudy → Kaz → Idn → Tidal → Rudy …','मेरी बारी हो तो काम करें, नतीजा और अगली बारी लिखें','बारी न हो और समय न बीता हो तो "अभी बारी नहीं" कहकर रुकें; 1 घंटा बीते तो संभाल लें','पूरा होने पर "पूर्ण, मालिक की जाँच बाकी" लिखें'],
+ gmH:'रिले नतीजा: "घर में सैर" गेम',gmd:'टीम ने इस गेम को संस्करण-दर-संस्करण v150 तक सुधारा: 200 दुकानों की सड़क, हवाई अड्डा, Minecraft किला और Pokémon सड़क।',play:'नवीनतम खेलें (v150 इंस्टेंट)',play2:'v150 पूर्ण संस्करण',play3:'v148 मुख्य संस्करण (घर और JIO दफ़्तर)',rpt:'JIO ट्रायल रिपोर्ट (2026-10-28)',open:'नई विंडो में खोलें',
+ c01B:'Ling Cangjie · जागृत रूप',c01:'Ling Cangjie · सामान्य रूप',c02:'कैचर · Ishidou Kou',c03:'प्रतिद्वंद्वी · Shirogane Seiya',c04:'विश्लेषक · Hoshino Hina',c05:'गुरु · Kuki Tessai',c06:'खलनायक · Shiba Mei',
+ p1:'P1 इनाम का लालच',p2:'P2 अकेली गेंद: ज़ीरो साइलेंट',p3:'P3 एक आँख वाला कोच',p4:'P4 रात की दरार',p5:'P5 वेतन के लिए शक्ति',p6:'P6 एक गेंद से अंत',close:'बंद करें'}
+};
+function lang(){var r=(document.documentElement.getAttribute('data-lang')||document.documentElement.getAttribute('lang')||'zh').toLowerCase();return r.indexOf('en')===0?'en':r.indexOf('hi')===0?'hi':'zh'}
+function t(k){var d=I[lang()]||I.zh;return d[k]!=null?d[k]:I.zh[k]}
+var chars=[['01B','c01B'],['01_','c01'],['02_','c02'],['03_','c03'],['04_','c04'],['05_','c05'],['06_','c06']];
+var cols=['#c0392b','#2c5fa8','#2e7d32','#c99a06'],names=['Rudy','Kaz','Idn','Tidal'];
+var sec=document.createElement('section');sec.id='works';sec.className='page jio-m18';
+var h='<h2 data-wk="title"></h2><p class="sub" data-wk="sub"></p><div class="jio-m18-tabs" role="tablist">'
++'<button data-w="yt" class="on" data-wk="t1"></button><button data-w="cm" data-wk="t2"></button><button data-w="rl" data-wk="t3"></button></div>';
+// YouTube
+h+='<div class="jio-m18-pane on" data-pane="yt"><h3 data-wk="ytH"></h3><div class="two">'
++'<div class="card2"><strong data-wk="ep1"></strong><video controls preload="metadata" playsinline><source src="works/video/ep1.mp4" type="video/mp4"><track kind="subtitles" src="works/video/ep1.vtt" srclang="zh" label="繁體中文" default></video><p data-wk="ep1d"></p></div>'
++'<div class="card2"><strong data-wk="ep2"></strong><video controls preload="metadata" playsinline><source src="works/video/ep2.mp4" type="video/mp4"></video><p data-wk="ep2d"></p></div></div>'
++'<h3 data-wk="shots"></h3><p class="sub" data-wk="shotsd"></p><div class="grid s">';
+for(var i=1;i<=9;i++){var n=('0'+i).slice(-2);h+='<figure><video controls preload="none" playsinline src="works/video/shot'+n+'.mp4"></video><figcaption>#'+n+'</figcaption></figure>'}
+h+='</div></div>';
+// Comic
+h+='<div class="jio-m18-pane" data-pane="cm"><h3 data-wk="cmH"></h3><p class="sub" data-wk="cmd"></p><h3 data-wk="chars"></h3><div class="grid">';
+chars.forEach(function(c){h+='<figure><img loading="lazy" src="works/comic/char_'+c[0]+'.jpg" alt=""><figcaption data-wk="'+c[1]+'"></figcaption></figure>'});
+h+='</div><h3 data-wk="pages"></h3><div class="grid">';
+for(var p=1;p<=6;p++){h+='<figure><img loading="lazy" src="works/comic/ch1_P0'+p+'.jpg" alt=""><figcaption data-wk="p'+p+'"></figcaption></figure>'}
+h+='</div></div>';
+// Relay
+h+='<div class="jio-m18-pane" data-pane="rl"><h3 data-wk="rlH"></h3><div class="card2"><div class="flow">';
+names.forEach(function(n,i){h+='<span style="background:'+cols[i]+'">'+n+'</span><i>→</i>'});
+h+='<i>↻</i></div><p data-wk="rld"></p><ol id="jio-m18-steps"></ol></div>'
++'<h3 data-wk="gmH"></h3><div class="card2"><p data-wk="gmd"></p><div class="flow"><a class="btn pri" href="works/relay/jiali_v150_instant.html" target="_blank" rel="noopener"><b data-wk="play"></b>&nbsp;↗</a><a class="btn" href="works/relay/jiali_v150.html" target="_blank" rel="noopener"><b data-wk="play2"></b>&nbsp;↗</a><a class="btn" href="works/relay/jiali_zouzou.html" target="_blank" rel="noopener"><b data-wk="play3"></b>&nbsp;↗</a></div></div>'
++'<h3 data-wk="rpt"></h3><div class="grid"><figure><img loading="lazy" src="works/relay/trial_report.png" alt=""><figcaption data-wk="rpt"></figcaption></figure></div></div>';
+sec.innerHTML=h;main.appendChild(sec);
+var link=document.createElement('a');link.href='#works';link.id='jio-m18-nav';
+var rep=nav.querySelector('a[href="#reports"]'),ct=nav.querySelector('a[href="#contact"]');
+if(rep)rep.insertAdjacentElement('afterend',link);else if(ct)nav.insertBefore(link,ct);else nav.appendChild(link);
+var lb=document.createElement('div');lb.className='jio-m18-lb';lb.innerHTML='<img alt=""><button type="button"></button>';document.body.appendChild(lb);
+var lbi=lb.querySelector('img'),lbb=lb.querySelector('button');
+function closeLb(){lb.classList.remove('on')}
+lb.addEventListener('click',function(e){if(e.target!==lbi)closeLb()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+sec.addEventListener('click',function(e){
+ var img=e.target.closest&&e.target.closest('figure img');if(img){lbi.src=img.src;lb.classList.add('on');return}
+ var b=e.target.closest&&e.target.closest('.jio-m18-tabs button');if(!b)return;
+ sec.querySelectorAll('.jio-m18-tabs button').forEach(function(x){x.classList.toggle('on',x===b)});
+ sec.querySelectorAll('.jio-m18-pane').forEach(function(x){x.classList.toggle('on',x.getAttribute('data-pane')===b.getAttribute('data-w'))});
+ sec.querySelectorAll('video').forEach(function(v){try{v.pause()}catch(e){}});
+});
+function texts(){
+ link.textContent=t('nav');lbb.textContent=t('close');
+ sec.querySelectorAll('[data-wk]').forEach(function(el){el.textContent=t(el.getAttribute('data-wk'))});
+ var ol=sec.querySelector('#jio-m18-steps');ol.innerHTML='';t('rls').forEach(function(s){var li=document.createElement('li');li.textContent=s;ol.appendChild(li)});
+ var tr=sec.querySelector('track');if(tr)tr.setAttribute('srclang','zh');
+}
+function route(){
+ if((location.hash||'')==='#works'){
+  main.querySelectorAll('section.page').forEach(function(s){s.classList.toggle('on',s===sec)});
+  nav.querySelectorAll('a[href]').forEach(function(a){a.classList.toggle('on',a===link)});
+ }else{sec.classList.remove('on');link.classList.remove('on');sec.querySelectorAll('video').forEach(function(v){try{v.pause()}catch(e){}})}
+}
+window.addEventListener('hashchange',route);
+try{new MutationObserver(texts).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang','lang']})}catch(e){}
+texts();route();
+}catch(e){try{console.warn('m18',e)}catch(_){}}
+})();
+</script>
+
 </body>
 </html>
