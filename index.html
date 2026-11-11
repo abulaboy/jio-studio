@@ -9204,13 +9204,9 @@ route();
         setupFooter();
         setupLangObserver();
         document.addEventListener('keydown', onKeyDown);
-        setTimeout(function () {
-          try {
-            if (!isTourDone()) {
-              startTour(false);
-            }
-          } catch (err) {}
-        }, 2500);
+        // 2026-11-11 瘦身：導覽不再自動跳出，改由首頁「讓 Rudy 帶你逛」按鈕開始；換頁時自動收起
+        window.__jioStartTour = function () { startTour(true); };
+        window.addEventListener('hashchange', function () { try { if (isTourActive) endTour(); } catch (err) {} });
       } catch (e) {}
     }
     if (document.readyState === 'loading') {
@@ -11055,6 +11051,50 @@ window.addEventListener('hashchange',route);
 try{new MutationObserver(texts).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang','lang']})}catch(e){}
 texts();route();
 }catch(e){try{console.warn('m18',e)}catch(_){}}
+})();
+</script>
+
+<!-- ===== 手機瘦身（2026-11-11）：導覽列單排可滑、按鈕加高、兩顆浮動鈕合成一顆、首頁導覽按鈕 ===== -->
+<style id="jio-slim-style">
+.jio-slim-tour{cursor:pointer}
+.jio-slim-fab{display:none}
+@media (max-width:640px){
+ body>header .bar{flex-wrap:wrap;row-gap:.3rem}
+ nav#nav{flex-wrap:nowrap!important;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;width:100%;order:3;gap:.25rem!important;padding:0 0 .35rem!important;scroll-padding:0 2rem;
+  -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 28px),transparent);mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 28px),transparent)}
+ nav#nav::-webkit-scrollbar{display:none}
+ nav#nav a{flex:0 0 auto;white-space:nowrap;min-height:40px;display:inline-flex!important;align-items:center;padding:0 .8rem!important;font-size:.88rem!important;line-height:1!important}
+ nav#nav a:last-child{margin-right:24px}
+ .lang-switch button{min-height:32px;min-width:38px}
+ #jio-m5-fab,.jio-m3-pantry-wrap{display:none!important}
+ body.jio-slim-open #jio-m5-fab{display:flex!important;position:fixed!important;right:14px!important;left:auto!important;bottom:78px!important}
+ body.jio-slim-open .jio-m3-pantry-wrap,.jio-m3-pantry-wrap:has(.jio-m3-panel.is-open){display:block!important;right:14px!important;left:auto!important;bottom:140px!important}
+ .jio-slim-fab{display:flex;align-items:center;justify-content:center;position:fixed;right:14px;bottom:14px;bottom:max(14px,env(safe-area-inset-bottom));z-index:9994;width:52px;height:52px;border-radius:50%;border:2px solid var(--gold,#d9a02b);background:#3b1d0b;color:#ffd97d;font-size:1.4rem;line-height:1;box-shadow:0 6px 18px rgba(59,29,11,.35);cursor:pointer;padding:0}
+ .jio-m3-pantry-wrap:has(.jio-m3-panel.is-open) .jio-m3-cup-btn,.jio-m3-pantry-wrap:has(.jio-m3-panel.is-open) .jio-m3-cup-badge{visibility:hidden}
+}
+</style>
+<script id="jio-slim-script">
+(function(){
+'use strict';
+try{
+ var T={zh:{tour:'🧭 讓 Rudy 帶你逛',more:'開啟小幫手與茶水間',less:'收起'},en:{tour:'🧭 Take the tour with Rudy',more:'Open the assistant and pantry',less:'Close'},hi:{tour:'🧭 Rudy के साथ घूमें',more:'सहायक और पैंट्री खोलें',less:'बंद करें'}};
+ function lang(){var r=(document.documentElement.getAttribute('data-lang')||document.documentElement.getAttribute('lang')||'zh').toLowerCase();return r.indexOf('en')===0?'en':r.indexOf('hi')===0?'hi':'zh'}
+ // 首頁導覽按鈕
+ var acts=document.querySelector('#home .hero-actions'),tb=null;
+ if(acts){tb=document.createElement('button');tb.type='button';tb.className='btn ghost jio-slim-tour';acts.appendChild(tb);
+  tb.addEventListener('click',function(){if(window.__jioStartTour)window.__jioStartTour()})}
+ // 手機：兩顆浮動鈕收成一顆
+ var fb=document.createElement('button');fb.type='button';fb.className='jio-slim-fab';document.body.appendChild(fb);
+ function setOpen(on){document.body.classList.toggle('jio-slim-open',on);fb.textContent=on?'✕':'💬';fb.setAttribute('aria-expanded',on?'true':'false');fb.setAttribute('aria-label',T[lang()][on?'less':'more'])}
+ fb.addEventListener('click',function(){setOpen(!document.body.classList.contains('jio-slim-open'))});
+ document.addEventListener('click',function(e){if(!document.body.classList.contains('jio-slim-open'))return;var t=e.target;if(t.closest&&(t.closest('#jio-m5-fab')||t.closest('.jio-m3-cup-btn')))setOpen(false)},true);
+ // 換頁時把目前分頁捲到看得見
+ function showActive(){var a=document.querySelector('nav#nav a.on');if(a&&a.scrollIntoView&&window.innerWidth<=640){try{a.scrollIntoView({block:'nearest',inline:'center'})}catch(e){}}}
+ window.addEventListener('hashchange',function(){setTimeout(showActive,60)});
+ function texts(){if(tb)tb.textContent=T[lang()].tour;setOpen(document.body.classList.contains('jio-slim-open'))}
+ try{new MutationObserver(texts).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang','lang']})}catch(e){}
+ texts();setTimeout(showActive,300);
+}catch(e){try{console.warn('slim',e)}catch(_){}}
 })();
 </script>
 
