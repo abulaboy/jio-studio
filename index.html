@@ -10794,8 +10794,39 @@ route();
 .jio-m18-lb img{max-width:100%;max-height:calc(100vh - 90px);object-fit:contain}
 .jio-m18-lb button{font:inherit;padding:.5rem 1.2rem;border-radius:999px;border:0;background:var(--gold,#d9a02b);color:#3b1d0b;font-weight:700;cursor:pointer}
 @media(max-width:620px){.jio-m18 .two{grid-template-columns:1fr}.jio-m18 h2{font-size:1.35rem}}
+.jio-m18 .cs{margin:1rem 0 1.8rem}
+.jio-m18 .cs h3{margin-bottom:.2rem}
+.jio-m18 .cs-cover{width:100%;max-height:240px;object-fit:cover;border-radius:8px;display:block;margin:.4rem 0}
+.jio-m18 .eps{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:.7rem}
+.jio-m18 .ep{font:inherit;color:inherit;text-align:left;cursor:pointer;padding:.4rem;background:var(--cream,#fbf1dc);border:1px solid rgba(90,47,18,.25);border-radius:8px;display:flex;flex-direction:column;gap:.15rem;position:relative}
+.jio-m18 .ep:hover{border-color:var(--gold,#d9a02b)}
+.jio-m18 .ep img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:5px;display:block;background:#e8dcc4}
+.jio-m18 .ep .no{font-weight:700;font-size:.86rem;margin-top:.2rem}
+.jio-m18 .ep .tt{font-size:.82rem;line-height:1.3}
+.jio-m18 .ep .pg{font-size:.75rem;opacity:.75}
+.jio-m18 .ep .wip{position:absolute;top:.7rem;left:.7rem;background:#c0392b;color:#fff;font-size:.72rem;font-weight:700;padding:.1rem .5rem;border-radius:999px}
+.jio-m18 details{margin:.3rem 0 .8rem}
+.jio-m18 summary{cursor:pointer;font-weight:700;padding:.3rem 0}
+.jio-m18-rd{position:fixed;inset:0;z-index:10000;background:#111;color:#fff;display:none;flex-direction:column}
+.jio-m18-rd.on{display:flex}
+.jio-m18-rd .bar{display:flex;align-items:center;gap:.5rem;padding:.3rem .5rem .3rem .9rem;padding-top:max(.3rem,env(safe-area-inset-top));background:#000;font-size:.9rem}
+.jio-m18-rd .bar b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.jio-m18-rd .bar span{white-space:nowrap;opacity:.85}
+.jio-m18-rd .bar button{font:inherit;font-size:1.5rem;line-height:1;background:none;border:0;color:#fff;cursor:pointer;min-width:44px;min-height:44px}
+.jio-m18-rd .st{flex:1;min-height:0;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.jio-m18-rd .st img{max-width:100%;max-height:100%;object-fit:contain;user-select:none;-webkit-user-select:none;-webkit-user-drag:none}
+.jio-m18-rd .nv{position:absolute;top:0;bottom:0;width:38%;background:none;border:0;cursor:pointer;color:transparent;font-size:2.4rem;padding:0 .6rem}
+.jio-m18-rd .nv:hover,.jio-m18-rd .nv:focus-visible{color:rgba(255,255,255,.75)}
+.jio-m18-rd .pv{left:0;text-align:left}
+.jio-m18-rd .nx{right:0;text-align:right}
+.jio-m18-rd .end{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;background:rgba(0,0,0,.85);text-align:center;padding:1rem}
+.jio-m18-rd .end.on{display:flex}
+.jio-m18-rd .end p{margin:0;font-size:1.05rem}
+.jio-m18-rd .end button{font:inherit;padding:.65rem 1.5rem;border-radius:999px;border:0;background:var(--gold,#d9a02b);color:#3b1d0b;font-weight:700;cursor:pointer;min-width:10rem}
+.jio-m18-rd .end button.g{background:#444;color:#fff}
 </style>
 
+<script src="works/comic/list.js"></script>
 <script id="jio-mod18-script">
 (function(){
 'use strict';
@@ -10814,6 +10845,7 @@ zh:{nav:'作品集',title:'JIO 作品集',sub:'公司員工的最新作品：You
  gmH:'接力成果：《家裡走走》遊戲',gmd:'員工接力把遊戲一版一版升級到第 148 版，16 樓的家、JIO 公司和北海道棒球場都走得進去。另有四人接力重寫的外傳《超大版》：200 臺 7-11 大街、飛機場、Minecraft 大城堡與寶可夢大道。',play:'玩最新版（v148）',playS:'v148 流暢版（比較順，畫質略降）',ofH:'JIO 辦公室體驗版：直接在這裡玩',ofd:'從《家裡走走》只拿出 JIO 辦公室這一區：接待大廳、辦公區、會議室、茶水間，四位員工都在上班。電腦用 WASD 走動，手機用左下搖桿；靠近東西按 E 或「互動」。',ofPlay:'▶ 在這裡開始玩',ofNote:'遊戲約 6MB，按下才會開始載入',ofFull:'全螢幕開啟',play2:'外傳：超大版 v150 完整版',play3:'外傳：超大版 v150 快速版',rpt:'JIO 試做報告（2026-10-28）',open:'另開新視窗',
  c01B:'凌蒼介・救世覺醒模式',c01:'凌蒼介・日常低調模式',c02:'搭檔捕手・石動煌',c03:'宿命勁敵・白銀聖夜',c04:'戰術分析師・星野緋奈',c05:'傳奇導師・九鬼鐵齋',c06:'核心反派・司馬冥',
  p1:'P1 五萬獎金的誘惑',p2:'P2 唯一魔球零式消音球',p3:'P3 獨眼教頭與準時下班',p4:'P4 深夜球場的蝕界裂隙',p5:'P5 為了保住薪水解放超能力',p6:'P6 一球轟碎深淵與深藏功名',pages2:'第 2 話 · 勁敵・白銀聖夜（共 7 頁）',c2p1:'P1',c2p2:'P2',c2p3:'P3',c2p4:'P4',c2p5:'P5',c2p6:'P6',c2p7:'P7',close:'關閉',
+ cmIntro:'點封面開始看。手機左右滑或點畫面兩側翻頁，電腦用 ← → 鍵，Esc 關閉。會記住你每一話看到哪一頁。',cmSP:'番外',pgs:'{n} 頁',rdAt:'看到第 {p}／{n} 頁',wip:'製作中',rdDone:'這一話看完了',rdNext:'下一話 ▶',rdShelf:'回書架',rdPrev:'上一頁',rdNx:'下一頁',
  kdH:'JIO 員工長篇漫畫《小時候》',kdd:'Tidal 在辦公室翻出一張泛黃的舊照片，四位員工一起回想小時候：孩子王 Rudy、巧手 Kaz、偷吃咖哩的 Idn，還有頭髮超蓬的 Tidal。畫：Kaz（2026-11-09）',kdP:'全 6 頁（點圖放大）',
  k1:'P1 一張泛黃的舊照片',k2:'P2 巷口孩子王 Rudy',k3:'P3 話少手快的 Kaz',k4:'P4 偷吃咖哩的 Idn',k5:'P5 頭髮超蓬的 Tidal',k6:'P6 原來我們那時就見過'},
 en:{nav:'Works',title:'JIO Works',sub:'Latest creations by our team: YouTube videos, a serial comic and relay projects. Click to view.',
@@ -10827,6 +10859,7 @@ en:{nav:'Works',title:'JIO Works',sub:'Latest creations by our team: YouTube vid
  gmH:'Relay result: "Walking Around Home" game',gmd:'The team upgraded this game version by version up to v148, with the home, the JIO office and the Hokkaido ballpark all open to explore. A separate spin-off rewritten by the four employees adds a street of 200 convenience stores, an airport, a Minecraft castle and a Pokémon road.',play:'Play the latest (v148)',playS:'v148 smooth edition (faster, slightly lower quality)',ofH:'JIO Office: play it right here',ofd:'Just the JIO office from "Walking Around Home": reception, work area, meeting rooms and pantry, with all four employees at work. Walk with WASD on a computer or the joystick on a phone; press E or "Interact" near things.',ofPlay:'▶ Start playing here',ofNote:'About 6 MB; loads only when you press start',ofFull:'Open full screen',play2:'Spin-off: Mega v150 full',play3:'Spin-off: Mega v150 instant',rpt:'JIO trial report (2026-10-28)',open:'Open in new window',
  c01B:'Ling Cangjie · Savior Awakening',c01:'Ling Cangjie · Low-key Mode',c02:'Catcher · Ishidou Kou',c03:'Rival · Shirogane Seiya',c04:'Analyst · Hoshino Hina',c05:'Mentor · Kuki Tessai',c06:'Villain · Shiba Mei',
  p1:'P1 The lure of the prize money',p2:'P2 The only pitch: Zero silent ball',p3:'P3 One-eyed coach & leaving on time',p4:'P4 The late-night rift',p5:'P5 Unleashing power to keep the pay',p6:'P6 One pitch shatters the abyss',pages2:'Ch. 2 · The Rival, Shiroga Seiya (7 pages)',c2p1:'P1',c2p2:'P2',c2p3:'P3',c2p4:'P4',c2p5:'P5',c2p6:'P6',c2p7:'P7',close:'Close',
+ cmIntro:'Tap a cover to start reading. Swipe or tap either side to turn pages; use ← → on a computer and Esc to close. Your page is remembered for every chapter.',cmSP:'Extra',pgs:'{n} pages',rdAt:'Page {p} of {n}',wip:'In progress',rdDone:'End of chapter',rdNext:'Next chapter ▶',rdShelf:'Back to shelf',rdPrev:'Previous page',rdNx:'Next page',
  kdH:'JIO staff comic: "When We Were Kids"',kdd:'Tidal finds a faded old photo in the office and the four look back on their childhood: Rudy the street captain, Kaz the quiet fixer, Idn the curry taster and Tidal with his big hair. Art: Kaz (2026-11-09)',kdP:'6 pages (click to enlarge)',
  k1:'P1 A faded old photo',k2:'P2 Rudy, captain of the street',k3:'P3 Kaz, few words, quick hands',k4:'P4 Idn and the stolen curry',k5:'P5 Tidal and his big hair',k6:'P6 We had met back then'},
 hi:{nav:'कार्य-संग्रह',title:'JIO कार्य-संग्रह',sub:'हमारी टीम के नए काम: YouTube वीडियो, धारावाहिक कॉमिक और रिले प्रोजेक्ट। देखने के लिए क्लिक करें।',
@@ -10840,6 +10873,7 @@ hi:{nav:'कार्य-संग्रह',title:'JIO कार्य-सं�
  gmH:'रिले नतीजा: "घर में सैर" गेम',gmd:'टीम ने इस गेम को संस्करण-दर-संस्करण v148 तक सुधारा: घर, JIO दफ़्तर और होक्काइडो बॉलपार्क। चारों कर्मचारियों का अलग स्पिन-ऑफ़ भी है: 200 दुकानों की सड़क, हवाई अड्डा, Minecraft किला और Pokémon सड़क।',play:'नवीनतम खेलें (v148)',playS:'v148 स्मूद संस्करण (तेज़, थोड़ी कम गुणवत्ता)',ofH:'JIO दफ़्तर: यहीं खेलें',ofd:'"घर में घूमो" से सिर्फ़ JIO दफ़्तर: रिसेप्शन, काम की जगह, मीटिंग रूम और पैंट्री, चारों कर्मचारी काम पर। कंप्यूटर पर WASD, फ़ोन पर जॉयस्टिक; चीज़ों के पास E या "इंटरैक्ट" दबाएँ।',ofPlay:'▶ यहीं खेलना शुरू करें',ofNote:'लगभग 6 MB; शुरू दबाने पर ही लोड होगा',ofFull:'पूरी स्क्रीन पर खोलें',play2:'स्पिन-ऑफ़: Mega v150 पूर्ण',play3:'स्पिन-ऑफ़: Mega v150 इंस्टेंट',rpt:'JIO ट्रायल रिपोर्ट (2026-10-28)',open:'नई विंडो में खोलें',
  c01B:'Ling Cangjie · जागृत रूप',c01:'Ling Cangjie · सामान्य रूप',c02:'कैचर · Ishidou Kou',c03:'प्रतिद्वंद्वी · Shirogane Seiya',c04:'विश्लेषक · Hoshino Hina',c05:'गुरु · Kuki Tessai',c06:'खलनायक · Shiba Mei',
  p1:'P1 इनाम का लालच',p2:'P2 अकेली गेंद: ज़ीरो साइलेंट',p3:'P3 एक आँख वाला कोच',p4:'P4 रात की दरार',p5:'P5 वेतन के लिए शक्ति',p6:'P6 एक गेंद से अंत',pages2:'अध्याय 2 · प्रतिद्वंद्वी शिरोगा सेइया (7 पृष्ठ)',c2p1:'P1',c2p2:'P2',c2p3:'P3',c2p4:'P4',c2p5:'P5',c2p6:'P6',c2p7:'P7',close:'बंद करें',
+ cmIntro:'पढ़ना शुरू करने के लिए कवर पर टैप करें। पन्ना पलटने के लिए स्वाइप करें या किनारे पर टैप करें; कंप्यूटर पर ← → और बंद करने के लिए Esc।',cmSP:'विशेष',pgs:'{n} पृष्ठ',rdAt:'पृष्ठ {p} / {n}',wip:'जारी',rdDone:'अध्याय समाप्त',rdNext:'अगला अध्याय ▶',rdShelf:'शेल्फ़ पर लौटें',rdPrev:'पिछला पृष्ठ',rdNx:'अगला पृष्ठ',
  kdH:'JIO स्टाफ कॉमिक: "बचपन"',kdd:'Tidal को दफ़्तर में एक पुरानी तस्वीर मिलती है और चारों अपना बचपन याद करते हैं। चित्र: Kaz (2026-11-09)',kdP:'6 पृष्ठ (बड़ा करने के लिए क्लिक करें)',
  k1:'P1 पुरानी तस्वीर',k2:'P2 गली का कप्तान Rudy',k3:'P3 कम बोलने वाला Kaz',k4:'P4 करी चखने वाला Idn',k5:'P5 घने बालों वाला Tidal',k6:'P6 हम तब भी मिले थे'}
 };
@@ -10877,15 +10911,8 @@ h+='<div class="jio-m18-pane" data-pane="ps"><h3 data-wk="psH"></h3><p class="su
 h+='<div class="jio-m18-pane" data-pane="gm"><h3 data-wk="gH"></h3><p class="sub" data-wk="gd"></p><div class="grid">'
 +APPS.map(function(a){return '<div class="card2"><strong>'+a[0]+'</strong><p>'+a[1]+'</p><a class="btn pri" target="_blank" rel="noopener" href="'+a[2]+'"><b data-wk="go"></b>&nbsp;↗</a></div>'}).join('')+'</div></div>';
 // Comic
-h+='<div class="jio-m18-pane" data-pane="cm"><h3 data-wk="kdH"></h3><p class="sub" data-wk="kdd"></p><h3 data-wk="kdP"></h3><div class="grid">';
-for(var q=1;q<=6;q++){h+='<figure><img loading="lazy" src="works/comic/kid_P0'+q+'.jpg" alt=""><figcaption data-wk="k'+q+'"></figcaption></figure>'}
-h+='</div><h3 data-wk="cmH"><p class="sub" data-wk="cmd"></p><h3 data-wk="chars"></h3><div class="grid">';
-chars.forEach(function(c){h+='<figure><img loading="lazy" src="works/comic/char_'+c[0]+'.jpg" alt=""><figcaption data-wk="'+c[1]+'"></figcaption></figure>'});
-h+='</div><h3 data-wk="pages"></h3><div class="grid">';
-for(var p=1;p<=6;p++){h+='<figure><img loading="lazy" src="works/comic/ch1_P0'+p+'.jpg" alt=""><figcaption data-wk="p'+p+'"></figcaption></figure>'}
-h+='</div><h3 data-wk="pages2"></h3><div class="grid">';
-for(var p2=1;p2<=7;p2++){h+='<figure><img loading="lazy" src="works/comic/ch2_P0'+p2+'.jpg" alt=""><figcaption data-wk="c2p'+p2+'"></figcaption></figure>'}
-h+='</div></div>';
+// 漫畫清單在 works/comic/list.js（加新一話只改那份）
+h+='<div class="jio-m18-pane" data-pane="cm"><p class="sub" data-wk="cmIntro"></p><div id="jio-m18-shelf"></div></div>';
 // Relay
 h+='<div class="jio-m18-pane" data-pane="rl"><h3 data-wk="rlH"></h3><div class="card2"><div class="flow">';
 names.forEach(function(n,i){h+='<span style="background:'+cols[i]+'">'+n+'</span><i>→</i>'});
@@ -10902,8 +10929,97 @@ var lbi=lb.querySelector('img'),lbb=lb.querySelector('button');
 function closeLb(){lb.classList.remove('on')}
 lb.addEventListener('click',function(e){if(e.target!==lbi)closeLb()});
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
+// ===== 連載漫畫：書架＋翻頁閱讀器（資料在 works/comic/list.js）=====
+var CM=(window.JIO_COMICS||[]);
+function pad(n){return (n<10?'0':'')+n}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fmt(k,o){return String(t(k)).replace(/\{(\w)\}/g,function(_,x){return o[x]})}
+CM.forEach(function(s){s._eps=s.eps.map(function(e){
+ if(Array.isArray(e))return {no:e[0],n:e[1],t:e[2],wip:!!e[3],thumb:s.dir+'/'+pad(e[0])+'/thumb.jpg'};
+ return {no:e.no,n:e.pages.length,t:e.t,wip:!!e.wip,pages:e.pages,thumb:e.thumb}})});
+function pageSrc(s,ep,i){return ep.pages?ep.pages[i]:s.dir+'/'+pad(ep.no)+'/'+pad(i+1)+'.jpg'}
+function tr(o){return o[lang()]||o.zh}
+function epNo(ep){var L=lang();if(ep.no==='SP')return t('cmSP');return L==='en'?'Ch. '+ep.no:L==='hi'?'अध्याय '+ep.no:'第 '+ep.no+' 話'}
+function epTitle(ep){return lang()==='zh'||!/[㐀-鿿]/.test(ep.t)?ep.t:''}
+var POSK='jio-comic-pos';
+function posAll(){try{return JSON.parse(localStorage.getItem(POSK)||'{}')||{}}catch(e){return {}}}
+function posSet(k,v){try{var o=posAll();o[k]=v;localStorage.setItem(POSK,JSON.stringify(o))}catch(e){}}
+function renderShelf(){
+ var box=sec.querySelector('#jio-m18-shelf');if(!box)return;var pos=posAll(),o='';
+ CM.forEach(function(s,si){
+  o+='<section class="cs"><h3>'+esc(tr(s.title))+'</h3>';
+  if(s.cover)o+='<img class="cs-cover" loading="lazy" src="'+s.cover+'" alt="">';
+  o+='<p class="sub">'+esc(tr(s.desc))+'</p>';
+  if(s.chars){o+='<details><summary data-wk="chars"></summary><div class="grid s">';chars.forEach(function(c){o+='<figure><img loading="lazy" src="works/comic/char_'+c[0]+'.jpg" alt=""><figcaption data-wk="'+c[1]+'"></figcaption></figure>'});o+='</div></details>'}
+  o+='<div class="eps">';
+  s._eps.forEach(function(ep,ei){
+   var p=pos[s.id+'/'+ep.no],tt=epTitle(ep);
+   o+='<button type="button" class="ep" data-cs="'+si+'" data-ce="'+ei+'"><img loading="lazy" src="'+ep.thumb+'" alt="">'
+    +(ep.wip?'<span class="wip">'+esc(t('wip'))+'</span>':'')
+    +'<span class="no">'+esc(epNo(ep))+'</span>'+(tt?'<span class="tt">'+esc(tt)+'</span>':'')
+    +'<span class="pg">'+esc(p>0&&p<ep.n?fmt('rdAt',{p:p+1,n:ep.n}):fmt('pgs',{n:ep.n}))+'</span></button>';
+  });
+  o+='</div></section>';
+ });
+ box.innerHTML=o;
+}
+var rd=document.createElement('div');rd.className='jio-m18-rd';rd.setAttribute('role','dialog');rd.setAttribute('aria-modal','true');
+rd.innerHTML='<div class="bar"><b></b><span></span><button type="button" class="x" aria-label="Close">✕</button></div><div class="st"><img alt=""><button type="button" class="nv pv">‹</button><button type="button" class="nv nx">›</button><div class="end"><p></p><button type="button" class="ne"></button><button type="button" class="g bk"></button></div></div>';
+document.body.appendChild(rd);
+var rT=rd.querySelector('.bar b'),rC=rd.querySelector('.bar span'),rI=rd.querySelector('.st img'),rE=rd.querySelector('.end'),rNe=rd.querySelector('.ne'),rBk=rd.querySelector('.bk');
+var R=null,pushed=false;
+function rdOpen(si,ei){
+ var s=CM[si],ep=s&&s._eps[ei];if(!ep)return;
+ var p=posAll()[s.id+'/'+ep.no]|0;if(p<0||p>=ep.n)p=0;
+ R={si:si,ei:ei,i:p};
+ if(!rd.classList.contains('on')){rd.classList.add('on');document.documentElement.style.overflow='hidden';try{history.pushState({jioRd:1},'');pushed=true}catch(e){pushed=false}}
+ rdShow();
+}
+function rdShow(){
+ var s=CM[R.si],ep=s._eps[R.ei],tt=epTitle(ep);
+ rT.textContent=tr(s.title)+' · '+epNo(ep)+(tt?' '+tt:'');
+ rE.classList.remove('on');
+ rI.src=pageSrc(s,ep,R.i);rI.alt=epNo(ep)+' P'+(R.i+1);
+ rC.textContent=(R.i+1)+' / '+ep.n;
+ [R.i+1,R.i-1].forEach(function(j){if(j>=0&&j<ep.n){var im=new Image();im.src=pageSrc(s,ep,j)}});
+ posSet(s.id+'/'+ep.no,R.i);
+}
+function rdEnd(){
+ var s=CM[R.si],nx=s._eps[R.ei+1];
+ rE.querySelector('p').textContent=t('rdDone');
+ rNe.style.display=nx?'':'none';rNe.textContent=t('rdNext');rBk.textContent=t('rdShelf');
+ rE.classList.add('on');posSet(s.id+'/'+s._eps[R.ei].no,0);
+}
+function rdGo(d){
+ if(!R)return;var ep=CM[R.si]._eps[R.ei];
+ if(rE.classList.contains('on')){if(d<0)rdShow();return}
+ var j=R.i+d;if(j<0)return;if(j>=ep.n){rdEnd();return}
+ R.i=j;rdShow();
+}
+function rdClose(fromPop){
+ if(!rd.classList.contains('on'))return;
+ rd.classList.remove('on');document.documentElement.style.overflow='';rI.removeAttribute('src');R=null;renderShelf();texts2();
+ if(!fromPop&&pushed){pushed=false;try{history.back()}catch(e){}}else pushed=false;
+}
+window.addEventListener('popstate',function(){if(rd.classList.contains('on')){pushed=false;rdClose(true)}});
+rd.querySelector('.pv').addEventListener('click',function(){rdGo(-1)});
+rd.querySelector('.nx').addEventListener('click',function(){rdGo(1)});
+rd.querySelector('.x').addEventListener('click',function(){rdClose()});
+rBk.addEventListener('click',function(){rdClose()});
+rNe.addEventListener('click',function(){var si=R.si,ei=R.ei+1;posSet(CM[si].id+'/'+CM[si]._eps[ei].no,0);rdOpen(si,ei)});
+document.addEventListener('keydown',function(e){
+ if(!rd.classList.contains('on'))return;
+ if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){e.preventDefault();rdGo(1)}
+ else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();rdGo(-1)}
+ else if(e.key==='Escape')rdClose();
+});
+var tx=null,ty=0;
+rd.addEventListener('touchstart',function(e){if(e.touches.length===1){tx=e.touches[0].clientX;ty=e.touches[0].clientY}else tx=null},{passive:true});
+rd.addEventListener('touchend',function(e){if(tx==null)return;var t0=e.changedTouches[0],dx=t0.clientX-tx,dy=t0.clientY-ty;tx=null;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.3)rdGo(dx<0?1:-1)},{passive:true});
+function texts2(){sec.querySelectorAll('#jio-m18-shelf [data-wk]').forEach(function(el){el.textContent=t(el.getAttribute('data-wk'))})}
 sec.addEventListener('click',function(e){
  var yb=e.target.closest&&e.target.closest('.yt button');if(yb){var w=yb.parentNode,id=w.getAttribute('data-yt');w.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen title="YouTube"></iframe>';return}
+ var cb=e.target.closest&&e.target.closest('.ep[data-cs]');if(cb){rdOpen(+cb.getAttribute('data-cs'),+cb.getAttribute('data-ce'));return}
  var img=e.target.closest&&e.target.closest('figure img');if(img){lbi.src=img.src;lb.classList.add('on');return}
  var b=e.target.closest&&e.target.closest('.jio-m18-tabs button');if(!b)return;
  sec.querySelectorAll('.jio-m18-tabs button').forEach(function(x){x.classList.toggle('on',x===b)});
@@ -10912,6 +11028,7 @@ sec.addEventListener('click',function(e){
 });
 function texts(){
  link.textContent=t('nav');lbb.textContent=t('close');
+ renderShelf();rd.querySelector('.pv').setAttribute('aria-label',t('rdPrev'));rd.querySelector('.nx').setAttribute('aria-label',t('rdNx'));rd.querySelector('.x').setAttribute('aria-label',t('close'));
  sec.querySelectorAll('[data-wk]').forEach(function(el){el.textContent=t(el.getAttribute('data-wk'))});
  var ol=sec.querySelector('#jio-m18-steps');ol.innerHTML='';t('rls').forEach(function(s){var li=document.createElement('li');li.textContent=s;ol.appendChild(li)});
  var tr=sec.querySelector('track');if(tr)tr.setAttribute('srclang','zh');
