@@ -4,6 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>JIO 軟體工坊｜接案外包</title>
+<meta name="description" content="JIO 軟體工坊：四位員工 Rudy、Kaz、Idn、Tidal 的作品集，有 YouTube 影片、連載漫畫、網頁遊戲與 3D 作品。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JIO 軟體工坊">
+<meta property="og:title" content="JIO 軟體工坊">
+<meta property="og:description" content="四位員工的 YouTube 影片、連載漫畫、網頁遊戲與 3D 作品。">
+<meta property="og:url" content="https://abulaboy.github.io/jio-studio/">
+<meta property="og:image" content="https://abulaboy.github.io/jio-studio/logo.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" sizes="64x64" href="icon-64.png">
+<link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
@@ -8687,7 +8697,7 @@ route();
             name: 'Rudy',
             role: '小主管',
             targetLabel: '① 網站導覽列',
-            text: '先對齊一下，這裡是公司網站！哎呀差點又打翻手邊的瑪薩拉咖啡……上方導覽列可以隨時切換我們工坊的八大專區喔。'
+            text: '先對齊一下，這裡是公司網站！哎呀差點又打翻手邊的瑪薩拉咖啡……上方導覽列可以隨時切換我們工坊的各個專區喔。'
           },
           {
             member: 'kaz',
@@ -8746,7 +8756,7 @@ route();
             name: 'Rudy',
             role: 'Team Lead',
             targetLabel: '① Main Navigation',
-            text: 'Let’s align first—welcome to our studio website! Oops, almost spilled my coffee again... Use the top navigation bar to explore all eight sections.'
+            text: 'Let’s align first—welcome to our studio website! Oops, almost spilled my coffee again... Use the top navigation bar to explore every section.'
           },
           {
             member: 'kaz',
@@ -10884,14 +10894,16 @@ var cols=['#c0392b','#2c5fa8','#2e7d32','#c99a06'],names=['Rudy','Kaz','Idn','Ti
 // YouTube 集數：新的一集上傳 YouTube 後，把影片 ID 填進 id 即可（例如 https://youtu.be/XXXX 的 XXXX）
 // 遊戲與 3D 作品：新增作品就在這裡加一行
 var APPS=[
- ['家裡走走','台中自家的互動 3D 網頁遊戲，可以在家裡和社區走來走去。','https://abulaboy.github.io/LJ_go/'],
- ['北海道 ES CON FIELD 球場','日本火腿鬥士主場的 3D 剖析模型，看球場每一層的構造。','https://abulaboy.github.io/escon-field/'],
- ['注音小樂園','康軒國語首冊的注音練習小遊戲，給小一小朋友玩。','https://abulaboy.github.io/kids-planet/'],
- ['注音大冒險','闖關式注音練習遊戲，有玩家排行榜。','https://claude.ai/artifact/UBgc1MKgDwPAfiKH5b5Ayf'],
- ['實況選秀 GM','用 2006–2025 年日本職棒真實選秀名單玩選秀、抽籤、養成與交易的文字 GM 遊戲。','https://claude.ai/artifact/PzhX3RUzQsrMPctDewxhjn'],
- ['選秀王朝','棒球選秀經營小遊戲。','https://claude.ai/artifact/UKNwzpzsWUJ216u9yXHpie'],
- ['北海道棒球場（走動版）','原創 3D 北海道棒球場：館內 1F～3F、TOWER 11、F VILLAGE，可以走動互動。','https://claude.ai/artifact/U5WexxFdFaQjexjBWmQJYy'],,,,
+ // [名稱 {zh,en,hi}, 說明 {zh,en,hi}, 網址]
+ [{zh:'家裡走走',en:'Walking Around Home',hi:'घर में सैर'},{zh:'台中自家的互動 3D 網頁遊戲，可以在家裡和社區走來走去。',en:'An interactive 3D web game of our home in Taichung: walk around the house and the neighborhood.',hi:'ताइचुंग के घर का इंटरैक्टिव 3D वेब गेम: घर और मोहल्ले में घूमें।'},'https://abulaboy.github.io/LJ_go/'],
+ [{zh:'北海道 ES CON FIELD 球場',en:'ES CON FIELD, Hokkaido',hi:'ES CON FIELD, होक्काइडो'},{zh:'北海道棒球場的 3D 剖析模型，看球場每一層的構造。',en:'A 3D cutaway model of the Hokkaido ballpark showing every level.',hi:'होक्काइडो बॉलपार्क का 3D कटअवे मॉडल, हर मंज़िल की बनावट।'},'https://abulaboy.github.io/escon-field/'],
+ [{zh:'注音小樂園',en:'Zhuyin Playground',hi:'झूयिन खेल-मैदान'},{zh:'康軒國語首冊的注音練習小遊戲，給小一小朋友玩。',en:'Zhuyin (Mandarin phonetics) practice games for first graders.',hi:'पहली कक्षा के बच्चों के लिए झूयिन (मंदारिन ध्वनि) अभ्यास खेल।'},'https://abulaboy.github.io/kids-planet/'],
+ [{zh:'注音大冒險',en:'Zhuyin Adventure',hi:'झूयिन रोमांच'},{zh:'闖關式注音練習遊戲，有玩家排行榜。',en:'A level-based Zhuyin practice game with a leaderboard.',hi:'लेवल वाला झूयिन अभ्यास खेल, लीडरबोर्ड के साथ।'},'https://claude.ai/artifact/UBgc1MKgDwPAfiKH5b5Ayf'],
+ [{zh:'實況選秀 GM',en:'Live Draft GM',hi:'लाइव ड्राफ़्ट GM'},{zh:'用 2006–2025 年日本職棒真實選秀名單玩選秀、抽籤、養成與交易的文字 GM 遊戲。',en:'A text GM game using real Japanese pro baseball draft lists from 2006–2025: draft, lottery, develop and trade.',hi:'2006–2025 की असली जापानी बेसबॉल ड्राफ़्ट सूचियों वाला टेक्स्ट GM गेम।'},'https://claude.ai/artifact/PzhX3RUzQsrMPctDewxhjn'],
+ [{zh:'選秀王朝',en:'Draft Dynasty',hi:'ड्राफ़्ट राजवंश'},{zh:'棒球選秀經營小遊戲。',en:'A small baseball draft management game.',hi:'बेसबॉल ड्राफ़्ट प्रबंधन का छोटा खेल।'},'https://claude.ai/artifact/UKNwzpzsWUJ216u9yXHpie'],
+ [{zh:'北海道棒球場（走動版）',en:'Hokkaido Ballpark (walkable)',hi:'होक्काइडो बॉलपार्क (घूमने वाला)'},{zh:'原創 3D 北海道棒球場：館內 1F～3F、TOWER 11、F VILLAGE，可以走動互動。',en:'An original 3D Hokkaido ballpark: floors 1F–3F, TOWER 11 and F VILLAGE, all walkable.',hi:'मूल 3D होक्काइडो बॉलपार्क: 1F–3F, TOWER 11 और F VILLAGE, सब में घूम सकते हैं।'},'https://claude.ai/artifact/U5WexxFdFaQjexjBWmQJYy']
 ];
+APPS.forEach(function(a,i){['zh','en','hi'].forEach(function(L){I[L]['a'+i+'n']=a[0][L];I[L]['a'+i+'d']=a[1][L]})});
 var EPS=[{k:'ep3',id:'mzGQCLuUkso'},{k:'ep2',id:'J9WLWaJ_2co'},{k:'ep1',id:'Q4tEqUBN2lc'}];
 var sec=document.createElement('section');sec.id='works';sec.className='page jio-m18';
 var h='<h2 data-wk="title"></h2><p class="sub" data-wk="sub"></p><div class="jio-m18-tabs" role="tablist">'
@@ -10909,7 +10921,7 @@ h+='</div>';
 h+='<div class="jio-m18-pane" data-pane="ps"><h3 data-wk="psH"></h3><p class="sub" data-wk="psd"></p><div class="grid">'+['rudy','kaz','idn','tidal'].map(function(n,i){return '<figure><img loading="lazy" src="works/posters/'+n+'.jpg" alt="'+names[i]+'"><figcaption>'+names[i]+'</figcaption></figure>'}).join('')+'</div></div>';
 // Games & 3D
 h+='<div class="jio-m18-pane" data-pane="gm"><h3 data-wk="gH"></h3><p class="sub" data-wk="gd"></p><div class="grid">'
-+APPS.map(function(a){return '<div class="card2"><strong>'+a[0]+'</strong><p>'+a[1]+'</p><a class="btn pri" target="_blank" rel="noopener" href="'+a[2]+'"><b data-wk="go"></b>&nbsp;↗</a></div>'}).join('')+'</div></div>';
++APPS.map(function(a,i){return '<div class="card2"><strong data-wk="a'+i+'n"></strong><p data-wk="a'+i+'d"></p><a class="btn pri" target="_blank" rel="noopener" href="'+a[2]+'"><b data-wk="go"></b>&nbsp;↗</a></div>'}).join('')+'</div></div>';
 // Comic
 // 漫畫清單在 works/comic/list.js（加新一話只改那份）
 h+='<div class="jio-m18-pane" data-pane="cm"><p class="sub" data-wk="cmIntro"></p><div id="jio-m18-shelf"></div></div>';
@@ -10919,7 +10931,7 @@ names.forEach(function(n,i){h+='<span style="background:'+cols[i]+'">'+n+'</span
 h+='<i>↻</i></div><p data-wk="rld"></p><ol id="jio-m18-steps"></ol></div>'
 +'<h3 data-wk="gmH"></h3><div class="card2"><p data-wk="gmd"></p><div class="flow"><a class="btn pri" href="https://abulaboy.github.io/LJ_go/" target="_blank" rel="noopener"><b data-wk="play"></b>&nbsp;↗</a><a class="btn" href="https://abulaboy.github.io/LJ_go/smooth/" target="_blank" rel="noopener"><b data-wk="playS"></b>&nbsp;↗</a><a class="btn" href="https://abulaboy.github.io/LJ_go/v150-mega/" target="_blank" rel="noopener"><b data-wk="play2"></b>&nbsp;↗</a><a class="btn" href="https://abulaboy.github.io/LJ_go/v150-mega-instant/" target="_blank" rel="noopener"><b data-wk="play3"></b>&nbsp;↗</a></div></div>'
 +'<h3 data-wk="ofH"></h3><div class="card2"><p data-wk="ofd"></p><div class="jio-m18-office"><button type="button" class="btn pri" onclick="var w=this.parentNode;w.innerHTML=\'<iframe src=&quot;https://abulaboy.github.io/LJ_go/office/&quot; title=&quot;JIO office&quot; allow=&quot;fullscreen; autoplay&quot; allowfullscreen></iframe>\';w.classList.add(\'on\')"><b data-wk="ofPlay"></b></button><small data-wk="ofNote"></small></div><div class="flow"><a class="btn" href="https://abulaboy.github.io/LJ_go/office/" target="_blank" rel="noopener"><b data-wk="ofFull"></b>&nbsp;↗</a></div></div>'
-+'<h3 data-wk="rpt"></h3><div class="grid"><figure><img loading="lazy" src="works/relay/trial_report.png" alt=""><figcaption data-wk="rpt"></figcaption></figure></div></div>';
++'<h3 data-wk="rpt"></h3><div class="grid"><figure><img loading="lazy" src="works/relay/trial_report.jpg" alt=""><figcaption data-wk="rpt"></figcaption></figure></div></div>';
 sec.innerHTML=h;main.appendChild(sec);
 var link=document.createElement('a');link.href='#works';link.id='jio-m18-nav';
 var rep=nav.querySelector('a[href="#reports"]'),ct=nav.querySelector('a[href="#contact"]');
