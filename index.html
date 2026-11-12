@@ -682,7 +682,7 @@ function renderSheet(){
   if(tab===2) body=`<dl>${t.rel.map(([a,b])=>`<dt>${a}</dt><dd>${b}</dd>`).join('')}</dl>`;
   if(tab===3) body=`<ul>${t.bio.map(([c,s])=>`<li><span class="tag ${c}">${c==='fun'?L.tagFun:L.tagReal}</span>${s}</li>`).join('')}</ul><p class="note" style="color:#9fc">${L.bioNote}</p>`;
   document.getElementById('sheet').innerHTML=`
-   <div class="sheet-name">${base.name}<small>${L.titleWrap(t.cn)}</small></div>
+   <div class="sheet-name">${base.name}<span style="font-size:.6em;font-weight:500;opacity:.8;margin-left:.45em">${({rudy:'Rudra Sharma',kaz:'Kazimir Tokayev',idn:'Idhant Deshmukh',tidal:'Tejal Bhatia'})[base.name.toLowerCase()]||''}</span><small>${L.titleWrap(t.cn)}</small></div>
    <div class="sheet-top">
      <div><div class="portrait">${face(cur,mood)}</div>
        <div class="moods">${moods.map((m,i)=>`<button class="${i===mood?'on':''}" data-m="${i}">${m}</button>`).join('')}</div></div>
@@ -5688,7 +5688,7 @@ route();
           html += '    <div class="jio-m8-avatar" data-member="' + m.id + '" data-expr="' + exprIdx + '" role="img" aria-label="' + m.name + '"></div>';
           html += '    <div class="jio-m8-meta">';
           html += '      <div class="jio-m8-name-row">';
-          html += '        <h4 class="jio-m8-name">' + m.name + '</h4>';
+          html += '        <h4 class="jio-m8-name">' + m.name + '<span style="font-size:.72em;font-weight:500;opacity:.75;margin-left:.35em">' + ({rudy:'Rudra Sharma',kaz:'Kazimir Tokayev',idn:'Idhant Deshmukh',tidal:'Tejal Bhatia'}[m.id]||'') + '</span></h4>';
           html += '        <span class="jio-m8-role">' + (m.role[lang] || m.role.zh) + '</span>';
           html += '        <span class="jio-m8-active-tag">' + t.activeTag + '</span>';
           html += '      </div>';
