@@ -11098,5 +11098,18 @@ try{
 })();
 </script>
 
+<style id="jio-demote-style">nav#nav a[href="#service"],nav#nav a[href="#cases"]{display:none!important}
+.jio-more{margin:2.2rem 0 .5rem;padding-top:.8rem;border-top:1px dashed rgba(90,47,18,.25);font-size:.78rem;opacity:.55;text-align:center}
+.jio-more a{color:inherit;text-decoration:underline;margin:0 .6rem}.jio-more:hover{opacity:.9}</style>
+<script id="jio-demote-js">(function(){try{
+var T={zh:["服務與流程","示範案例","更多："],en:["Services & Process","Sample Cases","More: "],hi:["सेवाएँ व प्रक्रिया","नमूना केस","और: "]};
+function lang(){var l=document.documentElement.getAttribute("data-lang")||document.documentElement.lang||localStorage.getItem("jio_lang")||"zh";return /^en/.test(l)?"en":/^hi/.test(l)?"hi":"zh"}
+function label(h,i){var a=document.querySelector("nav#nav a[href=\""+h+"\"]");return a&&a.textContent.trim()||T[lang()][i]}
+function build(){var sec=document.getElementById("team");if(!sec)return;var d=sec.querySelector(".jio-more");if(!d){d=document.createElement("div");d.className="jio-more";sec.appendChild(d)}
+d.innerHTML=T[lang()][2]+"<a href=\"#service\">"+label("#service",0)+"</a><a href=\"#cases\">"+label("#cases",1)+"</a>"}
+build();setTimeout(build,800);
+try{new MutationObserver(function(){setTimeout(build,50)}).observe(document.documentElement,{attributes:true,attributeFilter:["data-lang","lang"]})}catch(e){}
+document.addEventListener("click",function(e){if(e.target.closest("[data-lang-btn]"))setTimeout(build,120)});
+}catch(e){}})();</script>
 </body>
 </html>
