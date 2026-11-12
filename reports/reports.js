@@ -1,6 +1,12 @@
 /* 每日報告清單：每天新增一筆（日期、額度圖、成果圖、一句話摘要）。頁面會自動依日期由新到舊排序。 */
 window.JIO_REPORTS = [
   {
+    date: "2026-11-12",
+    quota: "reports/2026-11-12_quota.jpg",
+    daily: "reports/2026-11-12_daily.jpg",
+    note: { zh: "11/8 之後：YouTube 第 3、4 集（挑戰中華隊 8 番勝負）上架，員工海報、兩部漫畫與漫畫書架閱讀器進作品集，網站手機瘦身並加上員工本名。Rudy 額度回滿；Kaz、Tidal 本週額度用完（Tidal 11/13 凌晨重設）；Idn 用了約四成。", en: "Since 11/8: YouTube episodes 3 and 4 (the 8-game challenge against the national team) are up, the staff posters, two comics and the comic shelf reader are in the works gallery, and the site got a mobile slim-down plus the staff real names. Rudy is fully recharged; Kaz and Tidal used up their weekly quota (Tidal resets early 11/13); Idn has used about 40%.", hi: "11/8 के बाद: YouTube के एपिसोड 3 और 4 (राष्ट्रीय टीम से 8 मुक़ाबले) आ गए, स्टाफ़ पोस्टर, दो कॉमिक्स और कॉमिक शेल्फ़ रीडर वर्क्स में जुड़े, साइट मोबाइल के लिए हल्की हुई और कर्मचारियों के असली नाम जुड़े। Rudy का कोटा पूरा भरा है; Kaz और Tidal का साप्ताहिक कोटा ख़त्म (Tidal 11/13 तड़के रीसेट); Idn ने लगभग 40% इस्तेमाल किया।" }
+  },
+  {
     date: "2026-11-08",
     quota: "reports/2026-11-08b_quota.jpg",
     daily: "reports/2026-11-08b_daily.jpg",
