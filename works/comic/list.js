@@ -6,6 +6,18 @@
  */
 window.JIO_COMICS = [
   {
+    id: 'news', dir: 'works/comic/news',
+    title: { zh: 'JIO 時事四格', en: 'JIO News Four-Panel', hi: 'JIO समाचार चार-पैनल' },
+    desc: {
+      zh: '四位員工聊這週的新聞，一篇四格。人物用定裝照，對白是虛構的。',
+      en: "The four employees chat about this week's news, four panels each. Portraits are the official ones; the dialogue is fiction.",
+      hi: 'चारों कर्मचारी इस हफ़्ते की ख़बरों पर बात करते हैं, हर कॉमिक में चार पैनल। संवाद काल्पनिक हैं।'
+    },
+    eps: [
+      [1, 3, '2026 年 11 月第 2 週：AI 家電、輪子機器人、新模型']
+    ]
+  },
+  {
     id: 'kid',
     title: { zh: 'JIO 員工長篇漫畫《小時候》', en: 'JIO staff comic: "When We Were Kids"', hi: 'JIO स्टाफ कॉमिक: "बचपन"' },
     desc: {

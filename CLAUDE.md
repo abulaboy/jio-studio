@@ -69,6 +69,10 @@
 
 閱讀器的行為：手機左右滑或點兩側翻頁、電腦 ← →、Esc 關閉、最後一頁接下一話、看到哪一頁存在瀏覽器（`localStorage` 的 `jio-comic-pos`）。
 
+### 加一期時事四格
+改 `works/comic/news/make.js` 裡的 `STRIPS`（標題、時事一句話、四格對白、表情編號 0 大笑～4 累），跑 `node works/comic/news/make.js` 產生 `p1.png`…，轉成 JPG 放到 `works/comic/news/<話數>/`，再照「加一話漫畫」更新 `list.js`。
+人物直接用定裝照裁切；題材挑輕鬆的科技、生活新聞，不碰政治；對白是虛構的，時事那一句要有新聞來源。
+
 ### 加一份每日報告
 在 `reports/reports.js` 的 `window.JIO_REPORTS` 最前面加一筆（`date`、`quota` 圖、`daily` 圖、三語 `note`），圖片放 `reports/`。
 報告圖的產生方式：本機 `C:\AI\JIO公司\report\data.json` 改好後跑 `node report/render.js`，再用無頭 Edge 截圖。
