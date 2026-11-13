@@ -1,0 +1,891 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>選秀王朝｜JIO 軟體工坊</title><meta name="description" content="棒球選秀經營小遊戲。"><link rel="icon" href="../../../icon-64.png"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Dela+Gothic+One&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+/* layout: scoreboard header strip, tab rail, one working panel of dense tables below */
+:root{
+  --bg:#f1f4ef;--surface:#ffffff;--ink:#13251b;--muted:#5a6b61;--line:#d3dbd4;
+  --accent:#1c6a43;--accent-ink:#ffffff;--clay:#b2522a;--gold:#a67c00;--soft:#e6ede7;
+  --display:"Dela Gothic One","Noto Sans TC",sans-serif;
+  --body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  --num:"Barlow Condensed","Noto Sans TC",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1612;--surface:#15221b;--ink:#e5eee8;--muted:#93a69b;--line:#27392f;
+  --accent:#5cc48d;--accent-ink:#08130d;--clay:#e58d62;--gold:#e0b84a;--soft:#1c2d24;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1612;--surface:#15221b;--ink:#e5eee8;--muted:#93a69b;--line:#27392f;
+  --accent:#5cc48d;--accent-ink:#08130d;--clay:#e58d62;--gold:#e0b84a;--soft:#1c2d24;color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.55}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px;padding-block:16px 48px;display:flex;flex-direction:column;gap:14px}
+header.board{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:flex-end;border-bottom:3px solid var(--ink);padding-bottom:10px}
+h1{font-family:var(--display);font-weight:400;font-size:30px;margin:0;line-height:1.1;letter-spacing:.04em}
+.meta{display:flex;flex-wrap:wrap;gap:4px 18px;margin-left:auto}
+.meta div{display:flex;flex-direction:column}
+.meta span{font-size:11px;color:var(--muted);letter-spacing:.08em}
+.meta b{font-family:var(--num);font-size:22px;line-height:1.1}
+nav{display:flex;flex-wrap:wrap;gap:6px}
+button{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.on,button.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+button.sm{padding:2px 8px;font-size:12px}
+button.warn{border-color:var(--clay);color:var(--clay)}
+button:disabled{opacity:.45;cursor:not-allowed}
+select,input{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:4px 6px}
+h2{font-size:17px;margin:0 0 8px;text-wrap:balance}
+h3{font-size:13px;margin:0 0 6px;color:var(--muted);letter-spacing:.08em}
+section{display:flex;flex-direction:column;gap:14px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;min-width:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:4px 7px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+th{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:.05em}
+th:first-child,td:first-child,td.l,th.l{text-align:left}
+td.n{font-family:var(--num);font-size:16px}
+tr.me td{background:var(--soft);font-weight:700}
+.tag{display:inline-block;font-size:11px;padding:0 5px;border-radius:3px;border:1px solid var(--line);color:var(--muted);margin-left:4px}
+.tag.st{border-color:var(--accent);color:var(--accent)}
+.g{font-family:var(--num);font-weight:700;font-size:16px}
+.gS{color:var(--gold)}.gA{color:var(--clay)}.gB{color:var(--accent)}
+.muted{color:var(--muted)}.small{font-size:12px}
+ul.news{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:3px}
+.pick{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.pick button{text-align:left;padding:10px 12px}
+.pick b{display:block;font-size:15px}
+.bc{font-size:22px;font-weight:700;line-height:1.4;min-height:2.8em;margin:0 0 10px}
+.msg{color:var(--clay);font-weight:500}
+</style>
+<div class="wrap">
+<header class="board">
+  <h1>選秀王朝</h1>
+  <div class="meta" id="meta"></div>
+</header>
+<nav id="nav"></nav>
+<section id="view"></section>
+</div>
+<script>
+// ===== 人物庫：姓名,選秀年,球團,順位,出身(H高中/U大學/S社會人‧獨立),守位,頂峰能力(1-9) =====
+// 打者能力=打擊/力量/速度/守備；投手=球威/控球/變化/體力
+const DB=`阿部慎之助,2000,,1,U,C,7937
+内川聖一,2000,,1,H,IF,9655
+中島裕之,2000,,5,H,IF,8755
+赤星憲広,2000,,4,S,OF,7298
+渡辺俊介,2000,,4,S,SP,3887
+畠山和洋,2000,,5,H,IF,6724
+帆足和幸,2000,,3,S,SP,5766
+寺原隼人,2001,,1,H,SP,8566
+中村剛也,2001,,2,H,IF,5935
+栗山巧,2001,,4,H,OF,8556
+石川雅規,2001,,,U,SP,3988
+杉内俊哉,2001,,3,S,SP,7897
+細川亨,2001,,,U,C,3538
+今江敏晃,2001,,3,H,IF,7548
+安藤優也,2001,,,S,SP,6766
+平野恵一,2001,,,U,IF,7278
+後藤光尊,2001,,10,S,IF,6556
+大竹寛,2001,,1,H,SP,7666
+和田毅,2002,,,U,SP,6987
+新垣渚,2002,,,U,SP,9486
+村田修一,2002,,,U,IF,6937
+木佐貫洋,2002,,,U,SP,7676
+永川勝浩,2002,,,U,RP,8484
+西岡剛,2002,,1,H,IF,8497
+坂口智隆,2002,,1,H,OF,8377
+久保田智之,2002,,5,U,RP,9556
+武田久,2002,,4,S,RP,5874
+小谷野栄一,2002,,5,U,IF,7547
+髙井雄平,2002,,1,H,OF,7644
+加藤大輔,2002,,,S,RP,8464
+館山昌平,2002,,3,U,SP,8786
+吉村裕基,2002,,5,H,OF,5844
+糸井嘉男,2003,,,U,OF,8788
+鳥谷敬,2003,,,U,IF,8668
+馬原孝浩,2003,,,U,RP,9674
+内海哲也,2003,,,S,SP,6887
+青木宣親,2003,,4,U,OF,9587
+成瀬善久,2003,,6,H,SP,4977
+内竜也,2003,,1,H,RP,8583
+西村健太朗,2003,,2,H,RP,7675
+明石健志,2003,,4,H,IF,6376
+ダルビッシュ有,2004,,1,H,SP,9899
+涌井秀章,2004,,1,H,SP,7879
+片岡易之,2004,,3,S,IF,6397
+金子千尋,2004,,,S,SP,8998
+能見篤史,2004,,,S,SP,7887
+久保康友,2004,,,S,SP,6777
+石川雄洋,2004,,6,H,IF,6275
+中田賢一,2004,,2,U,SP,8476
+田中浩康,2004,,,U,IF,7358
+亀井義行,2004,,4,U,OF,6667
+陽岱鋼,2005,,1,H,OF,7688
+平田良介,2005,,1,H,OF,7757
+T-岡田,2005,,1,H,OF,6934
+炭谷銀仁朗,2005,,1,H,C,4438
+山口俊,2005,,1,H,SP,8677
+川端慎吾,2005,,3,H,IF,9446
+銀次,2005,,3,H,IF,8346
+吉見一起,2005,,,S,SP,6987
+平野佳寿,2005,,,U,RP,8885
+松田宣浩,2005,,,U,IF,7868
+岸田護,2005,,3,S,RP,6775
+藤井淳志,2005,,3,S,OF,6567
+梵英心,2005,,3,S,IF,6577
+武田勝,2005,,4,S,SP,3986
+本多雄一,2005,,5,S,IF,7297
+山口鉄也,2005,,育,S,RP,7885
+岩田稔,2005,,,U,SP,6676
+田中将大,2006,,1,H,SP,9999
+坂本勇人,2006,,1,H,IF,8868
+前田健太,2006,,1,H,SP,8998
+堂上直倫,2006,,1,H,IF,4537
+吉川光夫,2006,,1,H,SP,7476
+梶谷隆幸,2006,,3,H,OF,7786
+會澤翼,2006,,3,H,C,6636
+岸孝之,2006,,,U,SP,7997
+大隣憲司,2006,,,U,SP,6776
+嶋基宏,2006,,3,U,C,5248
+角中勝也,2006,,7,S,OF,9455
+森福允彦,2006,,4,S,RP,4883
+浅尾拓也,2006,,3,U,RP,9784
+長谷川勇也,2006,,5,U,OF,9655
+大引啓次,2006,,3,U,IF,5458
+中田翔,2007,,1,H,IF,6937
+唐川侑己,2007,,1,H,SP,6876
+由規,2007,,1,H,SP,9475
+丸佳浩,2007,,3,H,OF,8868
+中村晃,2007,,3,H,OF,8457
+岩嵜翔,2007,,1,H,RP,8665
+伊藤光,2007,,3,H,C,5337
+宮西尚生,2007,,3,U,RP,5894
+聖澤諒,2007,,4,U,OF,7297
+松山竜平,2007,,4,U,OF,7623
+大田泰示,2008,,1,H,OF,6868
+浅村栄斗,2008,,3,H,IF,8946
+西勇輝,2008,,3,H,SP,6987
+攝津正,2008,,5,S,SP,5997
+中村悠平,2008,,3,H,C,6338
+野上亮磨,2008,,2,S,SP,5766
+上本博紀,2008,,3,U,IF,6475
+西野勇士,2008,,育,H,SP,6885
+岡田幸文,2008,,育,S,OF,5199
+中島卓也,2008,,5,H,IF,5187
+谷元圭介,2008,,7,S,RP,5774
+辛島航,2008,,6,H,SP,4765
+菊池雄星,2009,,1,H,SP,9788
+筒香嘉智,2009,,1,H,OF,8924
+今宮健太,2009,,1,H,IF,5569
+長野久義,2009,,1,S,OF,8767
+今村猛,2009,,1,H,RP,7674
+荻野貴司,2009,,1,S,OF,8397
+堂林翔太,2009,,2,H,IF,5654
+大島洋平,2009,,5,S,OF,9289
+増井浩俊,2009,,5,S,RP,9585
+原口文仁,2009,,6,H,C,6624
+秋山拓巳,2009,,4,H,SP,5966
+比嘉幹貴,2009,,2,S,RP,5873
+岡田俊哉,2009,,1,H,RP,6674
+國吉佑樹,2009,,育,H,RP,9454
+大野雄大,2010,,1,U,SP,8789
+澤村拓一,2010,,1,U,RP,9586
+斎藤佑樹,2010,,1,U,SP,4555
+山田哲人,2010,,1,H,IF,8996
+柳田悠岐,2010,,2,U,OF,9986
+秋山翔吾,2010,,3,U,OF,9679
+西川遥輝,2010,,2,H,OF,8496
+千賀滉大,2010,,育,H,SP,9698
+甲斐拓也,2010,,育,H,C,3549
+牧原大成,2010,,育,H,IF,7387
+美馬学,2010,,2,S,SP,6876
+牧田和久,2010,,2,S,RP,3886
+塩見貴洋,2010,,1,U,SP,5765
+中﨑翔太,2010,,6,H,RP,7674
+福山博之,2010,,6,U,RP,5774
+野村祐輔,2011,,1,U,SP,5876
+武田翔太,2011,,1,H,SP,7596
+菊池涼介,2011,,2,U,IF,6579
+鈴木大地,2011,,3,U,IF,7447
+益田直也,2011,,4,U,RP,7785
+近藤健介,2011,,4,H,OF,9745
+上沢直之,2011,,6,H,SP,7888
+高橋周平,2011,,1,H,IF,7537
+松本剛,2011,,2,H,OF,8366
+桑原将志,2011,,4,H,OF,6479
+田島慎二,2011,,3,U,RP,7574
+島内宏明,2011,,6,U,OF,8556
+岡島豪郎,2011,,4,U,OF,7355
+十亀剣,2011,,1,S,SP,6666
+安達了一,2011,,1,S,IF,5369
+佐藤達也,2011,,3,S,RP,9464
+嘉弥真新也,2011,,5,S,RP,4883
+一岡竜司,2011,,3,S,RP,7674
+大谷翔平,2012,,1,H,SP,9898
+藤浪晋太郎,2012,,1,H,SP,9387
+菅野智之,2012,,1,U,SP,8999
+東浜巨,2012,,1,U,SP,6787
+則本昂大,2012,,2,S,SP,9889
+小川泰弘,2012,,2,U,SP,6878
+鈴木誠也,2012,,2,H,OF,9968
+松永昂大,2012,,1,S,RP,5784
+増田達至,2012,,1,S,RP,8765
+石山泰稚,2012,,1,S,RP,7775
+福谷浩司,2012,,1,U,RP,8665
+井納翔一,2012,,3,S,SP,7677
+宮﨑敏郎,2012,,6,S,IF,9715
+三嶋一輝,2012,,2,U,RP,8575
+田村龍弘,2012,,3,H,C,4338
+金子侑司,2012,,3,U,OF,6297
+髙橋朋己,2012,,4,S,RP,8663
+松葉貴大,2012,,1,U,SP,4765
+伏見寅威,2012,,3,U,C,5437
+鍵谷陽平,2012,,3,U,RP,7664
+松井裕樹,2013,,1,H,RP,8695
+森友哉,2013,,1,H,C,9845
+大瀬良大地,2013,,1,U,SP,7878
+石川歩,2013,,1,S,SP,6987
+山川穂高,2013,,2,U,IF,5914
+田口麗斗,2013,,3,H,RP,5886
+小林誠司,2013,,1,S,C,3349
+梅野隆太郎,2013,,4,U,C,5658
+岩崎優,2013,,6,U,RP,5985
+又吉克樹,2013,,2,S,RP,6775
+森唯斗,2013,,2,S,RP,7875
+田中広輔,2013,,3,S,IF,7577
+九里亜蓮,2013,,2,U,SP,6778
+若月健矢,2013,,3,H,C,5438
+杉浦稔大,2013,,1,U,RP,8664
+秋吉亮,2013,,3,S,RP,6784
+三上朋也,2013,,4,S,RP,7664
+渡邉諒,2013,,1,H,IF,6645
+上林誠知,2013,,4,H,OF,6777
+岩貞祐太,2013,,1,U,RP,7675
+二木康太,2013,,6,H,SP,5866
+井上晴哉,2013,,5,S,IF,6814
+祖父江大輔,2013,,5,S,RP,6784
+石川柊太,2013,,育,U,SP,7696
+有原航平,2014,,1,U,SP,8889
+岡本和真,2014,,1,H,IF,8937
+髙橋光成,2014,,1,H,SP,8688
+山﨑康晃,2014,,1,U,RP,7794
+中村奨吾,2014,,1,U,IF,6568
+野間峻祥,2014,,1,U,OF,7397
+山﨑福也,2014,,1,U,SP,5876
+松本裕樹,2014,,1,H,RP,8784
+栗原陵矢,2014,,2,H,IF,8757
+石田健大,2014,,2,U,SP,5776
+外崎修汰,2014,,3,U,IF,6688
+宗佑磨,2014,,2,H,IF,7469
+西野真弘,2014,,7,S,IF,7256
+岩下大輝,2014,,3,H,RP,7575
+吉田正尚,2015,,1,U,OF,9944
+今永昇太,2015,,1,U,SP,7998
+小笠原慎之介,2015,,1,H,SP,6778
+髙山俊,2015,,1,U,OF,6464
+多和田真三郎,2015,,1,U,SP,6677
+加藤貴之,2015,,2,S,SP,3987
+坂本誠志郎,2015,,2,U,C,4238
+茂木栄五郎,2015,,3,U,IF,7666
+戸柱恭孝,2015,,4,S,C,4426
+青柳晃洋,2015,,5,U,SP,5787
+西川龍馬,2015,,5,S,OF,9556
+杉本裕太郎,2015,,10,S,OF,5945
+木下拓哉,2015,,3,S,C,6627
+阿部寿樹,2015,,5,S,IF,6636
+中川皓太,2015,,7,U,RP,6784
+山本由伸,2016,,4,H,SP,9999
+源田壮亮,2016,,3,S,IF,7289
+今井達也,2016,,1,H,SP,9688
+田中正義,2016,,1,U,RP,8674
+大山悠輔,2016,,1,U,IF,7847
+柳裕也,2016,,1,U,SP,5888
+濵口遥大,2016,,1,U,SP,6486
+吉川尚輝,2016,,1,U,IF,8489
+山岡泰輔,2016,,1,S,SP,6897
+堀瑞輝,2016,,1,H,RP,6674
+藤平尚真,2016,,1,H,RP,8575
+京田陽太,2016,,2,U,IF,5278
+床田寛樹,2016,,3,U,SP,6887
+才木浩人,2016,,3,H,SP,9787
+種市篤暉,2016,,6,H,SP,8787
+坂倉将吾,2016,,4,H,C,8645
+細川成也,2016,,5,H,OF,6945
+佐野恵太,2016,,9,U,OF,9723
+糸原健斗,2016,,5,S,IF,7235
+森原康平,2016,,5,S,RP,7774
+平井克典,2016,,5,S,RP,6786
+髙梨雄平,2016,,9,S,RP,4783
+藤嶋健人,2016,,5,H,RP,6764
+清宮幸太郎,2017,,1,H,IF,7834
+村上宗隆,2017,,1,H,IF,8944
+安田尚憲,2017,,1,H,IF,6536
+東克樹,2017,,1,U,SP,6988
+田嶋大樹,2017,,1,S,SP,6777
+塩見泰隆,2017,,4,S,OF,7797
+周東佑京,2017,,育,U,OF,6297
+平良海馬,2017,,4,H,RP,9796
+大城卓三,2017,,3,S,C,7726
+岸田行倫,2017,,2,S,C,6537
+髙橋遥人,2017,,2,U,SP,7885
+山本祐大,2017,,9,S,C,7537
+藤岡裕大,2017,,2,S,IF,6367
+福田周平,2017,,3,S,OF,7177
+高橋礼,2017,,2,U,SP,4776
+大竹耕太郎,2017,,育,U,SP,3986
+清水達也,2017,,4,H,RP,7584
+藤原恭大,2018,,1,H,OF,7477
+小園海斗,2018,,1,H,IF,8567
+近本光司,2018,,1,S,OF,9499
+辰己涼介,2018,,1,U,OF,7589
+甲斐野央,2018,,1,U,RP,9574
+松本航,2018,,1,U,SP,6667
+上茶谷大河,2018,,1,U,SP,5776
+清水昇,2018,,1,U,RP,6885
+太田椋,2018,,1,H,IF,7646
+頓宮裕真,2018,,2,U,IF,8724
+中川圭太,2018,,7,U,IF,7556
+万波中正,2018,,4,H,OF,6968
+野村佑希,2018,,2,H,IF,7635
+田宮裕涼,2018,,6,H,C,7366
+勝野昌慶,2018,,3,S,RP,8575
+大貫晋一,2018,,3,S,SP,5886
+戸郷翔征,2018,,6,H,SP,8899
+島内颯太郎,2018,,2,U,RP,8684
+木浪聖也,2018,,3,S,IF,6347
+湯浅京己,2018,,6,S,RP,8684
+森脇亮介,2018,,6,S,RP,6674
+太田光,2018,,2,U,C,3437
+小郷裕哉,2018,,7,U,OF,7586
+鈴木翔天,2018,,8,U,RP,7674
+小島和哉,2018,,3,U,SP,5878
+山口航輝,2018,,4,H,OF,5834
+杉山一樹,2018,,2,S,RP,9584
+泉圭輔,2018,,6,U,RP,6664
+佐々木朗希,2019,,1,H,SP,9896
+奥川恭伸,2019,,1,H,SP,7975
+森下暢仁,2019,,1,U,SP,7898
+宮城大弥,2019,,1,H,SP,7998
+石川昂弥,2019,,1,H,IF,6735
+河野竜生,2019,,1,S,RP,6775
+小深田大翔,2019,,1,S,IF,7297
+紅林弘太郎,2019,,2,H,IF,7648
+伊勢大夢,2019,,3,U,RP,8774
+岡林勇希,2019,,5,H,OF,8289
+郡司裕也,2019,,4,U,IF,7535
+及川雅貴,2019,,3,H,RP,7784
+佐藤都志也,2019,,2,U,C,7556
+髙部瑛斗,2019,,3,U,OF,8297
+横山陸人,2019,,4,H,RP,8674
+津森宥紀,2019,,3,U,RP,7574
+柳町達,2019,,5,U,OF,8456
+大関友久,2019,,育,U,SP,6777
+大西広樹,2019,,4,U,RP,6775
+長岡秀樹,2019,,5,H,IF,8458
+井上温大,2019,,4,H,SP,7786
+佐藤輝明,2020,,1,U,IF,7966
+早川隆久,2020,,1,U,SP,7887
+伊藤大海,2020,,1,U,SP,8899
+栗林良吏,2020,,1,S,RP,8794
+牧秀悟,2020,,2,U,IF,9935
+髙橋宏斗,2020,,1,H,SP,9898
+山下舜平大,2020,,1,H,SP,9586
+木澤尚文,2020,,1,U,RP,8575
+入江大生,2020,,1,U,RP,8574
+伊藤将司,2020,,2,S,SP,5977
+中野拓夢,2020,,6,S,IF,8297
+石井大智,2020,,8,S,RP,8884
+村上頌樹,2020,,5,U,SP,6987
+阿部翔太,2020,,6,S,RP,6884
+宇田川優希,2020,,育,U,RP,9484
+五十幡亮汰,2020,,2,U,OF,5198
+森浦大輔,2020,,2,U,RP,6684
+矢野雅哉,2020,,6,U,IF,6189
+秋広優人,2020,,5,H,IF,7634
+中山礼都,2020,,3,H,IF,6366
+内山壮真,2020,,3,H,C,7656
+小川龍成,2020,,3,U,IF,6178
+藤井聖,2020,,3,S,SP,5776
+内星龍,2020,,6,H,RP,7775
+水上由伸,2020,,育,U,RP,6784
+隅田知一郎,2021,,1,U,SP,6898
+達孝太,2021,,1,H,SP,8787
+大勢,2021,,1,U,RP,9784
+佐藤隼輔,2021,,2,U,RP,7674
+古賀悠斗,2021,,3,U,C,4438
+正木智也,2021,,2,U,OF,7645
+北山亘基,2021,,8,U,SP,8787
+上川畑大悟,2021,,9,S,IF,6257
+赤星優志,2021,,3,U,SP,5766
+桐敷拓馬,2021,,3,U,RP,7785
+前川右京,2021,,4,H,OF,8634
+末包昇大,2021,,6,S,OF,6835
+梶原昂希,2021,,6,U,OF,7586
+丸山和郁,2021,,2,U,OF,6287
+浅野翔吾,2022,,1,H,OF,6666
+門脇誠,2022,,4,U,IF,6369
+船迫大雅,2022,,5,S,RP,5884
+森下翔太,2022,,1,U,OF,8857
+松尾汐恩,2022,,1,H,C,7556
+吉村貢司郎,2022,,1,S,SP,7887
+村松開人,2022,,2,U,IF,7267
+田中幹也,2022,,6,U,IF,5189
+福永裕基,2022,,7,S,IF,7555
+曽谷龍平,2022,,1,U,SP,8687
+大津亮介,2022,,2,S,SP,6886
+蛭間拓哉,2022,,1,U,OF,6466
+荘司康誠,2022,,1,U,SP,8687
+渡辺翔太,2022,,3,S,RP,7784
+友杉篤輝,2022,,2,U,IF,6188
+矢澤宏太,2022,,1,U,OF,5387
+金村尚真,2022,,2,U,SP,6987
+武内夏暉,2023,,1,U,SP,7988
+度会隆輝,2023,,1,S,OF,7565
+西舘勇陽,2023,,1,U,RP,8775
+古謝樹,2023,,1,U,SP,6777
+佐々木俊輔,2023,,3,S,OF,6277
+泉口友汰,2023,,4,S,IF,8458
+石田裕太郎,2023,,5,U,SP,5876
+古田島成龍,2023,,6,S,RP,6784
+寺地隆成,2023,,5,H,C,7445
+宗山塁,2024,,1,U,IF,7468
+金丸夢斗,2024,,1,U,SP,8887
+西川史礁,2024,,1,U,OF,8656
+渡部聖弥,2024,,2,U,OF,7656
+中村優斗,2024,,1,U,SP,8676
+伊原陵人,2024,,1,S,SP,6876
+竹田祐,2024,,1,S,SP,6776
+石塚裕惺,2024,,1,H,IF,7656
+柴田獅子,2024,,1,H,SP,8676
+麦谷祐介,2024,,1,U,OF,6487
+村上泰斗,2024,,1,H,SP,7676
+佐々木泰,2024,,1,U,IF,6646
+荘司宏太,2024,,3,S,RP,6784
+寺西成騎,2024,,2,U,SP,6776
+篠木健太郎,2024,,2,U,SP,7676
+立石正広,2025,,1,U,IF,7866
+石垣元気,2025,,1,H,SP,9677
+佐々木麟太郎,2025,,1,U,IF,6923
+竹丸和幸,2025,,1,S,SP,7776
+中西聖輝,2025,,1,U,SP,7787
+小島大河,2025,,1,U,C,7546
+藤原聡大,2025,,1,U,SP,8676
+平川蓮,2025,,1,U,OF,7676
+松下歩叶,2025,,1,U,IF,7756
+小田康一郎,2025,,1,U,IF,8635
+大川慈英,2025,,1,U,RP,8674
+藤川敦也,2025,,1,H,SP,8576`.split('\n').map(l=>l.split(','));
+
+const TEAMS=['札幌北熊','仙台疾風','千葉浪人','埼玉雷鳴','神戶港燈','福岡玄海','東京巨塔','橫濱海神','新潟雪鶴','名古屋金鯱','大阪商人','廣島紅葉'];
+const LG=['東聯盟','西聯盟'];
+const SUR='佐藤 鈴木 高橋 田中 渡邊 伊藤 山本 中村 小林 加藤 吉田 山田 松本 井上 木村 清水 山口 池田 橋本 石川 前田 藤田 岡田 長谷川 村上'.split(' ');
+const GIV='健太 翔 大輔 拓也 直樹 一郎 悠真 蓮 颯太 陸 剛 誠 亮 駿 圭 和也 雄大 慎吾 隆 浩二'.split(' ');
+const AB={b:['打擊','力量','速度','守備'],p:['球威','控球','變化','體力']};
+const SRC={H:'高中',U:'大學',S:'社會人'};
+const DAYS=143,ROUNDS=5,CAP=32;
+const MIN={C:2,IF:6,OF:4,SP:6,RP:5};
+
+let G=null,view='home',viewTeam=0,msg='',armed=null;
+const R=Math.random,ri=(a,b)=>a+Math.floor(R()*(b-a+1)),rf=(a,b)=>a+R()*(b-a);
+const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
+const isP=p=>p.pos==='SP'||p.pos==='RP';
+const P=id=>G.P[id];
+const my=()=>G.teams[G.my];
+function ovrOf(pos,a){
+  if(pos==='SP')return a[0]*.3+a[1]*.3+a[2]*.25+a[3]*.15;
+  if(pos==='RP')return a[0]*.36+a[1]*.3+a[2]*.34;
+  if(pos==='C')return a[0]*.3+a[1]*.25+a[2]*.1+a[3]*.35;
+  return a[0]*.36+a[1]*.32+a[2]*.14+a[3]*.18;
+}
+const ovr=p=>Math.round(ovrOf(p.pos,p.cur));
+const pot=p=>Math.round(ovrOf(p.pos,p.pk));
+const grade=v=>v>=86?'S':v>=80?'A':v>=74?'B':v>=68?'C':v>=62?'D':'E';
+const gsp=v=>{const g=grade(v);return `<span class="g g${g}">${g}</span>`};
+const newStat=()=>({pa:0,ab:0,h:0,hr:0,rbi:0,bb:0,k:0,sb:0,g:0,o:0,er:0,pk:0,pbb:0,ph:0,w:0,l:0,sv:0});
+function salFor(p){
+  const o=ovr(p);let s=o<60?0.1:0.1+Math.pow((o-60)/10,2.2)*0.5;
+  if(p.real>=0&&p.yrs<3)s=Math.min(s,0.3);
+  return Math.round(s*100)/100;
+}
+function scoutNoise(){return 9-1.5*my().fac.scout}
+function mkReal(i){
+  const d=DB[i],src=d[4],pos=d[5];
+  const pk=[...d[6]].map(x=>40+x*6+ri(-3,3));
+  const f={H:.66,U:.76,S:.82}[src]+rf(-.04,.04);
+  const cur=pk.map(v=>Math.min(v,Math.round(v*f+rf(-2,2))));
+  const p={id:G.nid++,n:d[0],real:i,pos,age:{H:18,U:22,S:24}[src],pk,cur,yrs:0,focus:-1,st:newStat(),
+    info:`${d[1]}年選秀${d[3]?(d[3]==='育'?' 育成':' 第'+d[3]+'輪'):''}・${SRC[src]}`};
+  p.sc=Math.round(pot(p)+rf(-1,1)*scoutNoise());p.sal=salFor(p);return p;
+}
+function mkFill(pos,lo,hi){
+  const pk=[0,0,0,0].map(()=>ri(lo,hi));
+  const p={id:G.nid++,n:SUR[ri(0,SUR.length-1)]+GIV[ri(0,GIV.length-1)],real:-1,pos,age:ri(26,33),pk,cur:pk.slice(),yrs:5,focus:-1,st:newStat(),info:'架空球員'};
+  p.sc=pot(p);p.sal=salFor(p);return p;
+}
+function addTo(t,p){G.P[p.id]=p;p.tm=t.id;t.roster.push(p.id)}
+function drop(t,p){t.roster=t.roster.filter(x=>x!==p.id);delete G.P[p.id]}
+function news(s){G.news.unshift(s);if(G.news.length>40)G.news.pop()}
+
+function newGame(mi,name){
+  G={year:1,day:0,phase:'draft',my:mi,nid:1,P:{},news:[],hist:[],fa:[],tp:3,teams:[]};
+  TEAMS.forEach((n,i)=>{
+    const t={id:i,name:i===mi&&name?name:n,lg:i<6?0:1,roster:[],w:0,l:0,t:0,rs:0,ra:0,cash:15,pop:50,fac:{train:0,scout:0,stadium:0}};
+    G.teams.push(t);
+    const plan={SP:5,RP:6,C:3,IF:7,OF:5};
+    for(const k in plan)for(let j=0;j<plan[k];j++)addTo(t,mkFill(k,54,78));
+  });
+  news(`${my().name} 成立。首屆選秀會開始。`);
+  newDraft(G.teams.map(t=>t.id).sort(()=>R()-.5));
+}
+function newDraft(order){
+  const act=new Set(Object.values(G.P).filter(p=>p.real>=0).map(p=>p.real));
+  const cand=DB.map((_,i)=>i).filter(i=>!act.has(i)).sort(()=>R()-.5).slice(0,72);
+  G.draft={pool:cand.map(mkReal),order,n:0,log:[]};
+  G.phase='draft';advanceDraft();
+}
+function cnt(t,pos){return t.roster.filter(id=>P(id).pos===pos).length}
+function doPick(t,p){
+  const d=G.draft;d.pool=d.pool.filter(x=>x!==p);addTo(t,p);
+  d.log.unshift(`第${Math.floor(d.n/12)+1}輪 ${t.name}：${p.n}（${p.pos}）`);d.n++;
+  if(t.id===G.my)news(`選秀第${Math.ceil(d.n/12)}輪指名 ${p.n}。`);
+}
+function aiPick(t){
+  const d=G.draft;let best=null,bs=-1;
+  for(const p of d.pool){const s=pot(p)+rf(-6,6)+(cnt(t,p.pos)<MIN[p.pos]?8:0);if(s>bs){bs=s;best=p}}
+  doPick(t,best);
+}
+function advanceDraft(auto){
+  const d=G.draft;
+  while(d.n<ROUNDS*12&&d.pool.length){
+    const t=G.teams[d.order[d.n%12]];
+    if(t.id===G.my){if(!auto)return;doPick(t,d.pool.slice().sort((a,b)=>b.sc-a.sc)[0])}
+    else aiPick(t);
+  }
+  G.phase='pre';d.pool=[];
+  news('選秀結束。調整名單後即可開幕。');
+}
+
+// ===== 陣容與比賽模擬 =====
+function lineup(t){
+  const ps=t.roster.map(P),bats=ps.filter(p=>!isP(p)).sort((a,b)=>ovr(b)-ovr(a)),pit=ps.filter(isP);
+  const lu=[],take=(pos,n)=>{for(const p of bats){if(n&&p.pos===pos&&!lu.includes(p)){lu.push(p);n--}}};
+  take('C',1);take('IF',4);take('OF',3);
+  const off=p=>p.cur[0]*.5+p.cur[1]*.4+p.cur[2]*.1;
+  const rest=bats.filter(p=>!lu.includes(p)).sort((a,b)=>off(b)-off(a));
+  while(lu.length<9&&rest.length)lu.push(rest.shift());
+  const D=lu.reduce((s,p)=>s+p.cur[3],0)/Math.max(1,lu.length);
+  const o=lu.slice().sort((a,b)=>off(b)-off(a));
+  const ord=[o[2],o[3],o[0],o[1],...o.slice(4)].filter(Boolean);
+  const byO=(a,b)=>ovr(b)-ovr(a);
+  let sp=pit.filter(p=>p.pos==='SP').sort(byO).slice(0,5);
+  const rpv=p=>ovrOf('RP',p.cur);
+  let rp=pit.filter(p=>!sp.includes(p)).sort((a,b)=>rpv(b)-rpv(a));
+  while(sp.length<5&&rp.length>3)sp.push(rp.pop());
+  rp=rp.slice(0,7);if(!rp.length)rp=sp.slice(-1);
+  return {lu:ord,sp,rp,D,ids:new Set([...ord,...sp,...rp].map(p=>p.id))};
+}
+function simGame(h,a,L,count){
+  const ctx=(t,home)=>{const l=L[t.id],sp=l.sp[(t.w+t.l+t.t)%l.sp.length];sp.st.g++;
+    return {t,l,home,i:0,r:0,p:sp,isSP:true,bf:0,lim:18+(sp.cur[3]-50)*.25,rc:0,pi:0,cl:false,wp:null,lp:null}};
+  const H=ctx(h,true),A=ctx(a,false);
+  const half=(B,Pt,inn)=>{
+    if(inn>1){
+      let ch=Pt.isSP?(Pt.bf>=Pt.lim||Pt.rc>=5):true;
+      if(ch){const rp=Pt.l.rp,lead=Pt.r-B.r;let nx;
+        if(inn>=9&&lead>0&&lead<=3&&!Pt.cl){nx=rp[0];Pt.cl=true}
+        else nx=rp.length>1?rp[1+(Pt.pi++ +Pt.t.w+Pt.t.l)%(rp.length-1)]:rp[0];
+        if(nx!==Pt.p){Pt.p=nx;nx.st.g++}Pt.isSP=false;Pt.rc=0;Pt.bf=0;}
+    }
+    let outs=0,bs=[null,null,null];
+    const score=(n,b)=>{if(!n)return;const before=B.r;B.r+=n;b.st.rbi+=n;Pt.p.st.er+=n;Pt.rc+=n;
+      if(before<=Pt.r&&B.r>Pt.r){B.wp=B.p;Pt.lp=Pt.p}
+      if(before<Pt.r&&B.r===Pt.r){Pt.wp=null;B.lp=null}};
+    while(outs<3){
+      const b=B.l.lu[B.i%B.l.lu.length],p=Pt.p;B.i++;Pt.bf++;
+      const [c,pw,s]=b.cur,[v,ct,br]=p.cur,q=(v+ct+br)/3-(Pt.isSP&&Pt.bf>Pt.lim?6:0);
+      b.st.pa++;
+      const pK=clamp(.19+((v+br)/2-c)*.004,.05,.4),pBB=clamp(.08+(65-ct)*.0025+(pw-65)*.0005,.02,.2),
+        pHR=clamp(.022+(pw-65)*.0014-(q-65)*.0006,.002,.09);
+      const r=R();let onFirst=false;
+      if(r<pK){b.st.ab++;b.st.k++;p.st.pk++;outs++;p.st.o++}
+      else if(r<pK+pBB){b.st.bb++;p.st.pbb++;
+        if(bs[0]){if(bs[1]){if(bs[2])score(1,b);bs[2]=bs[1]}bs[1]=bs[0]}bs[0]=b;onFirst=true}
+      else if(r<pK+pBB+pHR){b.st.ab++;b.st.h++;b.st.hr++;p.st.ph++;score(1+bs.filter(Boolean).length,b);bs=[null,null,null]}
+      else{b.st.ab++;
+        const bab=clamp(.295+(c-65)*.0025-(q-65)*.0015-(Pt.l.D-65)*.001+(s-65)*.0005,.18,.42);
+        if(R()<bab){b.st.h++;p.st.ph++;const x=R(),p3=.015+(s-65)*.0006,p2=.19+(pw-65)*.002;
+          if(x<p3){score(bs.filter(Boolean).length,b);bs=[null,null,b]}
+          else if(x<p3+p2){let n=0;if(bs[2])n++;if(bs[1])n++;let third=null;if(bs[0]){if(R()<.4)n++;else third=bs[0]}score(n,b);bs=[null,b,third]}
+          else{let n=0;const nb=[b,null,null];if(bs[2])n++;if(bs[1]){if(R()<.6)n++;else nb[2]=bs[1]}
+            if(bs[0]){if(!nb[2]&&R()<.3)nb[2]=bs[0];else nb[1]=bs[0]}score(n,b);bs=nb;onFirst=true}
+        }else{outs++;p.st.o++;
+          if(outs<3){if(bs[0]&&R()<.12){outs++;p.st.o++;bs[0]=null}else if(bs[2]&&R()<.3){score(1,b);bs[2]=null}}}
+      }
+      if(onFirst&&outs<3&&bs[0]===b&&!bs[1]&&s>72&&R()<(s-70)*.022){
+        if(R()<.72){bs[1]=b;bs[0]=null;b.st.sb++}else{bs[0]=null;outs++;p.st.o++}}
+      if(inn>=9&&B.home&&B.r>Pt.r)break;
+    }
+  };
+  for(let inn=1;inn<=12;inn++){
+    half(A,H,inn);if(inn>=9&&H.r>A.r)break;
+    half(H,A,inn);if(inn>=9&&H.r!==A.r)break;
+  }
+  if(count){h.rs+=H.r;h.ra+=A.r;a.rs+=A.r;a.ra+=H.r}
+  if(H.r===A.r){if(count){h.t++;a.t++}return null}
+  const W=H.r>A.r?H:A,Lo=W===H?A:H;
+  if(count){W.t.w++;Lo.t.l++}
+  (W.wp||W.p).st.w++;(Lo.lp||Lo.p).st.l++;
+  if(W.p!==(W.wp||W.p)&&W.r-Lo.r<=3)W.p.st.sv++;
+  return W.t;
+}
+function pairs(day){
+  const r=day%11,cy=Math.floor(day/11),a=[0];
+  for(let i=0;i<11;i++)a.push(1+(i+r)%11);
+  const out=[];for(let i=0;i<6;i++){let x=a[i],y=a[11-i];if((cy+i)%2)[x,y]=[y,x];out.push([x,y])}
+  return out;
+}
+function simDays(n){
+  const L=G.teams.map(lineup);
+  while(n-->0&&G.day<DAYS){for(const [x,y] of pairs(G.day))simGame(G.teams[x],G.teams[y],L,true);G.day++}
+  if(G.day>=DAYS)news(`第${G.year}年例行賽結束：${my().w}勝${my().l}敗${my().t}和。`);
+}
+const pct=t=>t.w+t.l?t.w/(t.w+t.l):0;
+const stand=lg=>G.teams.filter(t=>t.lg===lg).sort((a,b)=>pct(b)-pct(a)||(b.rs-b.ra)-(a.rs-a.ra));
+
+// ===== 休季 =====
+function grow(p,lvl){
+  for(let i=0;i<4;i++){
+    if(p.age<=27){const rate=.26+.04*lvl+(p.focus===i?.15:p.focus>=0?-.03:0)+rf(-.06,.1);
+      p.cur[i]=Math.min(p.pk[i],Math.round(p.cur[i]+Math.max(0,(p.pk[i]-p.cur[i])*rate)))}
+    else if(p.age>=31){const sp=!isP(p)&&i===2?1.5:1;p.cur[i]=Math.max(30,Math.round(p.cur[i]-(rf(0,2.2)+(p.age-31)*.45)*sp))}
+  }
+  p.age++;p.yrs++;
+}
+function leaders(){
+  const all=Object.values(G.P),top=(arr,f)=>arr.slice().sort((a,b)=>f(b)-f(a))[0];
+  const qb=all.filter(p=>p.st.pa>=380),qp=all.filter(p=>p.st.o>=380);
+  const o=[],nm=p=>`${p.n}（${G.teams[p.tm].name}）`;
+  let x;
+  if((x=top(qb,p=>p.st.h/p.st.ab)))o.push(`打擊王 ${nm(x)} ${avg(x)}`);
+  if((x=top(all,p=>p.st.hr)))o.push(`全壘打王 ${nm(x)} ${x.st.hr}轟`);
+  if((x=top(qp,p=>-era(p))))o.push(`防禦率王 ${nm(x)} ${era(x).toFixed(2)}`);
+  if((x=top(all,p=>p.st.w)))o.push(`勝投王 ${nm(x)} ${x.st.w}勝`);
+  return o;
+}
+function endSeason(){
+  const m=my(),aw=leaders(),a=stand(0)[0],b=stand(1)[0];
+  const rank=stand(m.lg).indexOf(m)+1,rec=`${m.w}勝${m.l}敗${m.t}和`;
+  const L=G.teams.map(lineup);let wa=0,wb=0;
+  while(wa<4&&wb<4){const w=simGame(a,b,L,false);if(w===a)wa++;else if(w===b)wb++}
+  const ch=wa>wb?a:b;
+  const pay=m.roster.reduce((s,id)=>s+P(id).sal,0),upk=(m.fac.train+m.fac.scout+m.fac.stadium)*2;
+  const rev=22+m.w*.22+m.fac.stadium*4+m.pop*.1+(ch===m?8:0);
+  m.cash=Math.round((m.cash+rev-pay-upk)*10)/10;
+  m.pop=clamp(Math.round(m.pop+(pct(m)-.5)*40+(ch===m?10:0)+(m.cash<0?-5:0)),10,100);
+  G.fin={rev:Math.round(rev*10)/10,pay:Math.round(pay*10)/10,upk};
+  G.hist.unshift({y:G.year,ch:ch.name,sc:`${Math.max(wa,wb)}–${Math.min(wa,wb)}`,rec,rank,lg:LG[m.lg],aw});
+  news(`第${G.year}年總冠軍：${ch.name}。本季收入 ${G.fin.rev} 億、薪資 ${G.fin.pay} 億、設施維護 ${upk} 億。`);
+  const order=G.teams.slice().sort((x,y)=>pct(x)-pct(y)).map(t=>t.id);
+  for(const t of G.teams){
+    const me=t.id===G.my;
+    for(const id of t.roster.slice()){const p=P(id);grow(p,me?t.fac.train:2);p.sal=salFor(p);const o=ovr(p);
+      if(p.age>=41||(p.age>=36&&o<70)||(p.age>=33&&o<58)){if(me)news(`${p.n}（${p.age-1}歲）引退。`);drop(t,p)}}
+    if(!me){
+      const val=p=>ovr(p)-Math.max(0,p.age-30)*2+(p.age<25?(pot(p)-ovr(p))*.6:0);
+      const ps=t.roster.map(P).sort((x,y)=>val(x)-val(y));
+      for(const p of ps){if(t.roster.length<=26)break;if(cnt(t,p.pos)>MIN[p.pos])drop(t,p)}
+      for(const k in MIN)while(cnt(t,k)<MIN[k])addTo(t,mkFill(k,56,74));
+    }
+  }
+  G.tp=3+m.fac.train;
+  G.fa=['SP','SP','RP','RP','C','IF','IF','IF','OF','OF'].map(k=>mkFill(k,58,78));
+  G.year++;G.day=0;newDraft(order);
+}
+function openSeason(){
+  const m=my(),ps=m.roster.map(P);
+  if(m.roster.length>CAP)return `名單超過 ${CAP} 人，請先釋出球員。`;
+  if(ps.filter(p=>!isP(p)).length<9)return '野手不足 9 人，請到「經營」簽下自由球員。';
+  if(ps.filter(isP).length<8)return '投手不足 8 人，請到「經營」簽下自由球員。';
+  for(const t of G.teams){t.w=t.l=t.t=t.rs=t.ra=0}
+  for(const p of Object.values(G.P))p.st=newStat();
+  G.phase='season';G.day=0;news(`第${G.year}年球季開幕。`);return '';
+}
+const avg=p=>p.st.ab?(p.st.h/p.st.ab).toFixed(3).replace(/^0/,''):'-';
+const era=p=>p.st.o?p.st.er*27/p.st.o:99;
+const ip=p=>Math.floor(p.st.o/3)+'.'+p.st.o%3;
+
+
+// ===== 廣播模式：自動進行並語音播報 =====
+const BC={on:false,q:[],line:'',n:0,wl:null};
+const say=t=>BC.q.push(t);
+const valOf=p=>ovr(p)-Math.max(0,p.age-30)*2+(p.age<25?(pot(p)-ovr(p))*.6:0);
+function autoFix(){
+  const m=my();
+  while(m.roster.length>CAP){const p=m.roster.map(P).sort((a,b)=>valOf(a)-valOf(b))[0];drop(m,p)}
+  while(m.roster.map(P).filter(p=>!isP(p)).length<9)addTo(m,mkFill('IF',56,70));
+  while(m.roster.map(P).filter(isP).length<8)addTo(m,mkFill('RP',56,70));
+  for(const [k,n] of FAC){const c=12*(m.fac[k]+1);if(m.fac[k]<5&&m.cash>=c+20){m.cash=Math.round((m.cash-c)*10)/10;m.fac[k]++;say(`球團升級了${n}，現在是第${m.fac[k]}級。`);break}}
+}
+function bcStep(){
+  const m=my();
+  if(G.phase==='draft'){advanceDraft(true);
+    const nw=m.roster.map(P).filter(p=>p.yrs===0&&p.real>=0);
+    say(`第${G.year}年選秀會結束。我們指名了${nw.map(p=>p.n).join('、')}。`);
+    const b=nw.sort((a,b)=>b.sc-a.sc)[0];if(b)say(`球探最看好的是${b.n}，${b.age}歲，估計潛力${grade(b.sc)}級。`);}
+  else if(G.phase==='pre'){autoFix();const e=openSeason();if(e){say(e);BC.on=false}else say(`第${G.year}年球季開幕。`)}
+  else if(G.day<DAYS){simDays(24);BC.n++;
+    const rk=stand(m.lg).indexOf(m)+1;
+    say(`打完${G.day}場，${m.name}${m.w}勝${m.l}敗，${LG[m.lg]}第${rk}名。`);
+    const ps=m.roster.map(P);
+    if(BC.n%2){const h=ps.slice().sort((a,b)=>b.st.hr-a.st.hr)[0];say(`隊上全壘打最多的是${h.n}，${h.st.hr}支，打點${h.st.rbi}分。`)}
+    else{const w=ps.filter(isP).sort((a,b)=>b.st.w-a.st.w)[0];say(`投手方面，${w.n}拿下${w.st.w}勝，防禦率${era(w).toFixed(2)}。`)}
+    if(G.day>=DAYS)say('例行賽全部結束，接著進行總冠軍賽。');}
+  else{endSeason();const h=G.hist[0];
+    say(`第${h.y}年總冠軍是${h.ch}，系列賽${h.sc.replace('–','比')}。`);
+    say(`我們的成績是${h.lg}第${h.rank}名，${h.rec}。`);
+    h.aw.forEach(a=>say(a.replace(/（.*?）/,'，').replace(' .','零點')+'。'));
+    say(`球團資金剩下${m.cash}億，人氣${m.pop}。`);
+    const y=m.roster.map(P).filter(p=>p.age<=24).sort((a,b)=>ovr(b)-ovr(a))[0];
+    if(y)say(`隊上最受期待的年輕球員是${y.n}，${y.age}歲，總評${ovr(y)}。`);}
+}
+function pump(){
+  if(!BC.on)return;
+  if(!BC.q.length)bcStep();
+  if(!BC.q.length){render();return}
+  const t=BC.q.shift();BC.line=t;view='home';render();
+  let done=false;const tm=setTimeout(()=>nx(),t.length*450+4000);
+  function nx(){if(done)return;done=true;clearTimeout(tm);setTimeout(pump,400)}
+  try{const u=new SpeechSynthesisUtterance(t);u.lang='zh-TW';u.onend=nx;u.onerror=()=>setTimeout(nx,t.length*200+1000);speechSynthesis.speak(u)}
+  catch(e){setTimeout(nx,t.length*200+1000)}
+}
+function bcToggle(){
+  BC.on=!BC.on;BC.q=[];
+  try{speechSynthesis.cancel()}catch(e){}
+  if(BC.on){BC.n=0;say(`廣播模式開始，為您播報${my().name}的球季。`);
+    try{navigator.wakeLock.request('screen').then(w=>BC.wl=w).catch(()=>{})}catch(e){}
+    pump()}
+  else{BC.line='';try{BC.wl&&BC.wl.release()}catch(e){}}
+}
+// ===== 畫面 =====
+const $=id=>document.getElementById(id);
+function save(){try{localStorage.setItem('dd1',JSON.stringify(G))}catch(e){}}
+function load(){try{const s=localStorage.getItem('dd1');if(s)G=JSON.parse(s)}catch(e){G=null}}
+function render(){
+  if(!G){$('meta').innerHTML='';$('nav').innerHTML='';$('view').innerHTML=vStart();return}
+  const m=my();
+  $('meta').innerHTML=`<div><span>球團</span><b>${m.name}</b></div><div><span>年度</span><b>第 ${G.year} 年</b></div>
+   <div><span>進度</span><b>${G.phase==='draft'?'選秀會':G.phase==='pre'?'開幕前':G.day+' / '+DAYS}</b></div>
+   <div><span>資金</span><b>${m.cash} 億</b></div><div><span>人氣</span><b>${m.pop}</b></div>`;
+  const tabs=[['home','球團'],['roster','名單與育成'],['draft','選秀'],['office','經營'],['stats','數據'],['hist','歷史']];
+  $('nav').innerHTML=tabs.map(([k,n])=>`<button data-a="tab" data-v="${k}" class="${view===k?'on':''}">${n}</button>`).join('');
+  $('view').innerHTML=({home:vHome,roster:vRoster,draft:vDraft,office:vOffice,stats:vStats,hist:vHist})[view]();
+  save();
+}
+function vStart(){
+  return `<div class="panel"><h2>選一支球團開始</h2>
+  <p class="muted">擔任總經理：每年從 2000–2025 年日本職棒選秀人物庫（${DB.length} 人）抽出的新人中指名，培養他們、管理薪資與設施，打造王朝。12 支球團皆為架空。</p>
+  <div class="row" style="margin-bottom:10px"><label for="tname">自訂球團名稱（可留空）</label><input id="tname" maxlength="10" placeholder="例：台中藍鵲"></div>
+  <div class="pick">${TEAMS.map((n,i)=>`<button data-a="new" data-v="${i}"><b>${n}</b><span class="muted small">${LG[i<6?0:1]}</span></button>`).join('')}</div></div>`;
+}
+function vHome(){
+  const m=my();let act='';
+  if(G.phase==='draft')act=`<p>選秀會進行中，輪到你指名。</p><button class="pri" data-a="tab" data-v="draft">前往選秀</button>`;
+  else if(G.phase==='pre')act=`<p>名單 ${m.roster.length} / ${CAP} 人。可先到「名單與育成」設定訓練重點、到「經營」升級設施。</p><button class="pri" data-a="open">開幕</button>`;
+  else if(G.day<DAYS)act=`<div class="row"><button class="pri" data-a="sim" data-v="6">模擬 1 週</button><button data-a="sim" data-v="26">模擬 1 個月</button><button data-a="sim" data-v="200">模擬到季末</button></div>`;
+  else act=`<p>例行賽結束。進入休季後會進行總冠軍賽、結算收支、球員成長與引退，然後開始選秀。</p><button class="pri" data-a="end">進入休季</button>`;
+  const tb=lg=>`<div class="panel"><h3>${LG[lg]}</h3><div class="scroll"><table><tr><th>球團</th><th>勝</th><th>敗</th><th>和</th><th>勝率</th><th>得</th><th>失</th></tr>
+   ${stand(lg).map(t=>`<tr class="${t.id===G.my?'me':''}"><td>${t.name}</td><td>${t.w}</td><td>${t.l}</td><td>${t.t}</td><td>${pct(t).toFixed(3).replace(/^0/,'')}</td><td>${t.rs}</td><td>${t.ra}</td></tr>`).join('')}</table></div></div>`;
+  return `<div class="panel"><h2>廣播模式</h2>${BC.on?`<p class="bc" aria-live="polite">${BC.line}</p><button class="warn" data-a="bc">停止廣播</button>`
+    :`<p class="muted">按一次開始後，遊戲會自動選秀、整理名單、打完球季並用語音播報，一年接一年，不需要看畫面或操作。請在出發前啟動。</p><button class="pri" data-a="bc">開始廣播</button>`}</div>
+   <div class="panel"><h2>下一步</h2>${act}${msg?`<p class="msg">${msg}</p>`:''}</div>
+   <div class="grid">${tb(0)}${tb(1)}</div>
+   <div class="panel"><h3>球團消息</h3><ul class="news">${G.news.slice(0,12).map(n=>`<li>${n}</li>`).join('')}</ul></div>`;
+}
+function potView(p){return p.tm===G.my&&p.yrs<2&&p.real>=0?p.sc:p.tm===undefined?p.sc:pot(p)}
+function vRoster(){
+  const t=G.teams[viewTeam],mine=t.id===G.my,L=lineup(t),ps=t.roster.map(P).sort((a,b)=>ovr(b)-ovr(a));
+  const tbl=(list,pit)=>{const ab=pit?AB.p:AB.b;return `<div class="scroll"><table><tr><th>球員</th><th>位</th><th>齡</th><th>總評</th>${ab.map(x=>`<th>${x}</th>`).join('')}<th>潛力</th><th>年薪</th>
+    ${pit?'<th>登板</th><th>勝-敗</th><th>救援</th><th>局數</th><th>防禦率</th><th>三振</th>':'<th>打席</th><th>打率</th><th>全壘打</th><th>打點</th><th>盜壘</th>'}${mine?'<th class="l">訓練重點</th><th></th>':''}</tr>
+    ${list.map(p=>`<tr><td>${p.n}${L.ids.has(p.id)?'<span class="tag st">先發</span>':''}${p.real<0?'<span class="tag">架空</span>':''}<div class="muted small">${p.info}</div></td>
+     <td>${p.pos}</td><td>${p.age}</td><td class="n">${ovr(p)}</td>${p.cur.map((v,i)=>`<td>${pit&&p.pos==='RP'&&i===3?'-':v}</td>`).join('')}<td>${gsp(potView(p))}</td><td>${p.sal}億</td>
+     ${pit?`<td>${p.st.g}</td><td>${p.st.w}-${p.st.l}</td><td>${p.st.sv}</td><td>${ip(p)}</td><td>${p.st.o?era(p).toFixed(2):'-'}</td><td>${p.st.pk}</td>`
+       :`<td>${p.st.pa}</td><td>${avg(p)}</td><td>${p.st.hr}</td><td>${p.st.rbi}</td><td>${p.st.sb}</td>`}
+     ${mine?`<td class="l"><select id="f${p.id}" data-a="focus" data-v="${p.id}" aria-label="${p.n} 訓練重點"><option value="-1">均衡</option>${ab.map((x,i)=>`<option value="${i}" ${p.focus===i?'selected':''}>${x}</option>`).join('')}</select></td>
+      <td><button class="sm" data-a="sp" data-v="${p.id}" ${G.tp?'':'disabled'}>特訓</button> <button class="sm warn" data-a="rel" data-v="${p.id}">${armed===p.id?'確定釋出':'釋出'}</button></td>`:''}</tr>`).join('')}</table></div>`};
+  return `<div class="panel"><div class="row"><label for="tsel">檢視球團</label><select id="tsel" data-a="team">${G.teams.map(x=>`<option value="${x.id}" ${x.id===viewTeam?'selected':''}>${x.name}</option>`).join('')}</select>
+    <span class="muted">共 ${t.roster.length} 人${mine?`（上限 ${CAP}）・剩餘特訓 ${G.tp} 次`:''}</span></div>
+    ${mine?'<p class="muted small">27 歲以下的球員每年休季朝潛力成長，訓練重點的項目成長較快。特訓立即提升重點項目 3 點（均衡則各 1 點），可略微突破潛力。先發陣容依能力自動排定。新人前兩年的潛力為球探估計值。</p>':''}
+    ${msg?`<p class="msg">${msg}</p>`:''}</div>
+   <div class="panel"><h3>野手</h3>${tbl(ps.filter(p=>!isP(p)),false)}</div>
+   <div class="panel"><h3>投手</h3>${tbl(ps.filter(isP),true)}</div>`;
+}
+function vDraft(){
+  const d=G.draft;
+  if(G.phase!=='draft')return `<div class="panel"><h2>選秀</h2><p>本年度選秀已結束。下一次選秀在球季結束後舉行。</p>
+    <h3>本屆指名紀錄</h3><ul class="news">${d.log.slice(0,60).map(x=>`<li>${x}</li>`).join('')}</ul></div>`;
+  const pool=d.pool.slice().sort((a,b)=>b.sc-a.sc);
+  return `<div class="panel"><h2>第 ${Math.floor(d.n/12)+1} 輪，輪到你指名</h2>
+   <div class="row"><span class="muted">共 ${ROUNDS} 輪。潛力為球探估計，球探部門等級越高越準。</span><button data-a="auto">交給球探自動選完</button></div></div>
+   <div class="panel"><div class="scroll"><table><tr><th>球員</th><th>位</th><th>齡</th><th>現況</th><th class="l">目前能力</th><th>估計潛力</th><th></th></tr>
+   ${pool.map(p=>`<tr><td>${p.n}<div class="muted small">${p.info}</div></td><td>${p.pos}</td><td>${p.age}</td><td class="n">${ovr(p)}</td>
+    <td class="l small">${(isP(p)?AB.p:AB.b).map((x,i)=>p.pos==='RP'&&i===3?'':x+' '+p.cur[i]).join('　')}</td><td>${gsp(p.sc)}</td>
+    <td><button class="sm pri" data-a="pick" data-v="${p.id}">指名</button></td></tr>`).join('')}</table></div></div>
+   <div class="panel"><h3>指名紀錄</h3><ul class="news">${d.log.slice(0,24).map(x=>`<li>${x}</li>`).join('')||'<li class="muted">尚無</li>'}</ul></div>`;
+}
+const FAC=[['train','訓練中心','提高年輕球員每年成長幅度，並增加特訓次數'],['scout','球探部門','選秀潛力估計更準確'],['stadium','球場','每級每年增加 4 億收入']];
+function vOffice(){
+  const m=my(),pay=m.roster.reduce((s,id)=>s+P(id).sal,0).toFixed(1),f=G.fin;
+  return `<div class="grid"><div class="panel"><h2>財務</h2>
+    <table><tr><td>資金</td><td>${m.cash} 億</td></tr><tr><td>目前薪資總額</td><td>${pay} 億</td></tr>
+    ${f?`<tr><td>上季收入</td><td>${f.rev} 億</td></tr><tr><td>上季薪資</td><td>${f.pay} 億</td></tr><tr><td>上季設施維護</td><td>${f.upk} 億</td></tr>`:''}</table>
+    <p class="muted small">收入來自勝場、人氣與球場；選秀新人前 3 年年薪上限 0.3 億，之後依能力調薪。資金為負時人氣下滑，且無法升級或簽約。</p></div>
+   <div class="panel"><h2>設施</h2>${FAC.map(([k,n,d])=>{const lv=m.fac[k],c=12*(lv+1);return `<div class="row" style="margin-bottom:8px"><div style="flex:1;min-width:150px"><b>${n}</b> Lv.${lv}<div class="muted small">${d}</div></div>
+     ${lv>=5?'<span class="muted">已滿級</span>':`<button data-a="up" data-v="${k}" ${m.cash>=c?'':'disabled'}>升級（${c} 億）</button>`}</div>`}).join('')}</div></div>
+   <div class="panel"><h2>自由球員</h2><p class="muted small">架空的即戰力老將，用來補位。簽約金等於一年年薪。</p>${msg?`<p class="msg">${msg}</p>`:''}
+    ${G.fa.length?`<div class="scroll"><table><tr><th>球員</th><th>位</th><th>齡</th><th>總評</th><th class="l">能力</th><th>年薪</th><th></th></tr>
+    ${G.fa.map(p=>`<tr><td>${p.n}</td><td>${p.pos}</td><td>${p.age}</td><td class="n">${ovr(p)}</td><td class="l small">${(isP(p)?AB.p:AB.b).map((x,i)=>x+' '+p.cur[i]).join('　')}</td><td>${p.sal}億</td>
+     <td><button class="sm" data-a="sign" data-v="${p.id}">簽約</button></td></tr>`).join('')}</table></div>`:'<p class="muted">目前沒有自由球員，休季時會更新名單。</p>'}</div>`;
+}
+function vStats(){
+  const all=Object.values(G.P),qb=all.filter(p=>!isP(p)&&p.st.pa>=Math.max(1,G.day*2.7)),qp=all.filter(p=>isP(p)&&p.st.o>=Math.max(1,G.day*2.7));
+  const bd=(title,list,f,fmt)=>`<div class="panel"><h3>${title}</h3><table>${list.slice().sort((a,b)=>f(b)-f(a)).slice(0,8).map((p,i)=>
+    `<tr class="${p.tm===G.my?'me':''}"><td>${i+1}. ${p.n} <span class="muted small">${G.teams[p.tm].name}</span></td><td class="n">${fmt(p)}</td></tr>`).join('')||'<tr><td class="muted">球季開始後顯示</td></tr>'}</table></div>`;
+  return `<div class="grid">${bd('打擊率',qb,p=>p.st.ab?p.st.h/p.st.ab:0,avg)}${bd('全壘打',all.filter(p=>p.st.hr),p=>p.st.hr,p=>p.st.hr)}
+   ${bd('打點',all.filter(p=>p.st.rbi),p=>p.st.rbi,p=>p.st.rbi)}${bd('盜壘',all.filter(p=>p.st.sb),p=>p.st.sb,p=>p.st.sb)}
+   ${bd('防禦率',qp,p=>-era(p),p=>era(p).toFixed(2))}${bd('勝投',all.filter(p=>p.st.w),p=>p.st.w,p=>p.st.w)}
+   ${bd('救援成功',all.filter(p=>p.st.sv),p=>p.st.sv,p=>p.st.sv)}${bd('奪三振',all.filter(p=>p.st.pk),p=>p.st.pk,p=>p.st.pk)}</div>`;
+}
+function vHist(){
+  return `<div class="panel"><h2>球團史</h2>${G.hist.length?`<div class="scroll"><table><tr><th>年度</th><th class="l">總冠軍</th><th class="l">我的戰績</th><th class="l">個人獎項</th></tr>
+   ${G.hist.map(h=>`<tr><td>第${h.y}年</td><td class="l">${h.ch}（${h.sc}）</td><td class="l">${h.lg}第 ${h.rank} 名・${h.rec}</td><td class="l small" style="white-space:normal">${h.aw.join('、')}</td></tr>`).join('')}</table></div>`:'<p class="muted">打完第一個球季後，這裡會記錄每年的總冠軍、戰績與獎項。</p>'}
+   <div class="row" style="margin-top:14px"><button class="warn" data-a="reset">${armed==='reset'?'確定刪除存檔並重新開始':'重新開始'}</button></div></div>`;
+}
+function act(a,v,el){
+  msg='';const m=G&&my();
+  if(a!=='rel'&&a!=='reset')armed=null;
+  if(BC.on&&a!=='bc')return;
+  if(a==='new'){const nm=$('tname').value.trim();newGame(+v,nm);viewTeam=+v;view='draft'}
+  else if(a==='bc'){bcToggle();return}
+  else if(a==='tab')view=v;
+  else if(a==='team')viewTeam=+el.value;
+  else if(a==='pick'){const p=G.draft.pool.find(x=>x.id==v);if(p){doPick(m,p);advanceDraft();if(G.phase!=='draft')view='home'}}
+  else if(a==='auto'){advanceDraft(true);view='home'}
+  else if(a==='open'){msg=openSeason()}
+  else if(a==='sim')simDays(+v);
+  else if(a==='end'){endSeason();view='draft'}
+  else if(a==='focus'){P(v).focus=+el.value}
+  else if(a==='sp'){const p=P(v);if(G.tp>0){G.tp--;const up=(i,n)=>{p.cur[i]=Math.min(99,p.pk[i]+4,p.cur[i]+n);if(p.cur[i]>p.pk[i])p.pk[i]=p.cur[i]};
+    if(p.focus>=0)up(p.focus,3);else for(let i=0;i<4;i++)up(i,1);msg=`${p.n} 完成特訓。`}}
+  else if(a==='rel'){if(armed==v){const p=P(v);if(G.phase==='season'&&m.roster.length<=20)msg='球季中名單不可少於 20 人。';else{drop(m,p);news(`釋出 ${p.n}。`)}armed=null}else armed=+v}
+  else if(a==='up'){const c=12*(m.fac[v]+1);if(m.cash>=c){m.cash=Math.round((m.cash-c)*10)/10;m.fac[v]++;news(`${FAC.find(f=>f[0]===v)[1]}升級到 Lv.${m.fac[v]}。`)}}
+  else if(a==='sign'){const p=G.fa.find(x=>x.id==v);if(m.roster.length>=CAP)msg=`名單已滿 ${CAP} 人。`;else if(m.cash<p.sal)msg='資金不足。';
+    else{m.cash=Math.round((m.cash-p.sal)*100)/100;G.fa=G.fa.filter(x=>x!==p);addTo(m,p);news(`簽下自由球員 ${p.n}。`)}}
+  else if(a==='reset'){if(armed==='reset'){try{localStorage.removeItem('dd1')}catch(e){}G=null;armed=null;view='home'}else armed='reset'}
+  render();
+}
+document.addEventListener('click',e=>{const b=e.target.closest('button[data-a]');if(b)act(b.dataset.a,b.dataset.v,b)});
+document.addEventListener('change',e=>{const s=e.target.closest('select[data-a]');if(s)act(s.dataset.a,s.dataset.v,s)});
+load();if(G)viewTeam=G.my;render();
+</script>
+
+</body></html>
