@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://abulaboy.github.io/jio-studio/sitemap.xml

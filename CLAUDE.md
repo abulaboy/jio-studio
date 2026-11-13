@@ -34,13 +34,16 @@
 | `jio-mod16-*` | 每日報告分頁（資料在 `reports/reports.js`） |
 | `jio-m17-*` | 聯絡頁地址（目前是浦那的示範地址） |
 | `jio-qa-patch-*`、`jio-r2-patch-*` | 早期的修補樣式（手機面板位置等，用 id 選擇器加 `!important`，優先權很高） |
-| `jio-mod18-*` | 作品集：YouTube、連載漫畫書架與閱讀器、接力作品、遊戲與 3D、員工海報 |
+| `jio-mod18-*` | 作品集：YouTube、連載漫畫書架與閱讀器、接力作品、網頁作品（遊戲、3D、小工具）、員工海報 |
 | `jio-slim-*` | 手機瘦身：導覽列單排、浮動鈕合成一顆、首頁「讓 Rudy 帶你逛」按鈕 |
 
 其他檔案：
 
 - `works/comic/list.js`：漫畫清單；`works/comic/<作品>/<話>/<頁>.jpg`：漫畫頁
 - `works/posters/`：員工海報；`works/relay/`：接力作品（`*.html` 是轉址到 LJ_go 的空殼）
+- `home/`：首頁「辦公室小劇場」四張小圖（`comic_<員工>.jpg`，寬 760）
+- `works/taipower/`：台電會館訂房小幫手的介紹頁、技能 zip、書籤
+- `robots.txt`、`sitemap.xml`：給搜尋引擎用；新增獨立頁面時在 sitemap 加一行
 - `reports/`：每日報告圖片與 `reports.js`
 - `apps_script/`：聯絡表單寄信的 Google Apps Script 程式與部署步驟
 - `*_sheet.jpg`：四位員工定裝照（茶水間頭像也用它）；`logo.jpg`：logo 和分享預覽圖；`icon-64.png`、`icon-180.png`：分頁小圖示
@@ -68,7 +71,7 @@
 在 `reports/reports.js` 的 `window.JIO_REPORTS` 最前面加一筆（`date`、`quota` 圖、`daily` 圖、三語 `note`），圖片放 `reports/`。
 報告圖的產生方式：本機 `C:\AI\JIO公司\report\data.json` 改好後跑 `node report/render.js`，再用無頭 Edge 截圖。
 
-### 加一個遊戲或 3D 作品
+### 加一個網頁作品（遊戲、3D、小工具）
 在 `jio-mod18-script` 的 `var APPS=[…]` 加一行 `[{zh,en,hi} 名稱, {zh,en,hi} 說明, 網址]`。
 claude.ai 的 artifact 網址要登入才能開，能放 GitHub Pages 就放 GitHub Pages。
 
@@ -103,4 +106,3 @@ claude.ai 的 artifact 網址要登入才能開，能放 GitHub Pages 就放 Git
 
 - 聯絡頁：還寫著「示範占位」、電話是（02）0000-0000；公司簡介說「以台灣為據點」，聯絡地址卻是印度浦那。印度地址加地圖已排進待辦，等老闆說開始。
 - 網站定位：以作品集為主，還是以接案為主（「示範案例」分頁是虛構的）。
-- 首頁四格漫畫用的是 1.2 MB 的整張大圖，可以拆成 4 張小圖。
