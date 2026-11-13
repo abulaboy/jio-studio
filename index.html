@@ -11100,5 +11100,77 @@ build();setTimeout(build,800);
 try{new MutationObserver(function(){setTimeout(build,50)}).observe(document.documentElement,{attributes:true,attributeFilter:["data-lang","lang"]})}catch(e){}
 document.addEventListener("click",function(e){if(e.target.closest("[data-lang-btn]"))setTimeout(build,120)});
 }catch(e){}})();</script>
+<!-- module:m19_voice.html 成員打招呼語音：音檔放 works/voice/<成員>_<語言>.mp3，有檔案才會出現按鈕 -->
+<style id="jio-m19-voice-style">
+#jio-m19-voice{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:14px 0 4px;padding:10px 14px;background:var(--paper,#fff8e8);border:2px solid var(--gold,#d9a02b);border-radius:14px;max-width:100%;box-sizing:border-box}
+#jio-m19-voice[hidden]{display:none}
+#jio-m19-btn{appearance:none;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border-radius:999px;border:2px solid var(--brown,#3b1d0b);background:var(--saffron,#e8782a);color:#fff;flex:none}
+#jio-m19-btn:hover,#jio-m19-btn:focus-visible{background:var(--brown2,#5a2f12);outline:3px solid var(--gold,#d9a02b);outline-offset:2px}
+#jio-m19-btn.playing{background:var(--teal,#1f7a7a)}
+#jio-m19-btn svg{width:20px;height:20px;flex:none}
+#jio-m19-line{flex:1 1 220px;min-width:0;margin:0;color:var(--brown,#3b1d0b);font-size:.98rem;line-height:1.6;word-break:break-word}
+#jio-m19-line:empty{display:none}
+</style>
+<script id="jio-m19-voice-script">
+(function(){
+var DIR='works/voice/',WHO=['rudy','kaz','idn','tidal'],LANGS=['zh','en','hi'];
+var NAME={rudy:'Rudy',kaz:'Kaz',idn:'Idn',tidal:'Tidal'};
+var UI={zh:['聽 ',' 打招呼','停止'],en:['Hear ',' say hi','Stop'],hi:['',' का अभिवादन सुनें','रोकें']};
+// 台詞：改這裡，音檔內容要跟著重錄
+var LINES={
+ rudy:{zh:'嗨，我是 Rudy，JIO 的小主管。開工之前，我們先對齊一下：今天想看影片、漫畫，還是來玩遊戲？',
+       en:'Hi, I\'m Rudy, team lead at JIO. Before we start, let\'s align first: videos, comics, or a game today?',
+       hi:'नमस्ते, मैं Rudy हूँ, JIO का टीम लीड। शुरू करने से पहले ज़रा तालमेल बिठा लें: आज वीडियो, कॉमिक या गेम?'},
+ kaz:{zh:'嗯。我是 Kaz，高階工程師。話不多，程式會動。',
+      en:'Hm. I\'m Kaz, senior engineer. Few words. The code works.',
+      hi:'हम्म। मैं Kaz हूँ, सीनियर इंजीनियर। बातें कम। कोड चलता है।'},
+ idn:{zh:'老闆，你看！我是 Idn，全端工程師。網站是我一邊吃咖哩一邊做的，慢慢逛喔！',
+      en:'Boss, look! I\'m Idn, full-stack engineer. I built this site with a plate of curry in one hand. Take your time!',
+      hi:'बॉस, यह देखिए! मैं Idn हूँ, फ़ुल-स्टैक इंजीनियर। यह साइट मैंने करी खाते-खाते बनाई है। आराम से देखिए!'},
+ tidal:{zh:'我是 Tidal，測試員。你說網站沒問題？證據呢？找到錯字記得跟我說。',
+        en:'I\'m Tidal, the tester. You say the site works? Where\'s the proof? Tell me if you spot a typo.',
+        hi:'मैं Tidal हूँ, टेस्टर। आप कहते हैं साइट ठीक है? सबूत कहाँ है? कोई ग़लती दिखे तो मुझे बताइए।'}
+};
+window.JIO_VOICE_LINES=LINES;
+var have={},audio=null,bar,btn,line,cur='rudy';
+function lang(){var r=(document.documentElement.getAttribute('data-lang')||'zh').toLowerCase();return r.indexOf('en')===0?'en':r.indexOf('hi')===0?'hi':'zh'}
+function fileFor(w){var L=lang();return have[w+'_'+L]?w+'_'+L:(have[w+'_zh']?w+'_zh':null)}
+function active(){var b=document.querySelector('#picker button.on');var k=b&&b.getAttribute('data-k');return WHO.indexOf(k)>=0?k:cur}
+function stop(){if(audio){audio.pause();audio=null}if(btn)btn.classList.remove('playing');paint()}
+function paint(){
+ if(!bar)return;cur=active();var f=fileFor(cur),u=UI[lang()];
+ bar.hidden=!f;if(!f)return;
+ var on=btn.classList.contains('playing');
+ btn.querySelector('span').textContent=on?u[2]:u[0]+NAME[cur]+u[1];
+ line.textContent=on?LINES[cur][lang()]:'';
+}
+function play(){
+ if(btn.classList.contains('playing')){stop();return}
+ var f=fileFor(cur);if(!f)return;
+ audio=new Audio(DIR+f+'.mp3');btn.classList.add('playing');paint();
+ audio.onended=audio.onerror=stop;
+ var p=audio.play();if(p&&p.catch)p.catch(stop);
+}
+function build(){
+ var picker=document.getElementById('picker'),sheet=document.getElementById('sheet');
+ if(!picker||!sheet||document.getElementById('jio-m19-voice'))return;
+ bar=document.createElement('div');bar.id='jio-m19-voice';bar.hidden=true;
+ bar.innerHTML='<button type="button" id="jio-m19-btn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8.5a5 5 0 010 7M18.5 6a8.5 8.5 0 010 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span></span></button><p id="jio-m19-line" aria-live="polite"></p>';
+ sheet.parentNode.insertBefore(bar,sheet);
+ btn=bar.querySelector('button');line=bar.querySelector('p');btn.addEventListener('click',play);
+ new MutationObserver(function(){if(active()!==cur)stop();else paint()}).observe(picker,{subtree:true,attributes:true,attributeFilter:['class'],childList:true});
+ new MutationObserver(stop).observe(document.documentElement,{attributes:true,attributeFilter:['data-lang','data-active-page']});
+ paint();
+}
+function probe(){
+ var left=WHO.length*LANGS.length;
+ WHO.forEach(function(w){LANGS.forEach(function(L){
+  fetch(DIR+w+'_'+L+'.mp3',{method:'HEAD'}).then(function(r){if(r.ok)have[w+'_'+L]=1}).catch(function(){}).then(function(){if(--left===0)paint()});
+ })});
+}
+function init(){build();probe()}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else setTimeout(init,0);
+})();
+</script>
 </body>
 </html>
