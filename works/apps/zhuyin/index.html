@@ -892,7 +892,7 @@ canvas.fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
   refreshMusic();
   $('musicBtn').onclick=function(){ MUSIC.on=!MUSIC.on; store('zy-music',MUSIC.on?'1':'0'); refreshMusic(); if(!MUSIC.on) stopBGM(); else if(G&&G.inPlay) startBGM(); };
 
-  // 像素角色（原創）：LUCAS 火箭小子、JASPER 小忍者、其他玩家小機器人
+  // 像素角色（原創）：PLAYER 1 火箭小子、PLAYER 2 小忍者、其他玩家小機器人
   var SPR={
     rocket:{pal:{D:'#3A2418',O:'#F07A1E',Y:'#FFD23F',B:'#5EC8F2',b:'#2A6FA8',S:'#F6C99A',W:'#FFFFFF'},map:[
       '...DDDDDD...','..DOOOOOOD..','.DOOOYYOOOD.','.DOBBBBBBOD.','.DBbSSSSbBD.','.DBSDSSDSBD.','.DBSSSSSSBD.',
@@ -904,7 +904,7 @@ canvas.fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
       '.....RR.....','.....DD.....','..DDDDDDDD..','.DGGGGGGGGD.','.DGDDDDDDGD.','.DGDCDDCDGD.','.DGDDDDDDGD.',
       '.DGGGLLGGGD.','..DDDDDDDD..','.DgGGGGGGgD.','DGDGGRRGGDGD','..DGGGGGGD..','..DggD.DggD.','.DgggD.DgggD']}
   };
-  function heroOf(n){ return n==='LUCAS'?'rocket':(n==='JASPER'?'ninja':'robot'); }
+  function heroOf(n){ return n==='PLAYER 1'?'rocket':(n==='PLAYER 2'?'ninja':'robot'); }
   function sprite(key,cls){
     var sp=SPR[key]||SPR.robot, r='';
     sp.map.forEach(function(row,y){ Array.from(row).forEach(function(ch,x){ if(sp.pal[ch]) r+='<rect x="'+x+'" y="'+y+'" width="1.03" height="1.03" fill="'+sp.pal[ch]+'"/>'; }); });
@@ -916,7 +916,7 @@ canvas.fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
   function savedNames(){ try{ return JSON.parse(store('zy-names')||'[]')||[]; }catch(e){ return []; } }
   function refreshPlayer(){ $('playerBtn').innerHTML=player?sprite(heroOf(player),'sm')+esc(player):'?'; }
   function showLogin(){
-    var names=['LUCAS','JASPER'].concat(savedNames().filter(function(n){return n!=='LUCAS'&&n!=='JASPER';}));
+    var names=['PLAYER 1','PLAYER 2'].concat(savedNames().filter(function(n){return n!=='PLAYER 1'&&n!=='PLAYER 2';}));
     $('whoBtns').innerHTML=names.map(function(n,i){ return '<button class="whob c'+(i%4)+'" type="button" data-n="'+esc(n)+'">'+sprite(heroOf(n),'lg')+'<span>'+esc(n)+'</span></button>'; }).join('')+
       '<button class="whob other" type="button" id="whoOther">'+T(TXT.typeName)+'</button>';
     $('newName').hidden=true; $('nameInput').value='';
@@ -925,7 +925,7 @@ canvas.fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-in
   function setPlayer(n){
     n=String(n||'').trim().slice(0,10); if(!n) return;
     player=n; store('zy-player',n);
-    if(n!=='LUCAS'&&n!=='JASPER'){ var l=savedNames(); if(l.indexOf(n)<0){ l.push(n); store('zy-names',JSON.stringify(l.slice(-6))); } }
+    if(n!=='PLAYER 1'&&n!=='PLAYER 2'){ var l=savedNames(); if(l.indexOf(n)<0){ l.push(n); store('zy-names',JSON.stringify(l.slice(-6))); } }
     refreshPlayer(); sfxCorrect(); show('home');
   }
   $('whoBtns').addEventListener('click',function(e){
