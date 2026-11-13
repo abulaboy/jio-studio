@@ -1,6 +1,12 @@
 /* 每日報告清單：每天新增一筆（日期、額度圖、成果圖、一句話摘要）。頁面會自動依日期由新到舊排序。 */
 window.JIO_REPORTS = [
   {
+    date: "2026-11-13",
+    quota: "reports/2026-11-13_quota.jpg",
+    daily: "reports/2026-11-13_daily.jpg",
+    note: { zh: "11/12 之後：作品集新增「麵包預購小站」與「台電會館訂房小幫手」介紹頁。Tidal、Idn 本週額度剛重設、幾乎全滿；Rudy 只用了 7%；Kaz 本週額度用完，11/15 下午重設。", en: "Since 11/12: the works gallery added the Bread Pre-order Stand and an intro page for the Taipower Resort Booking Helper. Tidal and Idn just reset and are almost full; Rudy has used only 7%; Kaz is out of weekly quota until the afternoon of 11/15.", hi: "11/12 के बाद: वर्क्स गैलरी में ब्रेड प्री-ऑर्डर स्टैंड और ताइपावर रिसॉर्ट बुकिंग हेल्पर का परिचय पेज जुड़ा। Tidal और Idn का कोटा अभी रीसेट हुआ है और लगभग पूरा है; Rudy ने सिर्फ़ 7% इस्तेमाल किया है; Kaz का साप्ताहिक कोटा ख़त्म है, 11/15 दोपहर को रीसेट होगा।" }
+  },
+  {
     date: "2026-11-12",
     quota: "reports/2026-11-12_quota.jpg",
     daily: "reports/2026-11-12_daily.jpg",
