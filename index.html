@@ -11134,7 +11134,7 @@ var LINES={
 window.JIO_VOICE_LINES=LINES;
 var have={},audio=null,bar,btn,line,cur='rudy';
 function lang(){var r=(document.documentElement.getAttribute('data-lang')||'zh').toLowerCase();return r.indexOf('en')===0?'en':r.indexOf('hi')===0?'hi':'zh'}
-function fileFor(w){var L=lang();return have[w+'_'+L]?w+'_'+L:(have[w+'_zh']?w+'_zh':null)}
+function fileFor(w){var L=lang(),o=L==='zh'?['zh']:L==='hi'?['hi','en','zh']:['en','zh'];for(var i=0;i<o.length;i++)if(have[w+'_'+o[i]])return w+'_'+o[i];return null}
 function active(){var b=document.querySelector('#picker button.on');var k=b&&b.getAttribute('data-k');return WHO.indexOf(k)>=0?k:cur}
 function stop(){if(audio){audio.pause();audio=null}if(btn)btn.classList.remove('playing');paint()}
 function paint(){
